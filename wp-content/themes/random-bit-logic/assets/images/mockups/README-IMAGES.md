@@ -1,8 +1,24 @@
-# Mockup Images Required
+# Images Required for Random Bit Logic Theme
+
+## Main Logo (Parent Directory)
+
+### rbl-logo.png
+- **Location**: `wp-content/themes/random-bit-logic/assets/images/rbl-logo.png`
+- **Description**: Random Bit Logic main logo for header
+- **Recommended Size**: 180px - 250px width
+- **Format**: PNG with transparency (or SVG)
+- **Usage**: Fixed header at top of all pages
+- **Background**: Should work well on light background (#f1eded)
+
+## Client Logos
+
+See `../logos/README-LOGOS.md` for complete list of required client logos.
+
+## Mockup Images
 
 This directory should contain the device mockup images used throughout the site.
 
-## Required Images
+### Required Mockup Images
 
 ### 1. phone-mockup.png
 - **Description**: Generic iPhone mockup with blank white screen

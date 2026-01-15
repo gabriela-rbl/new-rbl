@@ -25,3 +25,10 @@
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+
+<!-- Site Header -->
+<header class="site-header">
+    <a href="<?php echo home_url(); ?>" class="site-logo">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/rbl-logo.png" alt="Random Bit Logic" />
+    </a>
+</header>
