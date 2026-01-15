@@ -1,0 +1,46 @@
+# WordPress specific
+wp-config.php
+.htaccess
+
+# Theme development
+*.log
+*.map
+.DS_Store
+Thumbs.db
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# Node modules (if using build tools)
+node_modules/
+package-lock.json
+
+# Compiled assets
+*.min.css
+*.min.js
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# WordPress uploads (optional - uncomment if you don't want to track uploads)
+# wp-content/uploads/
+
+# WordPress plugins (optional - uncomment if not tracking plugins)
+# wp-content/plugins/*
+# !wp-content/plugins/.gitkeep
+
+# Cache and optimization
+cache/
+*.cache
+
+# Environment files
+.env
+.env.local
