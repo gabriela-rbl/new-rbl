@@ -28,7 +28,10 @@
     <div class="container">
         <div class="client-content">
             <div class="client-info">
-                <div class="client-logo">SeatServe</div>
+                <div class="client-logo">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/seatserve-logo.png" alt="SeatServe" />
+                </div>
+                <div class="client-niche">Mobile Apps • Delivery • Workforce Management</div>
                 <p class="client-description">
                     Revolutionizing in-stadium food delivery with cutting-edge mobile technology.
                     SeatServe brings the concession stand directly to fans' seats through an
@@ -41,6 +44,7 @@
                     <li>Payment processing integration</li>
                     <li>Venue-specific customization</li>
                 </ul>
+                <a href="#contact" class="client-cta">Start Your Project</a>
             </div>
             <div class="client-mockup">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/seatserve-phones.png"
@@ -56,7 +60,10 @@
     <div class="container">
         <div class="client-content">
             <div class="client-info">
-                <div class="client-logo">Rose Box</div>
+                <div class="client-logo">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/rosebox-logo.png" alt="Rose Box" />
+                </div>
+                <div class="client-niche">E-commerce • Branding • Inventory Management</div>
                 <p class="client-description">
                     Premium floral e-commerce platform with sophisticated brand identity and
                     comprehensive inventory management. Crafting beautiful digital experiences
@@ -69,6 +76,7 @@
                     <li>Order fulfillment automation</li>
                     <li>Customer relationship management</li>
                 </ul>
+                <a href="#contact" class="client-cta">Start Your Project</a>
             </div>
             <div class="client-mockup">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/laptop-mockup.png"
@@ -84,7 +92,10 @@
     <div class="container">
         <div class="client-content">
             <div class="client-info">
-                <div class="client-logo">DutchX</div>
+                <div class="client-logo">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/dutchx-logo.png" alt="DutchX" />
+                </div>
+                <div class="client-niche">Workforce Management • Custom Portal</div>
                 <p class="client-description">
                     Enterprise workforce management solution with custom organizational portal.
                     Streamlining team coordination and resource allocation for optimal efficiency.
@@ -96,6 +107,7 @@
                     <li>Time tracking and reporting</li>
                     <li>Role-based access control</li>
                 </ul>
+                <a href="#contact" class="client-cta">Start Your Project</a>
             </div>
             <div class="client-mockup">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/laptop-mockup.png"
@@ -111,7 +123,10 @@
     <div class="container">
         <div class="client-content">
             <div class="client-info">
-                <div class="client-logo">Empire</div>
+                <div class="client-logo">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/empire-logo.png" alt="Empire" />
+                </div>
+                <div class="client-niche">Chrome Extension • Shopping • Procurement</div>
                 <p class="client-description">
                     Innovative Chrome extension revolutionizing the online shopping experience.
                     Smart procurement tools and personalized customer experiences at scale.
@@ -123,6 +138,7 @@
                     <li>Website expansion features</li>
                     <li>AI-powered recommendations</li>
                 </ul>
+                <a href="#contact" class="client-cta">Start Your Project</a>
             </div>
             <div class="client-mockup">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/phone-mockup.png"
@@ -138,7 +154,10 @@
     <div class="container">
         <div class="client-content">
             <div class="client-info">
-                <div class="client-logo">Capsoil</div>
+                <div class="client-logo">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/capsoil-logo.png" alt="Capsoil" />
+                </div>
+                <div class="client-niche">Website • AI Automation • Process Optimization</div>
                 <p class="client-description">
                     Corporate website with intelligent process automation. Leveraging AI to
                     streamline operations and enhance business workflows.
@@ -150,6 +169,7 @@
                     <li>Data integration systems</li>
                     <li>Performance analytics</li>
                 </ul>
+                <a href="#contact" class="client-cta">Start Your Project</a>
             </div>
             <div class="client-mockup">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/laptop-mockup.png"
