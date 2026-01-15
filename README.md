@@ -27,24 +27,52 @@ This WordPress theme showcases Random Bit Logic's portfolio through a dynamic, f
 ## Project Structure
 
 ```
-wp-content/themes/random-bit-logic/
-├── assets/
-│   ├── css/
-│   ├── js/
-│   │   ├── scroll-animations.js    # Scroll effects & parallax
-│   │   └── main.js                 # Form handling & interactions
-│   └── images/
-│       └── mockups/
-│           ├── phone-mockup.png
-│           ├── laptop-mockup.png
-│           └── seatserve-phones.png
-├── templates/                       # (Future template parts)
-├── style.css                        # Main stylesheet & theme header
-├── functions.php                    # Theme functions & setup
-└── index.php                        # Main template file
+new-rbl/
+├── wp-content/themes/random-bit-logic/    # WordPress theme
+│   ├── assets/
+│   │   ├── css/
+│   │   ├── js/
+│   │   │   ├── scroll-animations.js       # Scroll effects & parallax
+│   │   │   └── main.js                    # Form handling & interactions
+│   │   └── images/
+│   │       └── mockups/
+│   │           ├── phone-mockup.png
+│   │           ├── laptop-mockup.png
+│   │           └── seatserve-phones.png
+│   ├── templates/                          # (Future template parts)
+│   ├── style.css                           # Main stylesheet & theme header
+│   ├── functions.php                       # Theme functions & setup
+│   ├── index.php                           # Main template file
+│   ├── header.php                          # Header template
+│   ├── footer.php                          # Footer template
+│   └── INSTALLATION.md                     # Installation guide
+├── deploy.sh                               # Cloudways deployment script (bash)
+├── deploy.php                              # Cloudways deployment script (PHP)
+├── CLOUDWAYS-DEPLOYMENT.md                 # Deployment documentation
+├── CHANGELOG.md                            # Version history
+├── README.md                               # This file
+├── .gitignore                              # Git ignore rules
+└── .gitattributes                          # Git file handling rules
 ```
 
-## Installation
+## Quick Start
+
+### Cloudways Deployment (Recommended)
+
+This theme is configured for automatic deployment to Cloudways hosting:
+
+1. **Set up Git Deployment in Cloudways**
+   - Repository: `https://github.com/gabriela-rbl/new-rbl.git`
+   - Branch: `claude/build-agency-website-BDnhF`
+   - Deployment Script: `bash deploy.sh`
+
+2. **Deploy with one click** - See [CLOUDWAYS-DEPLOYMENT.md](CLOUDWAYS-DEPLOYMENT.md) for complete guide
+
+3. **Add mockup images** to theme directory
+
+4. **Activate theme** in WordPress admin
+
+### Manual Installation
 
 1. **Copy Theme to WordPress**
    ```bash
@@ -202,6 +230,42 @@ Modify animation behavior in `assets/js/scroll-animations.js`:
 - [ ] Add blog functionality
 - [ ] Integrate analytics tracking
 - [ ] Add multilingual support
+
+## Deployment
+
+### Cloudways Git Deployment
+
+This repository is configured for Cloudways hosting with automatic Git deployment:
+
+**Quick Setup:**
+1. Log into Cloudways Dashboard
+2. Go to **Deployment via Git**
+3. Configure:
+   - Repository: `https://github.com/gabriela-rbl/new-rbl.git`
+   - Branch: `claude/build-agency-website-BDnhF`
+   - Deployment Path: `public_html`
+   - Deployment Script: `bash deploy.sh`
+4. Click **Deploy Now**
+
+**What Happens:**
+- The `deploy.sh` script automatically detects your WordPress installation
+- Backs up existing theme (if present)
+- Copies theme files to `wp-content/themes/random-bit-logic/`
+- Sets proper file permissions
+- Logs all deployment actions
+
+**Complete Guide:**
+See [CLOUDWAYS-DEPLOYMENT.md](CLOUDWAYS-DEPLOYMENT.md) for:
+- Step-by-step setup instructions
+- Troubleshooting common issues
+- Post-deployment checklist
+- Performance optimization tips
+- Security considerations
+
+**Alternative Deployments:**
+- Manual installation via FTP/SFTP
+- WordPress.org theme directory (after review)
+- Other hosting platforms (cPanel, Plesk, etc.)
 
 ## Technologies Used
 

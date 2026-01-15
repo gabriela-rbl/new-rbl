@@ -44,3 +44,10 @@ cache/
 # Environment files
 .env
 .env.local
+
+# Deployment logs
+deployment.log
+*.log
+
+# Backup directories created during deployment
+*_backup_*
