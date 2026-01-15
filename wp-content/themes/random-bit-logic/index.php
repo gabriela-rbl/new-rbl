@@ -183,42 +183,50 @@
 <!-- Contact Section -->
 <section id="contact" class="section contact-section">
     <div class="container">
-        <div class="contact-content">
-            <h2>Let's Build Something Amazing</h2>
-            <p>Ready to transform your business with AI-first development? Get in touch with our team.</p>
+        <div class="contact-container">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <h2>Initiate Collaboration</h2>
+                <p style="color: rgba(255, 255, 255, 0.7); font-size: 1.1rem;">
+                    We provide a preliminary assessment within 24 hours.
+                </p>
+            </div>
 
             <?php if (isset($_GET['contact']) && $_GET['contact'] === 'success'): ?>
-                <div class="success-message" style="padding: 1rem; background: rgba(0, 255, 100, 0.1); border-radius: 10px; margin-bottom: 2rem;">
-                    <p style="color: #00ff64; margin: 0;">Thank you for your message! We'll get back to you soon.</p>
+                <div class="success-message" style="padding: 1.5rem; background: rgba(75, 88, 255, 0.2); border-radius: 10px; margin-bottom: 2rem; text-align: center;">
+                    <p style="color: #4b58ff; margin: 0; font-weight: 600;">Thank you! We'll get back to you within 24 hours.</p>
                 </div>
             <?php endif; ?>
 
             <form method="post" action="" class="contact-form" id="contactForm">
                 <?php wp_nonce_field('rbl_contact_form', 'rbl_contact_nonce'); ?>
 
-                <div class="form-group">
-                    <label for="name">Name *</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
+                <div class="form-grid">
+                    <div>
+                        <label style="display: block; margin-bottom: 10px; font-size: 0.9rem; font-weight: 600; color: var(--secondary-color);">
+                            I'M INTERESTED IN...
+                        </label>
+                        <select id="serviceSelect" name="service" class="form-select" required>
+                            <option value="" disabled selected>Select a Topic...</option>
+                            <option value="strategy">AI Strategy Session (New!)</option>
+                            <option value="ai">AI &amp; Automation Implementation</option>
+                            <option value="software">Custom Software Development</option>
+                            <option value="web">Web Platform / Redesign</option>
+                            <option value="other">Other / General Inquiry</option>
+                        </select>
+                    </div>
 
-                <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                        <input type="text" id="name" name="name" class="form-input" placeholder="Name" required>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="Work Email" required>
+                    </div>
 
-                <div class="form-group">
-                    <label for="company">Company</label>
-                    <input type="text" id="company" name="company">
-                </div>
+                    <div id="dynamic-field-container">
+                        <label id="dynamic-label" class="dynamic-label">Tell us about your project</label>
+                        <textarea id="message" name="message" class="form-input" rows="5" placeholder="Briefly describe your goals..." required></textarea>
+                    </div>
 
-                <div class="form-group">
-                    <label for="message">Tell us about your project *</label>
-                    <textarea id="message" name="message" required></textarea>
+                    <button type="submit" name="rbl_contact_submit" class="submit-btn">Send Inquiry</button>
                 </div>
-
-                <button type="submit" name="rbl_contact_submit" class="submit-button">
-                    Send Message
-                </button>
             </form>
         </div>
     </div>

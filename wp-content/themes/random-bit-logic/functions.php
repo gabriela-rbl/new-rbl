@@ -86,23 +86,39 @@ function rbl_handle_contact_form() {
         // Sanitize input
         $name = sanitize_text_field($_POST['name']);
         $email = sanitize_email($_POST['email']);
-        $company = sanitize_text_field($_POST['company']);
+        $service = sanitize_text_field($_POST['service']);
         $message = sanitize_textarea_field($_POST['message']);
 
         // Validate
-        if (empty($name) || empty($email) || empty($message)) {
+        if (empty($name) || empty($email) || empty($service) || empty($message)) {
             return;
         }
 
+        // Map service values to readable names
+        $service_names = array(
+            'strategy' => 'AI Strategy Session',
+            'ai' => 'AI & Automation Implementation',
+            'software' => 'Custom Software Development',
+            'web' => 'Web Platform / Redesign',
+            'other' => 'Other / General Inquiry'
+        );
+        $service_name = isset($service_names[$service]) ? $service_names[$service] : $service;
+
         // Send email
         $to = get_option('admin_email');
-        $subject = 'New Contact Form Submission from ' . $name;
-        $body = "Name: $name\n";
+        $subject = 'New Inquiry: ' . $service_name . ' - ' . $name;
+        $body = "New contact form submission\n\n";
+        $body .= "Name: $name\n";
         $body .= "Email: $email\n";
-        $body .= "Company: $company\n\n";
-        $body .= "Message:\n$message";
+        $body .= "Interested In: $service_name\n\n";
+        $body .= "Message:\n$message\n\n";
+        $body .= "---\n";
+        $body .= "Submitted: " . date('Y-m-d H:i:s') . "\n";
 
-        $headers = array('Content-Type: text/plain; charset=UTF-8');
+        $headers = array(
+            'Content-Type: text/plain; charset=UTF-8',
+            'Reply-To: ' . $name . ' <' . $email . '>'
+        );
 
         wp_mail($to, $subject, $body, $headers);
 
