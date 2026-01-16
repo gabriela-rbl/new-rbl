@@ -309,10 +309,10 @@
     <div class="container">
         <div class="contact-container">
             <div style="text-align: center; margin-bottom: 40px;">
-                <h2>Initiate Collaboration</h2>
-                <p style="color: rgba(255, 255, 255, 0.7); font-size: 1.1rem;">
-                    We provide a preliminary assessment within 24 hours.
-                </p>
+                <h2>Start Innovating Now</h2>
+<!--                <p style="color: rgba(255, 255, 255, 0.7); font-size: 1.1rem;">-->
+<!--                    We provide a preliminary assessment within 24 hours.-->
+<!--                </p>-->
             </div>
 
             <?php if (isset($_GET['contact']) && $_GET['contact'] === 'success'): ?>

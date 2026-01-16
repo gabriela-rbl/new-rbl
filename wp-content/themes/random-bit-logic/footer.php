@@ -7,7 +7,7 @@
                     <h3 class="footer-brand">Random Bit Logic</h3>
                     <nav class="footer-links">
                         <a href="#hero" class="footer-link">Home</a>
-                        <a href="#capabilities" class="footer-link">Capabilities</a>
+                        <a href="#capabilities" class="footer-link">Services</a>
                         <a href="#seatserve" class="footer-link">Work</a>
                         <a href="#contact" class="footer-link">Contact</a>
                     </nav>
