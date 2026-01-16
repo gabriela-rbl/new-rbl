@@ -23,6 +23,105 @@
     </div>
 </section>
 
+<!-- Capabilities Section -->
+<section id="capabilities" class="section capabilities-section">
+    <div class="container">
+        <div class="capabilities-header">
+            <h2 class="capabilities-title">
+                Digital craftsmanship meets<br>
+                <span class="gradient-text">intelligent automation.</span>
+            </h2>
+            <p class="capabilities-subtitle">
+                Comprehensive technical services designed to solve complex operational challenges for the enterprise.
+            </p>
+        </div>
+
+        <div class="capabilities-grid">
+            <!-- AI & Process Automation Card -->
+            <div class="capability-card" data-capability="ai">
+                <div class="card-number">01</div>
+                <div class="card-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 4L6 14V34L24 44L42 34V14L24 4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                        <path d="M24 24L24 44" stroke="currentColor" stroke-width="2"/>
+                        <path d="M6 14L24 24L42 14" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="24" cy="24" r="4" fill="currentColor"/>
+                    </svg>
+                </div>
+                <h3 class="card-title">AI & Process Automation</h3>
+                <p class="card-description">
+                    We integrate Large Language Models (LLMs) and intelligent workflows directly into your existing operations. Reduce manual data entry, automate customer support, and turn "AI Hype" into practical utility.
+                </p>
+                <div class="card-glow"></div>
+            </div>
+
+            <!-- Web Platforms Card -->
+            <div class="capability-card" data-capability="web">
+                <div class="card-number">02</div>
+                <div class="card-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="4" y="10" width="40" height="28" rx="2" stroke="currentColor" stroke-width="2"/>
+                        <path d="M4 18H44" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="10" cy="14" r="1.5" fill="currentColor"/>
+                        <circle cx="15" cy="14" r="1.5" fill="currentColor"/>
+                        <circle cx="20" cy="14" r="1.5" fill="currentColor"/>
+                        <path d="M14 26L20 32L34 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3 class="card-title">Web Platforms</h3>
+                <p class="card-description">
+                    High-performance web applications built on the language and platform that suits your business best. We prioritize speed, SEO, and scalability with good user experience for easy adoption.
+                </p>
+                <div class="card-glow"></div>
+            </div>
+
+            <!-- Custom Software Card -->
+            <div class="capability-card" data-capability="software">
+                <div class="card-number">03</div>
+                <div class="card-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 14L8 24L16 34" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M32 14L40 24L32 34" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M28 10L20 38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3 class="card-title">Custom Software</h3>
+                <p class="card-description">
+                    When off-the-shelf SaaS fails, we build the bridge. Custom inventory management, portals, and API integrations tailored to your logic.
+                </p>
+                <div class="card-glow"></div>
+            </div>
+
+            <!-- AI Strategy & Roadmap Card -->
+            <div class="capability-card" data-capability="strategy">
+                <div class="card-number">04</div>
+                <div class="card-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 38L16 28L24 34L42 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M32 10H42V20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="16" cy="28" r="3" fill="currentColor"/>
+                        <circle cx="24" cy="34" r="3" fill="currentColor"/>
+                    </svg>
+                </div>
+                <h3 class="card-title">AI Strategy & Roadmap</h3>
+                <p class="card-description">
+                    Asking "How do I use AI in my business?" We answer that. We audit your operations to identify high-impact AI opportunities, identify risks, and build a step-by-step implementation roadmap. No hype, just ROI.
+                </p>
+                <div class="card-glow"></div>
+            </div>
+        </div>
+
+        <div class="capabilities-cta">
+            <a href="#contact" class="strategy-cta">
+                <span class="cta-text">Book Strategy Session</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
 <!-- SeatServe Section -->
 <section id="seatserve" class="section client-section" data-client="seatserve">
     <div class="container">

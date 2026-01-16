@@ -34,6 +34,22 @@
             fadeInObserver.observe(content);
         });
 
+        // Observe capabilities section elements
+        const capabilitiesHeader = document.querySelector('.capabilities-header');
+        if (capabilitiesHeader) {
+            fadeInObserver.observe(capabilitiesHeader);
+        }
+
+        const capabilityCards = document.querySelectorAll('.capability-card');
+        capabilityCards.forEach(card => {
+            fadeInObserver.observe(card);
+        });
+
+        const capabilitiesCta = document.querySelector('.capabilities-cta');
+        if (capabilitiesCta) {
+            fadeInObserver.observe(capabilitiesCta);
+        }
+
         // Add scroll-triggered parallax to geometric shapes
         initParallaxShapes();
 
