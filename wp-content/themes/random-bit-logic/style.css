@@ -1135,6 +1135,138 @@ p {
 }
 
 /* ===================================
+   Footer
+   =================================== */
+
+.site-footer {
+    background: #2c3340;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 4rem 0 2rem;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-brand {
+    font-family: 'Garet', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-weight: 300;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--accent-color);
+}
+
+.footer-heading {
+    font-family: 'Garet', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.footer-address {
+    margin-bottom: 1rem;
+}
+
+.footer-address p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.footer-contact-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-family: 'Garet', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+.footer-contact-link:hover {
+    color: #6b7bff;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+}
+
+.footer-badges {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.footer-badge {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.footer-badge img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.footer-copyright {
+    text-align: right;
+}
+
+.footer-copyright p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+}
+
+/* ===================================
    Responsive Design
    =================================== */
 
@@ -1183,6 +1315,15 @@ p {
 
     .client-shapes {
         width: 100%;
+    }
+
+    .footer-container {
+        padding: 0 2rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
     }
 }
 
@@ -1291,6 +1432,34 @@ p {
         padding: 0.3rem 0.6rem;
         top: 0.75rem;
         right: 1rem;
+    }
+
+    .footer-container {
+        padding: 0 1.5rem;
+    }
+
+    .footer-content {
+        padding-bottom: 2rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+    }
+
+    .footer-badges {
+        order: 2;
+    }
+
+    .footer-copyright {
+        text-align: center;
+        order: 1;
+    }
+
+    .footer-badge {
+        width: 50px;
+        height: 50px;
     }
 }
 
