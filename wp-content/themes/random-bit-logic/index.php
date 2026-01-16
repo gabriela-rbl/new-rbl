@@ -32,7 +32,7 @@
                 <span class="gradient-text">intelligent automation.</span>
             </h2>
             <p class="capabilities-subtitle">
-                Comprehensive technical services designed to solve complex operational challenges for the enterprise.
+                Our comprehensive technical services are designed to solve complex operational challenges for your company.
             </p>
         </div>
 
@@ -93,7 +93,7 @@
             </div>
 
             <!-- AI Strategy & Roadmap Card -->
-            <div class="capability-card" data-capability="strategy">
+            <div class="capability-card featured-card" data-capability="strategy">
                 <div class="card-number">04</div>
                 <div class="card-icon">
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -105,7 +105,7 @@
                 </div>
                 <h3 class="card-title">AI Strategy & Roadmap</h3>
                 <p class="card-description">
-                    Asking "How do I use AI in my business?" We answer that. We audit your operations to identify high-impact AI opportunities, identify risks, and build a step-by-step implementation roadmap. No hype, just ROI.
+                    <strong>Asking "How do I use AI in my business?" We answer that.</strong> We audit your operations to identify high-impact AI opportunities, identify risks, and build a step-by-step implementation roadmap. No hype, just ROI.
                 </p>
                 <div class="card-glow"></div>
             </div>
@@ -124,6 +124,11 @@
 
 <!-- SeatServe Section -->
 <section id="seatserve" class="section client-section" data-client="seatserve">
+    <div class="geometric-shapes client-shapes">
+        <div class="client-shape circle-shape shape-lg"></div>
+        <div class="client-shape circle-shape shape-md"></div>
+        <div class="client-shape circle-shape shape-sm"></div>
+    </div>
     <div class="container">
         <div class="client-content">
             <div class="client-info">
@@ -156,6 +161,11 @@
 
 <!-- Rose Box Section -->
 <section id="rosebox" class="section client-section" data-client="rosebox">
+    <div class="geometric-shapes client-shapes">
+        <div class="client-shape blob-shape shape-lg"></div>
+        <div class="client-shape blob-shape shape-md"></div>
+        <div class="client-shape blob-shape shape-sm"></div>
+    </div>
     <div class="container">
         <div class="client-content">
             <div class="client-info">
@@ -188,6 +198,11 @@
 
 <!-- DutchX Section -->
 <section id="dutchx" class="section client-section" data-client="dutchx">
+    <div class="geometric-shapes client-shapes">
+        <div class="client-shape square-shape shape-lg"></div>
+        <div class="client-shape square-shape shape-md"></div>
+        <div class="client-shape square-shape shape-sm"></div>
+    </div>
     <div class="container">
         <div class="client-content">
             <div class="client-info">
@@ -219,6 +234,11 @@
 
 <!-- Empire Section -->
 <section id="empire" class="section client-section" data-client="empire">
+    <div class="geometric-shapes client-shapes">
+        <div class="client-shape triangle-shape shape-lg"></div>
+        <div class="client-shape triangle-shape shape-md"></div>
+        <div class="client-shape triangle-shape shape-sm"></div>
+    </div>
     <div class="container">
         <div class="client-content">
             <div class="client-info">
@@ -250,6 +270,11 @@
 
 <!-- Capsoil Section -->
 <section id="capsoil" class="section client-section" data-client="capsoil">
+    <div class="geometric-shapes client-shapes">
+        <div class="client-shape hexagon-shape shape-lg"></div>
+        <div class="client-shape hexagon-shape shape-md"></div>
+        <div class="client-shape hexagon-shape shape-sm"></div>
+    </div>
     <div class="container">
         <div class="client-content">
             <div class="client-info">

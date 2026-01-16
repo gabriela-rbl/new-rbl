@@ -31,4 +31,9 @@
     <a href="<?php echo home_url(); ?>" class="site-logo">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/rbl-logo.png" alt="Random Bit Logic" />
     </a>
+    <nav class="site-nav">
+        <a href="#capabilities" class="nav-link">Capabilities</a>
+        <a href="#seatserve" class="nav-link">Work</a>
+        <a href="#contact" class="nav-link nav-cta">Contact</a>
+    </nav>
 </header>
