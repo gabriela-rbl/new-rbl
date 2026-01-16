@@ -141,7 +141,7 @@
                 <a href="#contact" class="client-cta">Start Your Project</a>
             </div>
             <div class="client-mockup">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/phone-mockup.png"
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/empire-mockup.png"
                      alt="Empire Extension"
                      class="mockup-image">
             </div>
