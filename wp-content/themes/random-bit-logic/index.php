@@ -124,6 +124,11 @@
 
 <!-- SeatServe Section -->
 <section id="seatserve" class="section client-section" data-client="seatserve">
+    <div class="geometric-shapes client-shapes">
+        <div class="client-shape circle-shape shape-lg"></div>
+        <div class="client-shape circle-shape shape-md"></div>
+        <div class="client-shape circle-shape shape-sm"></div>
+    </div>
     <div class="container">
         <div class="client-content">
             <div class="client-info">
@@ -156,6 +161,11 @@
 
 <!-- Rose Box Section -->
 <section id="rosebox" class="section client-section" data-client="rosebox">
+    <div class="geometric-shapes client-shapes">
+        <div class="client-shape blob-shape shape-lg"></div>
+        <div class="client-shape blob-shape shape-md"></div>
+        <div class="client-shape blob-shape shape-sm"></div>
+    </div>
     <div class="container">
         <div class="client-content">
             <div class="client-info">
@@ -188,6 +198,11 @@
 
 <!-- DutchX Section -->
 <section id="dutchx" class="section client-section" data-client="dutchx">
+    <div class="geometric-shapes client-shapes">
+        <div class="client-shape square-shape shape-lg"></div>
+        <div class="client-shape square-shape shape-md"></div>
+        <div class="client-shape square-shape shape-sm"></div>
+    </div>
     <div class="container">
         <div class="client-content">
             <div class="client-info">
@@ -219,6 +234,11 @@
 
 <!-- Empire Section -->
 <section id="empire" class="section client-section" data-client="empire">
+    <div class="geometric-shapes client-shapes">
+        <div class="client-shape triangle-shape shape-lg"></div>
+        <div class="client-shape triangle-shape shape-md"></div>
+        <div class="client-shape triangle-shape shape-sm"></div>
+    </div>
     <div class="container">
         <div class="client-content">
             <div class="client-info">
@@ -250,6 +270,11 @@
 
 <!-- Capsoil Section -->
 <section id="capsoil" class="section client-section" data-client="capsoil">
+    <div class="geometric-shapes client-shapes">
+        <div class="client-shape hexagon-shape shape-lg"></div>
+        <div class="client-shape hexagon-shape shape-md"></div>
+        <div class="client-shape hexagon-shape shape-sm"></div>
+    </div>
     <div class="container">
         <div class="client-content">
             <div class="client-info">

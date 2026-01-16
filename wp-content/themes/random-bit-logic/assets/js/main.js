@@ -14,6 +14,34 @@
         initMockupAnimations();
         initGeometricShapes();
         handleHashNavigation();
+        initStickyHeader();
+    }
+
+    /**
+     * Sticky header with glassmorphism on scroll
+     */
+    function initStickyHeader() {
+        const header = document.querySelector('.site-header');
+        if (!header) return;
+
+        let ticking = false;
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                    if (scrollTop > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
     }
 
     /**
