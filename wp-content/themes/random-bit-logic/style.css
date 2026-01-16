@@ -468,6 +468,65 @@ p {
     font-weight: 300;
 }
 
+.card-description strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Featured Card Styling */
+.featured-card {
+    background: linear-gradient(135deg, rgba(75, 88, 255, 0.08) 0%, rgba(255, 255, 255, 0.9) 100%);
+    border: 2px solid rgba(75, 88, 255, 0.3);
+    box-shadow:
+        0 12px 40px rgba(75, 88, 255, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 1),
+        0 0 0 1px rgba(75, 88, 255, 0.1);
+}
+
+.featured-card::before {
+    opacity: 1;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-color), #6b7bff, var(--accent-color));
+}
+
+.featured-card::after {
+    content: 'FEATURED';
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    background: rgba(75, 88, 255, 0.1);
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    letter-spacing: 0.1em;
+    font-family: 'Courier New', monospace;
+}
+
+.featured-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow:
+        0 25px 70px rgba(75, 88, 255, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 1),
+        0 0 0 2px rgba(75, 88, 255, 0.2);
+    border-color: rgba(75, 88, 255, 0.5);
+}
+
+.featured-card .card-number {
+    opacity: 1;
+    font-size: 1rem;
+}
+
+.featured-card .card-icon {
+    color: var(--accent-color);
+    filter: drop-shadow(0 4px 8px rgba(75, 88, 255, 0.3));
+}
+
+.featured-card .card-glow {
+    background: radial-gradient(circle, rgba(75, 88, 255, 0.25) 0%, transparent 70%);
+}
+
 .capabilities-cta {
     text-align: center;
     opacity: 0;
@@ -922,6 +981,13 @@ p {
     .capabilities-section::before,
     .capabilities-section::after {
         display: none;
+    }
+
+    .featured-card::after {
+        font-size: 0.6rem;
+        padding: 0.3rem 0.6rem;
+        top: 0.75rem;
+        right: 1rem;
     }
 }
 

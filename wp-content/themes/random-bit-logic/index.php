@@ -32,7 +32,7 @@
                 <span class="gradient-text">intelligent automation.</span>
             </h2>
             <p class="capabilities-subtitle">
-                Comprehensive technical services designed to solve complex operational challenges for the enterprise.
+                Our comprehensive technical services are designed to solve complex operational challenges for your company.
             </p>
         </div>
 
@@ -93,7 +93,7 @@
             </div>
 
             <!-- AI Strategy & Roadmap Card -->
-            <div class="capability-card" data-capability="strategy">
+            <div class="capability-card featured-card" data-capability="strategy">
                 <div class="card-number">04</div>
                 <div class="card-icon">
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -105,7 +105,7 @@
                 </div>
                 <h3 class="card-title">AI Strategy & Roadmap</h3>
                 <p class="card-description">
-                    Asking "How do I use AI in my business?" We answer that. We audit your operations to identify high-impact AI opportunities, identify risks, and build a step-by-step implementation roadmap. No hype, just ROI.
+                    <strong>Asking "How do I use AI in my business?" We answer that.</strong> We audit your operations to identify high-impact AI opportunities, identify risks, and build a step-by-step implementation roadmap. No hype, just ROI.
                 </p>
                 <div class="card-glow"></div>
             </div>
