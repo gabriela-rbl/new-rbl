@@ -79,7 +79,7 @@
                 <a href="#contact" class="client-cta">Start Your Project</a>
             </div>
             <div class="client-mockup">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/laptop-mockup.png"
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/rosebox-phone.png"
                      alt="Rose Box Platform"
                      class="mockup-image">
             </div>
