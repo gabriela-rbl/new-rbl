@@ -23,14 +23,56 @@
         const form = document.getElementById('contactForm');
         if (!form) return;
 
+        // Dynamic field toggle based on service selection
+        const serviceSelect = document.getElementById('serviceSelect');
+        const dynamicLabel = document.getElementById('dynamic-label');
+        const dynamicInput = document.getElementById('message');
+
+        if (serviceSelect && dynamicLabel && dynamicInput) {
+            serviceSelect.addEventListener('change', function() {
+                const service = this.value;
+                let label = 'Tell us about your project';
+                let placeholder = 'Briefly describe your goals...';
+
+                switch(service) {
+                    case 'strategy':
+                        label = 'What business challenge are you looking to solve?';
+                        placeholder = 'Describe your current process and goals...';
+                        break;
+                    case 'ai':
+                        label = 'What processes would you like to automate?';
+                        placeholder = 'Describe your automation needs...';
+                        break;
+                    case 'software':
+                        label = 'What type of software do you need?';
+                        placeholder = 'Describe your software requirements...';
+                        break;
+                    case 'web':
+                        label = 'Tell us about your web project';
+                        placeholder = 'Describe your website goals...';
+                        break;
+                    case 'other':
+                        label = 'How can we help you?';
+                        placeholder = 'Tell us what you have in mind...';
+                        break;
+                }
+
+                dynamicLabel.textContent = label;
+                dynamicInput.placeholder = placeholder;
+            });
+        }
+
+        // AJAX form submission
         form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
             // Basic validation
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
             const message = document.getElementById('message').value.trim();
+            const service = document.getElementById('serviceSelect').value;
 
-            if (!name || !email || !message) {
-                e.preventDefault();
+            if (!name || !email || !message || !service) {
                 alert('Please fill in all required fields.');
                 return false;
             }
@@ -38,32 +80,66 @@
             // Email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
-                e.preventDefault();
                 alert('Please enter a valid email address.');
                 return false;
             }
 
             // Show loading state
-            const submitButton = form.querySelector('.submit-button');
+            const submitButton = form.querySelector('.submit-btn');
+            const originalText = submitButton.textContent;
             if (submitButton) {
                 submitButton.textContent = 'Sending...';
                 submitButton.disabled = true;
             }
 
-            // Form will submit normally to PHP handler
-            return true;
+            // Prepare form data
+            const formData = new FormData(form);
+
+            // Send AJAX request
+            fetch(window.location.href, {
+                method: 'POST',
+                body: formData,
+                credentials: 'same-origin'
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Success
+                    form.reset();
+                    alert('Request Sent! We\'ll get back to you within 24 hours.');
+
+                    // Reset button
+                    if (submitButton) {
+                        submitButton.textContent = originalText;
+                        submitButton.disabled = false;
+                    }
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error submitting the form. Please try again.');
+
+                // Reset button
+                if (submitButton) {
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                }
+            });
+
+            return false;
         });
 
         // Add input animations
-        const inputs = form.querySelectorAll('input, textarea');
+        const inputs = form.querySelectorAll('input, textarea, select');
         inputs.forEach(input => {
             input.addEventListener('focus', function() {
-                this.parentElement.classList.add('focused');
+                this.classList.add('focused');
             });
 
             input.addEventListener('blur', function() {
                 if (!this.value) {
-                    this.parentElement.classList.remove('focused');
+                    this.classList.remove('focused');
                 }
             });
         });
