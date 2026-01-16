@@ -2,24 +2,157 @@
 
 <!-- Hero Section -->
 <section id="hero" class="section hero">
-    <div class="geometric-shapes">
-        <div class="shape shape-circle shape-1"></div>
-        <div class="shape shape-circle shape-2"></div>
-        <div class="shape shape-3"></div>
-        <div class="shape shape-4"></div>
+    <!-- Enhanced Geometric Background -->
+    <div class="geometric-canvas">
+        <!-- Animated Grid Background -->
+        <div class="geometric-grid"></div>
+
+        <!-- Large Geometric Shapes -->
+        <div class="hero-shapes">
+            <div class="hero-shape shape-hexagon shape-1">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="50 1 95 25 95 75 50 99 5 75 5 25" />
+                </svg>
+            </div>
+            <div class="hero-shape shape-circle shape-2">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="48" />
+                </svg>
+            </div>
+            <div class="hero-shape shape-triangle shape-3">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="50 5 95 90 5 90" />
+                </svg>
+            </div>
+            <div class="hero-shape shape-square shape-4">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="10" width="80" height="80" />
+                </svg>
+            </div>
+            <div class="hero-shape shape-pentagon shape-5">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="50 1 98 35 79 90 21 90 2 35" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- Floating Particles -->
+        <div class="particle-system"></div>
     </div>
 
     <div class="container">
         <div class="hero-content">
-            <h1>
-                We build custom platforms <span class="brackets">&lt;that transform your business&gt;</span>
+            <!-- Geometric Badge -->
+            <div class="hero-badge">
+                <svg class="badge-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="12 2 19 7 19 17 12 22 5 17 5 7" stroke="currentColor" stroke-width="2" fill="none"/>
+                    <circle cx="12" cy="12" r="3" fill="currentColor"/>
+                </svg>
+                <span>Where Geometry Meets Innovation</span>
+            </div>
+
+            <!-- Main Headline with Rotating Text -->
+            <h1 class="hero-headline">
+                Transform Your Business with
+                <span class="headline-rotating">
+                    <span class="rotate-text active" data-text="AI Automation">AI Automation</span>
+                    <span class="rotate-text" data-text="Custom Software">Custom Software</span>
+                    <span class="rotate-text" data-text="Smart Solutions">Smart Solutions</span>
+                    <span class="rotate-text" data-text="Strategic Innovation">Strategic Innovation</span>
+                </span>
             </h1>
-            <p class="hero-subtitle">
-                <span class="code-style">AI_First_Development_Innovation</span><br>
-                Full-stack development and AI consultancy with a global team
+
+            <!-- Value Proposition -->
+            <p class="hero-description">
+                We engineer <strong>custom AI-powered platforms</strong> that eliminate operational bottlenecks,
+                automate complex workflows, and deliver <strong>measurable ROI</strong>.
+                From strategy to deployment—tailored for enterprise decision-makers who demand results.
             </p>
-            <a href="#contact" class="hero-cta">Start Your Project</a>
+
+            <!-- Animated Stats -->
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L15 8.5L22 9.3L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9.3L9 8.5L12 2Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <span class="stat-number" data-target="50">0</span><span class="stat-suffix">+</span>
+                        <span class="stat-label">Projects Delivered</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <span class="stat-number" data-target="40">0</span><span class="stat-suffix">%</span>
+                        <span class="stat-label">Avg. Efficiency Gain</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <span class="stat-number" data-target="24">0</span><span class="stat-suffix">h</span>
+                        <span class="stat-label">Strategy Response</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="hero-ctas">
+                <a href="#contact" class="hero-cta primary-cta">
+                    <span class="cta-text">Book Strategy Session</span>
+                    <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </a>
+                <a href="#capabilities" class="hero-cta secondary-cta">
+                    <span class="cta-text">Explore Solutions</span>
+                </a>
+            </div>
+
+            <!-- Trust Indicators -->
+            <div class="hero-trust">
+                <span class="trust-label">Trusted by innovative companies worldwide</span>
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span>ISO Certified</span>
+                    </div>
+                    <div class="trust-badge">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7V12C2 17.5 6 21.5 12 22C18 21.5 22 17.5 22 12V7L12 2Z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span>Enterprise Ready</span>
+                    </div>
+                    <div class="trust-badge">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L15.5 8.5L22 9.5L17 14.5L18.5 21L12 17.5L5.5 21L7 14.5L2 9.5L8.5 8.5L12 2Z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span>5-Star Rated</span>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <span>Scroll to explore</span>
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
     </div>
 </section>
 

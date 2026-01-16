@@ -47,9 +47,17 @@ function rbl_enqueue_scripts() {
 
     // Custom JavaScript
     wp_enqueue_script(
+        'rbl-hero-animations',
+        get_template_directory_uri() . '/assets/js/hero-animations.js',
+        array(),
+        '1.0.0',
+        true
+    );
+
+    wp_enqueue_script(
         'rbl-scroll-animations',
         get_template_directory_uri() . '/assets/js/scroll-animations.js',
-        array(),
+        array('rbl-hero-animations'),
         '1.0.0',
         true
     );
