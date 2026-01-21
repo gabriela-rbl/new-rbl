@@ -31,7 +31,6 @@
 <!--            <p>Our AI-powered platforms streamline operations and enhance productivity across your entire organization.</p>-->
 <!--        </div>-->
 <!--        <div class="demo-mockup">-->
-<!--            <!-- This would contain a demo image or video -->-->
 <!--            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 500px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 700;">-->
 <!--                Dashboard Preview-->
 <!--            </div>-->
@@ -69,8 +68,8 @@
 <section id="enterprise" class="section enterprise-section fade-in">
     <div class="container">
         <div class="enterprise-header">
-<!--            <h2>Built to handle enterprise complexity</h2>-->
-            <h2 class="ai-question">Here to answer the question: "How are we going to use AI in our business?"</h2>
+            <h2>Building systems to handle enterprise complexity</h2>
+<!--            <h2 class="ai-question">Here to answer the question: "How are we going to use AI in our business?"</h2>-->
             <p>Comprehensive AI and automation solutions designed for modern businesses that demand scale, reliability, and results.</p>
         </div>
 
@@ -107,7 +106,8 @@
 <section id="platform" class="section platform-section fade-in">
     <div class="container">
         <div class="platform-content">
-            <h2>One platform for complete<br>business automation</h2>
+<!--            <h2>One platform for complete<br>business automation</h2>-->
+            <h2>Here to answer the question <span>"How are we going to use AI in our business?"</span></h2>
             <p>From custom software to AI implementation, we deliver integrated solutions that transform how your business operates.</p>
             <a href="#contact" class="hero-cta">
                 <span>Get Started</span>

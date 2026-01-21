@@ -524,6 +524,8 @@ strong {
 .enterprise-card h3 {
     margin-bottom: 1rem;
     font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4;
 }
 
 .enterprise-card p {
@@ -1043,6 +1045,8 @@ strong {
     padding: 3rem;
     border-radius: 1rem;
     border: 1px solid var(--border-light);
+    max-width: 700px;
+    margin: 70px auto 30px;
 }
 
 .form-grid {
@@ -1065,14 +1069,14 @@ strong {
 .form-select {
     width: 100%;
     padding: 1rem 1.25rem;
-    border: 2px solid var(--border-light);
+    border: 1px solid #5c5d5e;
     border-radius: 0.5rem;
     font-size: 1rem;
     font-family: 'Plus Jakarta Sans', sans-serif;
     transition: var(--transition);
     /*background: var(--light-bg);*/
     color: #fff;
-    background: #000;
+    background: transparent;
 }
 
 .form-input:focus,
@@ -1123,6 +1127,7 @@ textarea.form-input {
     background: var(--dark-bg);
     color: rgba(255, 255, 255, 0.7);
     padding: 3rem var(--container-padding) 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-content {
