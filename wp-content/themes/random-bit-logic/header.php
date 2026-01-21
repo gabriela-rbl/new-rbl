@@ -48,16 +48,15 @@
 
         <nav class="main-nav">
             <ul>
-                <li><a href="#platform">Platform</a></li>
                 <li><a href="#enterprise">Solutions</a></li>
-                <li><a href="#seatserve">Clients</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#solutions">Services</a></li>
+                <li><a href="#seatserve">Cases</a></li>
             </ul>
         </nav>
 
         <div class="header-actions">
             <a href="#" class="login-link">Login</a>
-            <a href="#contact" class="nav-cta">
+            <a href="#footer-cta" class="nav-cta">
                 <span>Request a demo</span>
                 <span class="arrow">→</span>
             </a>

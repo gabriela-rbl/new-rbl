@@ -15,7 +15,7 @@
                 We build AI-first platforms that eliminate complexity and deliver measurable results.
             </p>
 
-            <a href="#contact" class="hero-cta">
+            <a href="#footer-cta" class="hero-cta">
                 <span>Request a demo</span>
                 <span class="arrow">→</span>
             </a>
@@ -122,7 +122,7 @@
                 <h3>Eliminate costly manual processes</h3>
                 <p>Reduce manual data entry and human error with AI-powered automation. Our intelligent workflows process thousands of operations daily, saving time and reducing costs.</p>
                 <p>Free your team to focus on strategic work while AI handles repetitive tasks with precision and accuracy.</p>
-                <a href="#contact" class="small-cta">
+                <a href="#footer-cta" class="small-cta">
                     <span>Learn More</span>
                     <span class="arrow">→</span>
                 </a>
@@ -147,7 +147,7 @@
                 <h3>Generate actionable, shareable insights</h3>
                 <p>Transform raw data into strategic insights. Our AI-powered analytics platforms deliver real-time reporting and predictive intelligence tailored to your business needs.</p>
                 <p>Share customized reports across teams and make data-driven decisions faster than ever.</p>
-                <a href="#contact" class="small-cta">
+                <a href="#footer-cta" class="small-cta">
                     <span>Learn More</span>
                     <span class="arrow">→</span>
                 </a>
@@ -172,7 +172,7 @@
                 <h3>Build faster without engineering bottlenecks</h3>
                 <p>When off-the-shelf solutions don't fit, we build custom platforms tailored to your exact requirements. From concept to deployment in weeks, not months.</p>
                 <p>Our agile approach delivers production-ready software without the overhead of traditional development.</p>
-                <a href="#contact" class="small-cta">
+                <a href="#footer-cta" class="small-cta">
                     <span>Learn More</span>
                     <span class="arrow">→</span>
                 </a>
@@ -222,7 +222,7 @@
             </div>
         </div>
 
-        <a href="#contact" class="hero-cta">
+        <a href="#footer-cta" class="hero-cta">
             <span>Request a demo</span>
             <span class="arrow">→</span>
         </a>
@@ -265,7 +265,6 @@
 <!--        </div>-->
 <!---->
 <!--        <div class="integrations-grid">-->
-<!--            <!-- Integration logos would go here -->-->
 <!--            <div class="integration-logo">-->
 <!--                <svg viewBox="0 0 24 24" fill="currentColor">-->
 <!--                    <path d="M12 2L2 7V17L12 22L22 17V7L12 2Z"/>-->
@@ -331,7 +330,7 @@
                     <li>Payment processing integration</li>
                     <li>Venue-specific customization</li>
                 </ul>
-                <a href="#contact" class="client-cta">
+                <a href="#footer-cta" class="client-cta">
                     <span>Start Your Project</span>
                     <span class="arrow">→</span>
                 </a>
@@ -366,7 +365,7 @@
                     <li>Order fulfillment automation</li>
                     <li>Customer relationship management</li>
                 </ul>
-                <a href="#contact" class="client-cta">
+                <a href="#footer-cta" class="client-cta">
                     <span>Start Your Project</span>
                     <span class="arrow">→</span>
                 </a>
@@ -400,7 +399,7 @@
                     <li>Time tracking and reporting</li>
                     <li>Role-based access control</li>
                 </ul>
-                <a href="#contact" class="client-cta">
+                <a href="#footer-cta" class="client-cta">
                     <span>Start Your Project</span>
                     <span class="arrow">→</span>
                 </a>
@@ -434,7 +433,7 @@
                     <li>Website expansion features</li>
                     <li>AI-powered recommendations</li>
                 </ul>
-                <a href="#contact" class="client-cta">
+                <a href="#footer-cta" class="client-cta">
                     <span>Start Your Project</span>
                     <span class="arrow">→</span>
                 </a>
@@ -468,7 +467,7 @@
                     <li>Data integration systems</li>
                     <li>Performance analytics</li>
                 </ul>
-                <a href="#contact" class="client-cta">
+                <a href="#footer-cta" class="client-cta">
                     <span>Start Your Project</span>
                     <span class="arrow">→</span>
                 </a>
