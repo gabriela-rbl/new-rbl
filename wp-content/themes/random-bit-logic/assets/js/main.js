@@ -22,9 +22,11 @@
      */
     function initStickyHeader() {
         const header = document.querySelector('.site-header');
+        const topbar = document.querySelector('.site-topbar');
         if (!header) return;
 
         let ticking = false;
+        let lastScrollTop = 0;
 
         window.addEventListener('scroll', () => {
             if (!ticking) {
@@ -33,10 +35,33 @@
 
                     if (scrollTop > 50) {
                         header.classList.add('scrolled');
+
+                        // Hide topbar when scrolling down, show when scrolling up
+                        if (topbar) {
+                            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                                // Scrolling down
+                                topbar.style.transform = 'translateY(-100%)';
+                                header.style.top = '0';
+                            } else {
+                                // Scrolling up or at top
+                                topbar.style.transform = 'translateY(0)';
+                                if (header.classList.contains('with-topbar')) {
+                                    header.style.top = '53px';
+                                }
+                            }
+                        }
                     } else {
                         header.classList.remove('scrolled');
+                        // At the top, always show topbar
+                        if (topbar) {
+                            topbar.style.transform = 'translateY(0)';
+                            if (header.classList.contains('with-topbar')) {
+                                header.style.top = '53px';
+                            }
+                        }
                     }
 
+                    lastScrollTop = scrollTop;
                     ticking = false;
                 });
                 ticking = true;

@@ -15,7 +15,10 @@
                 We build AI-first platforms that eliminate complexity and deliver measurable results.
             </p>
 
-            <a href="#contact" class="hero-cta">Get Started</a>
+            <a href="#contact" class="hero-cta">
+                <span>Get Started</span>
+                <span class="arrow">→</span>
+            </a>
         </div>
     </div>
 </section>
@@ -105,7 +108,10 @@
         <div class="platform-content">
             <h2>One platform for complete<br>business automation</h2>
             <p>From custom software to AI implementation, we deliver integrated solutions that transform how your business operates.</p>
-            <a href="#contact" class="hero-cta">Get Started</a>
+            <a href="#contact" class="hero-cta">
+                <span>Get Started</span>
+                <span class="arrow">→</span>
+            </a>
         </div>
     </div>
 </section>
@@ -220,7 +226,10 @@
         <div class="ai-demo-container">
             <div class="demo-input-group">
                 <input type="text" class="demo-input" placeholder="Ask any question about your operations..." />
-                <button class="hero-cta">Ask AI</button>
+                <button class="hero-cta">
+                    <span>Ask AI</span>
+                    <span class="arrow">→</span>
+                </button>
             </div>
 
             <div class="demo-suggestions">
@@ -308,7 +317,10 @@
                     <li>Payment processing integration</li>
                     <li>Venue-specific customization</li>
                 </ul>
-                <a href="#contact" class="client-cta">Start Your Project</a>
+                <a href="#contact" class="client-cta">
+                    <span>Start Your Project</span>
+                    <span class="arrow">→</span>
+                </a>
             </div>
             <div class="client-mockup">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/seatserve-phones.png"
@@ -340,7 +352,10 @@
                     <li>Order fulfillment automation</li>
                     <li>Customer relationship management</li>
                 </ul>
-                <a href="#contact" class="client-cta">Start Your Project</a>
+                <a href="#contact" class="client-cta">
+                    <span>Start Your Project</span>
+                    <span class="arrow">→</span>
+                </a>
             </div>
             <div class="client-mockup">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/rosebox-phone.png"
@@ -371,7 +386,10 @@
                     <li>Time tracking and reporting</li>
                     <li>Role-based access control</li>
                 </ul>
-                <a href="#contact" class="client-cta">Start Your Project</a>
+                <a href="#contact" class="client-cta">
+                    <span>Start Your Project</span>
+                    <span class="arrow">→</span>
+                </a>
             </div>
             <div class="client-mockup">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/laptop-mockup.png"
@@ -402,7 +420,10 @@
                     <li>Website expansion features</li>
                     <li>AI-powered recommendations</li>
                 </ul>
-                <a href="#contact" class="client-cta">Start Your Project</a>
+                <a href="#contact" class="client-cta">
+                    <span>Start Your Project</span>
+                    <span class="arrow">→</span>
+                </a>
             </div>
             <div class="client-mockup">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/empire-mockup.png"
@@ -433,7 +454,10 @@
                     <li>Data integration systems</li>
                     <li>Performance analytics</li>
                 </ul>
-                <a href="#contact" class="client-cta">Start Your Project</a>
+                <a href="#contact" class="client-cta">
+                    <span>Start Your Project</span>
+                    <span class="arrow">→</span>
+                </a>
             </div>
             <div class="client-mockup">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/laptop-mockup.png"
