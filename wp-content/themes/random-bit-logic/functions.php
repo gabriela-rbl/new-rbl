@@ -18,6 +18,12 @@ function rbl_theme_setup() {
     // Add theme support
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
+    add_theme_support('custom-logo', array(
+        'height'      => 100,
+        'width'       => 400,
+        'flex-height' => true,
+        'flex-width'  => true,
+    ));
     add_theme_support('html5', array(
         'search-form',
         'comment-form',
