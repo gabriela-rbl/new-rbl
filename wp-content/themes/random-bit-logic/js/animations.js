@@ -84,6 +84,73 @@
         });
     }
 
+    // Animated placeholder for AI demo input
+    function initAnimatedPlaceholder() {
+        const input = document.querySelector('.demo-input');
+        if (!input) return;
+
+        const phrases = [
+            'Are you ready to prepare your year-end audit documents?',
+            'Want to see the status of yesterday\'s exceptions?',
+            'Would you like to review your current transactional and financial controls?',
+            'How can I help optimize your workflow today?',
+            'What business process would you like to automate?'
+        ];
+
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let isPaused = false;
+
+        function typeEffect() {
+            const currentPhrase = phrases[phraseIndex];
+
+            if (!isDeleting && charIndex <= currentPhrase.length) {
+                // Typing
+                input.setAttribute('placeholder', currentPhrase.substring(0, charIndex));
+                charIndex++;
+
+                if (charIndex > currentPhrase.length) {
+                    // Pause at end of phrase
+                    isPaused = true;
+                    setTimeout(() => {
+                        isPaused = false;
+                        isDeleting = true;
+                        typeEffect();
+                    }, 3000); // Pause for 3 seconds
+                    return;
+                }
+            } else if (isDeleting && charIndex >= 0) {
+                // Deleting
+                input.setAttribute('placeholder', currentPhrase.substring(0, charIndex));
+                charIndex--;
+
+                if (charIndex < 0) {
+                    // Move to next phrase
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    charIndex = 0;
+                    setTimeout(typeEffect, 500); // Pause before next phrase
+                    return;
+                }
+            }
+
+            // Typing speed
+            const typingSpeed = isDeleting ? 30 : 50;
+            if (!isPaused) {
+                setTimeout(typeEffect, typingSpeed);
+            }
+        }
+
+        // Start the animation
+        typeEffect();
+
+        // Prevent input interaction (demo only)
+        input.addEventListener('focus', function() {
+            this.blur();
+        });
+    }
+
     // Initialize all animations when DOM is ready
     function init() {
         if (document.readyState === 'loading') {
@@ -91,11 +158,13 @@
                 initScrollAnimations();
                 initSmoothScroll();
                 initHeaderScroll();
+                initAnimatedPlaceholder();
             });
         } else {
             initScrollAnimations();
             initSmoothScroll();
             initHeaderScroll();
+            initAnimatedPlaceholder();
         }
     }
 
