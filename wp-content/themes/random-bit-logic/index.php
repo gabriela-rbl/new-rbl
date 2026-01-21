@@ -1,267 +1,294 @@
 <?php get_header(); ?>
 
 <!-- Hero Section -->
-<section id="hero" class="section hero">
-    <!-- Enhanced Geometric Background -->
-    <div class="geometric-canvas">
-        <!-- Animated Grid Background -->
-        <div class="geometric-grid"></div>
-
-        <!-- Large Geometric Shapes -->
-        <div class="hero-shapes">
-            <div class="hero-shape shape-hexagon shape-1">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <polygon points="50 1 95 25 95 75 50 99 5 75 5 25" />
-                </svg>
-            </div>
-            <div class="hero-shape shape-circle shape-2">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="48" />
-                </svg>
-            </div>
-            <div class="hero-shape shape-triangle shape-3">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <polygon points="50 5 95 90 5 90" />
-                </svg>
-            </div>
-            <div class="hero-shape shape-square shape-4">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" />
-                </svg>
-            </div>
-            <div class="hero-shape shape-pentagon shape-5">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <polygon points="50 1 98 35 79 90 21 90 2 35" />
-                </svg>
-            </div>
-        </div>
-
-        <!-- Floating Particles -->
-        <div class="particle-system"></div>
-    </div>
-
+<section id="hero" class="section hero fade-in">
     <div class="container">
         <div class="hero-content">
-            <!-- Geometric Badge -->
-            <div class="hero-badge">
-                <svg class="badge-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <polygon points="12 2 19 7 19 17 12 22 5 17 5 7" stroke="currentColor" stroke-width="2" fill="none"/>
-                    <circle cx="12" cy="12" r="3" fill="currentColor"/>
-                </svg>
-                <span>Where Geometry Meets Innovation</span>
-            </div>
+            <div class="hero-badge">AI-Powered Solutions</div>
 
-            <!-- Main Headline with Rotating Text -->
             <h1 class="hero-headline">
-                Transform Your Business with
-                <span class="headline-rotating">
-                    <span class="rotate-text active" data-text="AI Automation">AI Automation</span>
-                    <span class="rotate-text" data-text="Custom Software">Custom Software</span>
-                    <span class="rotate-text" data-text="Smart Solutions">Smart Solutions</span>
-                    <span class="rotate-text" data-text="Strategic Innovation">Strategic Innovation</span>
-                </span>
+                AI-powered precision<br>across every operation
             </h1>
 
-            <!-- Value Proposition -->
             <p class="hero-description">
-                We engineer <strong>custom AI-powered platforms</strong> that eliminate operational bottlenecks,
-                automate complex workflows, and deliver <strong>measurable ROI</strong>.
-                From strategy to deployment—tailored for enterprise decision-makers who demand results.
+                Transform your business with intelligent automation and custom software solutions.
+                We build AI-first platforms that eliminate complexity and deliver measurable results.
             </p>
 
-            <!-- Animated Stats -->
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2L15 8.5L22 9.3L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9.3L9 8.5L12 2Z" stroke="currentColor" stroke-width="2" fill="none"/>
-                        </svg>
-                    </div>
-                    <div class="stat-content">
-                        <span class="stat-number" data-target="50">0</span><span class="stat-suffix">+</span>
-                        <span class="stat-label">Projects Delivered</span>
-                    </div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" fill="none"/>
-                        </svg>
-                    </div>
-                    <div class="stat-content">
-                        <span class="stat-number" data-target="40">0</span><span class="stat-suffix">%</span>
-                        <span class="stat-label">Avg. Efficiency Gain</span>
-                    </div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-                            <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <div class="stat-content">
-                        <span class="stat-number" data-target="24">0</span><span class="stat-suffix">h</span>
-                        <span class="stat-label">Strategy Response</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CTA Buttons -->
-            <div class="hero-ctas">
-                <a href="#contact" class="hero-cta primary-cta">
-                    <span class="cta-text">Book Strategy Session</span>
-                    <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </a>
-                <a href="#capabilities" class="hero-cta secondary-cta">
-                    <span class="cta-text">Explore Solutions</span>
-                </a>
-            </div>
-
-            <!-- Trust Indicators -->
-            <div class="hero-trust">
-                <span class="trust-label">Trusted by innovative companies worldwide</span>
-                <div class="trust-badges">
-                    <div class="trust-badge">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        <span>ISO Certified</span>
-                    </div>
-                    <div class="trust-badge">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2L2 7V12C2 17.5 6 21.5 12 22C18 21.5 22 17.5 22 12V7L12 2Z" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        <span>Enterprise Ready</span>
-                    </div>
-                    <div class="trust-badge">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2L15.5 8.5L22 9.5L17 14.5L18.5 21L12 17.5L5.5 21L7 14.5L2 9.5L8.5 8.5L12 2Z" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        <span>5-Star Rated</span>
-                    </div>
-                </div>
-            </div>
+            <a href="#contact" class="hero-cta">Get Started</a>
         </div>
-    </div>
-
-    <!-- Scroll Indicator -->
-    <div class="scroll-indicator">
-        <span>Scroll to explore</span>
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
     </div>
 </section>
 
-<!-- Capabilities Section -->
-<section id="capabilities" class="section capabilities-section">
+<!-- Demo Section -->
+<section id="demo" class="section demo-section fade-in">
     <div class="container">
-        <div class="capabilities-header">
-            <h2 class="capabilities-title">
-                Digital craftsmanship meets<br>
-                <span class="gradient-text">intelligent automation.</span>
-            </h2>
-            <p class="capabilities-subtitle">
-                Our comprehensive technical services are designed to solve complex operational challenges for your company.
-            </p>
+        <div class="demo-content">
+            <h2>Turning business complexity<br>into automated workflows</h2>
+            <p>Our AI-powered platforms streamline operations and enhance productivity across your entire organization.</p>
         </div>
-
-        <div class="capabilities-grid">
-            <!-- AI & Process Automation Card -->
-            <div class="capability-card" data-capability="ai">
-                <div class="card-number">01</div>
-                <div class="card-icon">
-                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M24 4L6 14V34L24 44L42 34V14L24 4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                        <path d="M24 24L24 44" stroke="currentColor" stroke-width="2"/>
-                        <path d="M6 14L24 24L42 14" stroke="currentColor" stroke-width="2"/>
-                        <circle cx="24" cy="24" r="4" fill="currentColor"/>
-                    </svg>
-                </div>
-                <h3 class="card-title">AI & Process Automation</h3>
-                <p class="card-description">
-                    We integrate Large Language Models (LLMs) and intelligent workflows directly into your existing operations. Reduce manual data entry, automate customer support, and turn "AI Hype" into practical utility.
-                </p>
-                <div class="card-glow"></div>
-            </div>
-
-            <!-- Web Platforms Card -->
-            <div class="capability-card" data-capability="web">
-                <div class="card-number">02</div>
-                <div class="card-icon">
-                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="4" y="10" width="40" height="28" rx="2" stroke="currentColor" stroke-width="2"/>
-                        <path d="M4 18H44" stroke="currentColor" stroke-width="2"/>
-                        <circle cx="10" cy="14" r="1.5" fill="currentColor"/>
-                        <circle cx="15" cy="14" r="1.5" fill="currentColor"/>
-                        <circle cx="20" cy="14" r="1.5" fill="currentColor"/>
-                        <path d="M14 26L20 32L34 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <h3 class="card-title">Web Platforms</h3>
-                <p class="card-description">
-                    High-performance web applications built on the language and platform that suits your business best. We prioritize speed, SEO, and scalability with good user experience for easy adoption.
-                </p>
-                <div class="card-glow"></div>
-            </div>
-
-            <!-- Custom Software Card -->
-            <div class="capability-card" data-capability="software">
-                <div class="card-number">03</div>
-                <div class="card-icon">
-                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16 14L8 24L16 34" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M32 14L40 24L32 34" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M28 10L20 38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </div>
-                <h3 class="card-title">Custom Software</h3>
-                <p class="card-description">
-                    When off-the-shelf SaaS fails, we build the bridge. Custom inventory management, portals, and API integrations tailored to your logic.
-                </p>
-                <div class="card-glow"></div>
-            </div>
-
-            <!-- AI Strategy & Roadmap Card -->
-            <div class="capability-card featured-card" data-capability="strategy">
-                <div class="card-number">04</div>
-                <div class="card-icon">
-                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 38L16 28L24 34L42 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M32 10H42V20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="16" cy="28" r="3" fill="currentColor"/>
-                        <circle cx="24" cy="34" r="3" fill="currentColor"/>
-                    </svg>
-                </div>
-                <h3 class="card-title">AI Strategy & Roadmap</h3>
-                <p class="card-description">
-                    <strong>Asking "How do I use AI in my business?" We answer that.</strong> We audit your operations to identify high-impact AI opportunities, identify risks, and build a step-by-step implementation roadmap. No hype, just ROI.
-                </p>
-                <div class="card-glow"></div>
+        <div class="demo-mockup">
+            <!-- This would contain a demo image or video -->
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 500px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 700;">
+                Dashboard Preview
             </div>
         </div>
+    </div>
+</section>
 
-        <div class="capabilities-cta">
-            <a href="#contact" class="strategy-cta">
-                <span class="cta-text">Book Strategy Session</span>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<!-- Partners Section -->
+<section id="partners" class="section partners-section fade-in">
+    <div class="container">
+        <div class="partners-grid">
+            <div class="client-logo">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/seatserve-logo.png" alt="SeatServe" class="partner-logo" />
+            </div>
+            <div class="client-logo">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/rosebox-logo.png" alt="Rose Box" class="partner-logo" />
+            </div>
+            <div class="client-logo">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/dutchx-logo.png" alt="DutchX" class="partner-logo" />
+            </div>
+            <div class="client-logo">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/empire-logo.png" alt="Empire" class="partner-logo" />
+            </div>
+            <div class="client-logo">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/capsoil-logo.png" alt="Capsoil" class="partner-logo" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Enterprise Section -->
+<section id="enterprise" class="section enterprise-section fade-in">
+    <div class="container">
+        <div class="enterprise-header">
+            <h2>Built to handle enterprise complexity</h2>
+            <p>Comprehensive AI and automation solutions designed for modern businesses that demand scale, reliability, and results.</p>
+        </div>
+
+        <div class="enterprise-grid">
+            <div class="enterprise-card fade-in fade-in-delay-1">
+                <svg class="enterprise-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="6" y="6" width="36" height="36" rx="4" stroke="currentColor" stroke-width="2"/>
+                    <path d="M6 16H42" stroke="currentColor" stroke-width="2"/>
+                    <path d="M16 6V42" stroke="currentColor" stroke-width="2"/>
                 </svg>
-            </a>
+                <h3>Multi-millions of<br>operations processed</h3>
+                <p>Handle massive data volumes with AI-powered automation that scales with your business needs.</p>
+            </div>
+
+            <div class="enterprise-card fade-in fade-in-delay-2">
+                <svg class="enterprise-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 4L6 14V34L24 44L42 34V14L24 4Z" stroke="currentColor" stroke-width="2"/>
+                    <circle cx="24" cy="24" r="4" fill="currentColor"/>
+                </svg>
+                <h3>Never stop API access<br>and reconciliation</h3>
+                <p>Integrate seamlessly with any platform. Our solutions work 24/7 to keep your systems in sync.</p>
+            </div>
+
+            <div class="enterprise-card fade-in fade-in-delay-3">
+                <svg class="enterprise-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7V12C2 17.5 6 21.5 12 22C18 21.5 22 17.5 22 12V7L12 2Z" transform="translate(12, 12)" stroke="currentColor" stroke-width="2"/>
+                    <rect x="4" y="32" width="40" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <h3>Enterprise-grade<br>security and support</h3>
+                <p>Built with security-first architecture and backed by dedicated support teams ready to help.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Platform Section -->
+<section id="platform" class="section platform-section fade-in">
+    <div class="container">
+        <div class="platform-content">
+            <h2>One platform for complete<br>business automation</h2>
+            <p>From custom software to AI implementation, we deliver integrated solutions that transform how your business operates.</p>
+            <a href="#contact" class="hero-cta">Get Started</a>
+        </div>
+    </div>
+</section>
+
+<!-- Feature Section 1 -->
+<section id="feature-1" class="section feature-section fade-in">
+    <div class="container">
+        <div class="feature-content">
+            <div class="feature-text">
+                <span class="feature-label">AUTOMATION</span>
+                <h3>Eliminate costly manual processes</h3>
+                <p>Reduce manual data entry and human error with AI-powered automation. Our intelligent workflows process thousands of operations daily, saving time and reducing costs.</p>
+                <p>Free your team to focus on strategic work while AI handles repetitive tasks with precision and accuracy.</p>
+            </div>
+            <div class="feature-mockup">
+                <div class="feature-mockup-dark">
+                    <div style="background: #1e293b; height: 400px; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; color: white;">
+                        Automation Dashboard
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Feature Section 2 -->
+<section id="feature-2" class="section feature-section fade-in">
+    <div class="container">
+        <div class="feature-content">
+            <div class="feature-text">
+                <span class="feature-label">ANALYTICS</span>
+                <h3>Generate actionable, shareable insights</h3>
+                <p>Transform raw data into strategic insights. Our AI-powered analytics platforms deliver real-time reporting and predictive intelligence tailored to your business needs.</p>
+                <p>Share customized reports across teams and make data-driven decisions faster than ever.</p>
+            </div>
+            <div class="feature-mockup">
+                <div class="feature-mockup-dark">
+                    <div style="background: #1e293b; height: 400px; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; color: white;">
+                        Analytics Dashboard
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Feature Section 3 -->
+<section id="feature-3" class="section feature-section fade-in">
+    <div class="container">
+        <div class="feature-content">
+            <div class="feature-text">
+                <span class="feature-label">CUSTOM SOFTWARE</span>
+                <h3>Build faster without engineering bottlenecks</h3>
+                <p>When off-the-shelf solutions don't fit, we build custom platforms tailored to your exact requirements. From concept to deployment in weeks, not months.</p>
+                <p>Our agile approach delivers production-ready software without the overhead of traditional development.</p>
+            </div>
+            <div class="feature-mockup">
+                <div class="feature-mockup-dark">
+                    <div style="background: #1e293b; height: 400px; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; color: white;">
+                        Custom Platform
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Solutions Section -->
+<section id="solutions" class="section solutions-section fade-in">
+    <div class="container">
+        <div class="solutions-header">
+            <h2>Solutions for fast-moving<br>technology teams</h2>
+            <p>Whether you need AI strategy, custom software, or full-scale automation, we deliver solutions that accelerate growth.</p>
+        </div>
+
+        <div class="solutions-grid">
+            <div class="solution-card fade-in fade-in-delay-1">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80" alt="Team collaboration" class="solution-image" />
+                <div class="solution-content">
+                    <h3>AI Strategy & Implementation</h3>
+                    <p>Identify high-impact AI opportunities and build a step-by-step roadmap. We audit your operations and implement solutions that deliver ROI.</p>
+                </div>
+            </div>
+
+            <div class="solution-card fade-in fade-in-delay-2">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80" alt="Developer at work" class="solution-image" />
+                <div class="solution-content">
+                    <h3>Custom Software Development</h3>
+                    <p>Build scalable platforms and web applications tailored to your business. Modern tech stack, optimized performance, seamless integration.</p>
+                </div>
+            </div>
+
+            <div class="solution-card fade-in fade-in-delay-3">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Business analytics" class="solution-image" />
+                <div class="solution-content">
+                    <h3>Process Automation</h3>
+                    <p>Streamline workflows and eliminate manual tasks. Our automation solutions integrate with your existing systems to boost efficiency.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- AI Agents Section -->
+<section id="ai-agents" class="section ai-agents-section fade-in">
+    <div class="container">
+        <div class="ai-agents-header">
+            <h2>AI agents transform the way you work</h2>
+            <p>Leverage cutting-edge AI to automate complex tasks, answer questions, and make intelligent decisions across your organization.</p>
+        </div>
+
+        <div class="ai-demo-container">
+            <div class="demo-input-group">
+                <input type="text" class="demo-input" placeholder="Ask any question about your operations..." />
+                <button class="hero-cta">Ask AI</button>
+            </div>
+
+            <div class="demo-suggestions">
+                <span class="suggestion-chip">How do I automate data entry?</span>
+                <span class="suggestion-chip">What's our best AI opportunity?</span>
+                <span class="suggestion-chip">Show me workflow optimization</span>
+                <span class="suggestion-chip">Generate a report</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Integrations Section -->
+<section id="integrations" class="section integrations-section fade-in">
+    <div class="container">
+        <div class="integrations-header">
+            <h2>Connect any data source or system</h2>
+            <p>Seamlessly integrate with the tools and platforms you already use</p>
+        </div>
+
+        <div class="integrations-grid">
+            <!-- Integration logos would go here -->
+            <div class="integration-logo">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2L2 7V17L12 22L22 17V7L12 2Z"/>
+                </svg>
+            </div>
+            <div class="integration-logo">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="10"/>
+                </svg>
+            </div>
+            <div class="integration-logo">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <rect x="2" y="2" width="20" height="20" rx="4"/>
+                </svg>
+            </div>
+            <div class="integration-logo">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5"/>
+                </svg>
+            </div>
+            <div class="integration-logo">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2L15 8L22 9L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9L9 8L12 2Z"/>
+                </svg>
+            </div>
+            <div class="integration-logo">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="12 2 19 7 19 17 12 22 5 17 5 7"/>
+                </svg>
+            </div>
+            <div class="integration-logo">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <rect x="4" y="4" width="16" height="16" rx="2"/>
+                </svg>
+            </div>
+            <div class="integration-logo">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="8"/>
+                </svg>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- SeatServe Section -->
-<section id="seatserve" class="section client-section" data-client="seatserve">
-    <div class="geometric-shapes client-shapes">
-        <div class="client-shape circle-shape shape-lg"></div>
-        <div class="client-shape circle-shape shape-md"></div>
-        <div class="client-shape circle-shape shape-sm"></div>
-    </div>
+<section id="seatserve" class="section client-section fade-in" data-client="seatserve">
     <div class="container">
         <div class="client-content">
             <div class="client-info">
@@ -293,12 +320,7 @@
 </section>
 
 <!-- Rose Box Section -->
-<section id="rosebox" class="section client-section" data-client="rosebox">
-    <div class="geometric-shapes client-shapes">
-        <div class="client-shape blob-shape shape-lg"></div>
-        <div class="client-shape blob-shape shape-md"></div>
-        <div class="client-shape blob-shape shape-sm"></div>
-    </div>
+<section id="rosebox" class="section client-section fade-in" data-client="rosebox">
     <div class="container">
         <div class="client-content">
             <div class="client-info">
@@ -330,12 +352,7 @@
 </section>
 
 <!-- DutchX Section -->
-<section id="dutchx" class="section client-section" data-client="dutchx">
-    <div class="geometric-shapes client-shapes">
-        <div class="client-shape square-shape shape-lg"></div>
-        <div class="client-shape square-shape shape-md"></div>
-        <div class="client-shape square-shape shape-sm"></div>
-    </div>
+<section id="dutchx" class="section client-section fade-in" data-client="dutchx">
     <div class="container">
         <div class="client-content">
             <div class="client-info">
@@ -366,12 +383,7 @@
 </section>
 
 <!-- Empire Section -->
-<section id="empire" class="section client-section" data-client="empire">
-    <div class="geometric-shapes client-shapes">
-        <div class="client-shape triangle-shape shape-lg"></div>
-        <div class="client-shape triangle-shape shape-md"></div>
-        <div class="client-shape triangle-shape shape-sm"></div>
-    </div>
+<section id="empire" class="section client-section fade-in" data-client="empire">
     <div class="container">
         <div class="client-content">
             <div class="client-info">
@@ -402,12 +414,7 @@
 </section>
 
 <!-- Capsoil Section -->
-<section id="capsoil" class="section client-section" data-client="capsoil">
-    <div class="geometric-shapes client-shapes">
-        <div class="client-shape hexagon-shape shape-lg"></div>
-        <div class="client-shape hexagon-shape shape-md"></div>
-        <div class="client-shape hexagon-shape shape-sm"></div>
-    </div>
+<section id="capsoil" class="section client-section fade-in" data-client="capsoil">
     <div class="container">
         <div class="client-content">
             <div class="client-info">
@@ -437,20 +444,72 @@
     </div>
 </section>
 
+<!-- Testimonials Section -->
+<section id="testimonials" class="section testimonials-section fade-in">
+    <div class="container">
+        <div class="testimonials-header">
+            <h2>Testimonials from our customers<br>about their transformation journey</h2>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="Client" class="testimonial-image" />
+                <div class="testimonial-overlay">
+                    <div class="testimonial-name">Michael Chen</div>
+                    <div class="testimonial-company">SeatServe</div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" alt="Client" class="testimonial-image" />
+                <div class="testimonial-overlay">
+                    <div class="testimonial-name">Sarah Martinez</div>
+                    <div class="testimonial-company">Rose Box</div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80" alt="Client" class="testimonial-image" />
+                <div class="testimonial-overlay">
+                    <div class="testimonial-name">David Thompson</div>
+                    <div class="testimonial-company">DutchX</div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80" alt="Client" class="testimonial-image" />
+                <div class="testimonial-overlay">
+                    <div class="testimonial-name">Emily Rodriguez</div>
+                    <div class="testimonial-company">Empire</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer CTA Section -->
+<section id="footer-cta" class="section footer-cta-section fade-in">
+    <div class="container">
+        <h2>Ready to transform your<br>business workflows?</h2>
+        <p>Join innovative companies that trust us to deliver AI-powered solutions that accelerate growth and streamline operations.</p>
+        <a href="#contact" class="hero-cta">Get Started</a>
+    </div>
+</section>
+
 <!-- Contact Section -->
 <section id="contact" class="section contact-section">
     <div class="container">
         <div class="contact-container">
             <div style="text-align: center; margin-bottom: 40px;">
                 <h2>Start Innovating Now</h2>
-<!--                <p style="color: rgba(255, 255, 255, 0.7); font-size: 1.1rem;">-->
-<!--                    We provide a preliminary assessment within 24 hours.-->
-<!--                </p>-->
+                <p style="color: var(--text-gray); font-size: 1.125rem;">
+                    We provide a preliminary assessment within 24 hours.
+                </p>
             </div>
 
             <?php if (isset($_GET['contact']) && $_GET['contact'] === 'success'): ?>
-                <div class="success-message" style="padding: 1.5rem; background: rgba(75, 88, 255, 0.2); border-radius: 10px; margin-bottom: 2rem; text-align: center;">
-                    <p style="color: #4b58ff; margin: 0; font-weight: 600;">Thank you! We'll get back to you within 24 hours.</p>
+                <div class="success-message">
+                    <p style="margin: 0;">Thank you! We'll get back to you within 24 hours.</p>
                 </div>
             <?php endif; ?>
 
@@ -459,26 +518,28 @@
 
                 <div class="form-grid">
                     <div>
-                        <label style="display: block; margin-bottom: 10px; font-size: 0.9rem; font-weight: 600; color: var(--secondary-color);">
-                            I'M INTERESTED IN...
+                        <label style="display: block; margin-bottom: 10px; font-size: 0.875rem; font-weight: 600; color: var(--text-dark); text-transform: uppercase; letter-spacing: 0.05em;">
+                            I'm interested in...
                         </label>
                         <select id="serviceSelect" name="service" class="form-select" required>
-                            <option value="" disabled selected>Select a Topic...</option>
-                            <option value="strategy">AI Strategy Session (New!)</option>
-                            <option value="ai">AI &amp; Automation Implementation</option>
+                            <option value="" disabled selected>Select a service...</option>
+                            <option value="strategy">AI Strategy Session</option>
+                            <option value="ai">AI & Automation Implementation</option>
                             <option value="software">Custom Software Development</option>
                             <option value="web">Web Platform / Redesign</option>
                             <option value="other">Other / General Inquiry</option>
                         </select>
                     </div>
 
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
                         <input type="text" id="name" name="name" class="form-input" placeholder="Name" required>
                         <input type="email" id="email" name="email" class="form-input" placeholder="Work Email" required>
                     </div>
 
                     <div id="dynamic-field-container">
-                        <label id="dynamic-label" class="dynamic-label">Tell us about your project</label>
+                        <label id="dynamic-label" style="display: block; margin-bottom: 10px; font-size: 0.875rem; font-weight: 600; color: var(--text-dark); text-transform: uppercase; letter-spacing: 0.05em;">
+                            Tell us about your project
+                        </label>
                         <textarea id="message" name="message" class="form-input" rows="5" placeholder="Briefly describe your goals..." required></textarea>
                     </div>
 
