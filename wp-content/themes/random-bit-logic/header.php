@@ -40,9 +40,7 @@
 <header class="site-header with-topbar">
     <div class="header-container">
         <?php if (has_custom_logo()) : ?>
-            <a href="<?php echo home_url(); ?>" class="site-logo">
-                <?php the_custom_logo(); ?>
-            </a>
+            <?php the_custom_logo(); ?>
         <?php else : ?>
             <a href="<?php echo home_url(); ?>" class="site-logo">
                 <span style="font-size: 1.5rem; font-weight: 800; color: var(--text-dark);">Random Bit Logic</span>
