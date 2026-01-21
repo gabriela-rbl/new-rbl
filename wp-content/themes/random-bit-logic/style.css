@@ -762,11 +762,28 @@ strong {
     border-radius: 0.5rem;
     font-size: 1rem;
     transition: var(--transition);
+    cursor: default;
+    color: var(--text-dark);
 }
 
 .demo-input:focus {
     outline: none;
-    border-color: var(--primary-blue);
+    border-color: var(--border-light);
+}
+
+.demo-input::placeholder {
+    color: #9CA3AF;
+    opacity: 1;
+}
+
+.demo-input[readonly] {
+    background-color: var(--light-bg);
+    cursor: default;
+}
+
+.demo-button {
+    pointer-events: none;
+    opacity: 0.9;
 }
 
 .demo-suggestions {
@@ -781,14 +798,15 @@ strong {
     border: 1px solid var(--border-light);
     border-radius: 2rem;
     font-size: 0.875rem;
-    /*cursor: pointer;*/
+    cursor: default;
     transition: var(--transition);
+    pointer-events: none;
 }
 
 .suggestion-chip:hover {
-    background: var(--primary-blue);
-    color: var(--text-light);
-    border-color: var(--primary-blue);
+    background: var(--light-gray-bg);
+    color: inherit;
+    border-color: var(--border-light);
 }
 
 /* ===================================
