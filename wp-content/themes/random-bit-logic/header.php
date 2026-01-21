@@ -26,17 +26,43 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
+<!-- Topbar -->
+<div class="site-topbar" id="topbar">
+    <div class="topbar-content">
+        <span class="topbar-badge">NEW</span>
+        <span>Request our one-pager to know more</span>
+        <a href="#contact" class="topbar-link">Learn more →</a>
+    </div>
+    <button class="topbar-close" onclick="document.getElementById('topbar').style.display='none';document.querySelector('.site-header').classList.remove('with-topbar');" aria-label="Close">×</button>
+</div>
+
 <!-- Site Header -->
-<header class="site-header">
+<header class="site-header with-topbar">
     <div class="header-container">
-        <a href="<?php echo home_url(); ?>" class="site-logo">Random Bit Logic</a>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="#enterprise">Solutions</a></li>
-                <li><a href="#seatserve">Work</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact" class="nav-cta">Get Started</a></li>
-            </ul>
-        </nav>
+        <?php if (has_custom_logo()) : ?>
+            <a href="<?php echo home_url(); ?>" class="site-logo">
+                <?php the_custom_logo(); ?>
+            </a>
+        <?php else : ?>
+            <a href="<?php echo home_url(); ?>" class="site-logo">
+                <span style="font-size: 1.5rem; font-weight: 800; color: var(--text-dark);">Random Bit Logic</span>
+            </a>
+        <?php endif; ?>
+
+        <div class="header-right">
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#platform">Platform</a></li>
+                    <li><a href="#enterprise">Solutions</a></li>
+                    <li><a href="#seatserve">Clients</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#" class="login-link">Login</a>
+                <a href="#contact" class="nav-cta">Request a demo</a>
+            </div>
+        </div>
     </div>
 </header>
