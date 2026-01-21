@@ -14,7 +14,7 @@ Text Domain: random-bit-logic
    Fonts
    =================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 /* ===================================
    CSS Reset & Base Styles
@@ -28,8 +28,8 @@ Text Domain: random-bit-logic
 
 :root {
     /* Simetrik-inspired color palette */
-    --primary-blue: #4F46E5;
-    --primary-blue-hover: #4338CA;
+    --primary-blue: #4b58ff;
+    --primary-blue-hover: #3d47e6;
     --dark-bg: #0F0F0F;
     --dark-bg-secondary: #1A1A1A;
     --light-bg: #FFFFFF;
@@ -54,7 +54,7 @@ html {
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-weight: 400;
     color: var(--text-dark);
     background: var(--light-bg);
@@ -69,7 +69,7 @@ body {
    =================================== */
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1rem;
@@ -94,7 +94,7 @@ h3 {
 }
 
 p {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: clamp(1rem, 2vw, 1.125rem);
     font-weight: 400;
     line-height: 1.7;
@@ -151,6 +151,69 @@ strong {
 }
 
 /* ===================================
+   Topbar
+   =================================== */
+
+.site-topbar {
+    background: var(--primary-blue);
+    color: var(--text-light);
+    padding: 0.75rem 0;
+    text-align: center;
+    position: relative;
+    z-index: 999;
+}
+
+.topbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+}
+
+.topbar-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.625rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.topbar-link {
+    color: var(--text-light);
+    text-decoration: underline;
+    transition: var(--transition);
+    margin-left: 0.5rem;
+}
+
+.topbar-link:hover {
+    opacity: 0.8;
+}
+
+.topbar-close {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    font-size: 1.25rem;
+    opacity: 0.8;
+    transition: var(--transition);
+    padding: 0.25rem;
+    line-height: 1;
+}
+
+.topbar-close:hover {
+    opacity: 1;
+}
+
+/* ===================================
    Header & Navigation
    =================================== */
 
@@ -160,32 +223,43 @@ strong {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
+    background: var(--light-bg);
     border-bottom: 1px solid var(--border-light);
     transition: var(--transition);
 }
 
 .site-header.scrolled {
-    background: rgba(255, 255, 255, 0.95);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.site-header.with-topbar {
+    top: 42px;
 }
 
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.25rem var(--container-padding);
+    padding: 1rem var(--container-padding);
     max-width: 1280px;
     margin: 0 auto;
 }
 
 .site-logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--text-dark);
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    letter-spacing: -0.02em;
+}
+
+.site-logo img {
+    height: 40px;
+    width: auto;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
 }
 
 .main-nav ul {
@@ -193,10 +267,11 @@ strong {
     list-style: none;
     gap: 2rem;
     align-items: center;
+    margin: 0;
 }
 
 .main-nav a {
-    color: var(--text-gray);
+    color: var(--text-dark);
     text-decoration: none;
     font-weight: 500;
     font-size: 0.9375rem;
@@ -204,6 +279,24 @@ strong {
 }
 
 .main-nav a:hover {
+    color: var(--primary-blue);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.login-link {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: var(--transition);
+}
+
+.login-link:hover {
     color: var(--primary-blue);
 }
 
@@ -231,7 +324,7 @@ strong {
     align-items: center;
     justify-content: center;
     background: var(--light-bg);
-    padding-top: 6rem;
+    padding-top: 8rem;
     text-align: center;
 }
 
@@ -937,7 +1030,7 @@ strong {
     border: 2px solid var(--border-light);
     border-radius: 0.5rem;
     font-size: 1rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     transition: var(--transition);
     background: var(--light-bg);
 }
@@ -1062,12 +1155,26 @@ textarea.form-input {
 }
 
 @media (max-width: 768px) {
-    .main-nav {
+    .site-topbar {
+        font-size: 0.8125rem;
+        padding: 0.625rem 0;
+    }
+
+    .topbar-close {
+        right: 1rem;
+    }
+
+    .header-right {
         display: none;
+    }
+
+    .site-logo img {
+        height: 32px;
     }
 
     .hero {
         min-height: 80vh;
+        padding-top: 6rem;
     }
 
     .enterprise-grid,
