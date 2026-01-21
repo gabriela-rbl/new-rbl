@@ -33,7 +33,6 @@
         <span>Request our one-pager to know more</span>
         <a href="#contact" class="topbar-link">Learn more →</a>
     </div>
-    <button class="topbar-close" onclick="document.getElementById('topbar').style.display='none';document.querySelector('.site-header').classList.remove('with-topbar');" aria-label="Close">×</button>
 </div>
 
 <!-- Site Header -->
@@ -47,20 +46,21 @@
             </a>
         <?php endif; ?>
 
-        <div class="header-right">
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#platform">Platform</a></li>
-                    <li><a href="#enterprise">Solutions</a></li>
-                    <li><a href="#seatserve">Clients</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                </ul>
-            </nav>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#platform">Platform</a></li>
+                <li><a href="#enterprise">Solutions</a></li>
+                <li><a href="#seatserve">Clients</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+            </ul>
+        </nav>
 
-            <div class="header-actions">
-                <a href="#" class="login-link">Login</a>
-                <a href="#contact" class="nav-cta">Request a demo</a>
-            </div>
+        <div class="header-actions">
+            <a href="#" class="login-link">Login</a>
+            <a href="#contact" class="nav-cta">
+                <span>Request a demo</span>
+                <span class="arrow">→</span>
+            </a>
         </div>
     </div>
 </header>
