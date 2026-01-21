@@ -239,8 +239,8 @@
 
         <div class="ai-demo-container">
             <div class="demo-input-group">
-                <input type="text" class="demo-input" placeholder="Ask any question about your operations..." />
-                <button class="hero-cta">
+                <input type="text" class="demo-input" placeholder="" readonly />
+                <button class="hero-cta demo-button">
                     <span>Ask AI</span>
                     <span class="arrow">→</span>
                 </button>
