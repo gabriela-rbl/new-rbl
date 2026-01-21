@@ -4,7 +4,7 @@
 <section id="hero" class="section hero fade-in">
     <div class="container">
         <div class="hero-content">
-            <div class="hero-badge">AI-Powered Solutions</div>
+<!--            <div class="hero-badge">AI-Powered Solutions</div>-->
 
             <h1 class="hero-headline">
                 AI-powered precision<br>across every operation
@@ -16,7 +16,7 @@
             </p>
 
             <a href="#contact" class="hero-cta">
-                <span>Get Started</span>
+                <span>Request a demo</span>
                 <span class="arrow">→</span>
             </a>
         </div>
@@ -24,24 +24,27 @@
 </section>
 
 <!-- Demo Section -->
-<section id="demo" class="section demo-section fade-in">
-    <div class="container">
-        <div class="demo-content">
-            <h2>Turning business complexity<br>into automated workflows</h2>
-            <p>Our AI-powered platforms streamline operations and enhance productivity across your entire organization.</p>
-        </div>
-        <div class="demo-mockup">
-            <!-- This would contain a demo image or video -->
-            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 500px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 700;">
-                Dashboard Preview
-            </div>
-        </div>
-    </div>
-</section>
+<!--<section id="demo" class="section demo-section fade-in">-->
+<!--    <div class="container">-->
+<!--        <div class="demo-content">-->
+<!--            <h2>Turning business complexity<br>into automated workflows</h2>-->
+<!--            <p>Our AI-powered platforms streamline operations and enhance productivity across your entire organization.</p>-->
+<!--        </div>-->
+<!--        <div class="demo-mockup">-->
+<!--            <!-- This would contain a demo image or video -->-->
+<!--            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 500px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 700;">-->
+<!--                Dashboard Preview-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
 
 <!-- Partners Section -->
 <section id="partners" class="section partners-section fade-in">
     <div class="container">
+        <h3>
+            Trusted by world-class companies in the US, UK, Israel, Japan and beyond
+        </h3>
         <div class="partners-grid">
             <div class="client-logo">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/seatserve-logo.png" alt="SeatServe" class="partner-logo" />
@@ -66,7 +69,8 @@
 <section id="enterprise" class="section enterprise-section fade-in">
     <div class="container">
         <div class="enterprise-header">
-            <h2>Built to handle enterprise complexity</h2>
+<!--            <h2>Built to handle enterprise complexity</h2>-->
+            <h2 class="ai-question">Here to answer the question: "How are we going to use AI in our business?"</h2>
             <p>Comprehensive AI and automation solutions designed for modern businesses that demand scale, reliability, and results.</p>
         </div>
 
@@ -77,8 +81,7 @@
                     <path d="M6 16H42" stroke="currentColor" stroke-width="2"/>
                     <path d="M16 6V42" stroke="currentColor" stroke-width="2"/>
                 </svg>
-                <h3>Multi-millions of<br>operations processed</h3>
-                <p>Handle massive data volumes with AI-powered automation that scales with your business needs.</p>
+                <h3>Intelligent systems and workflows designed for extreme data scale, coordinating millions of cross-platform transactions with real-time performance.</h3>
             </div>
 
             <div class="enterprise-card fade-in fade-in-delay-2">
@@ -86,8 +89,7 @@
                     <path d="M24 4L6 14V34L24 44L42 34V14L24 4Z" stroke="currentColor" stroke-width="2"/>
                     <circle cx="24" cy="24" r="4" fill="currentColor"/>
                 </svg>
-                <h3>Never stop API access<br>and reconciliation</h3>
-                <p>Integrate seamlessly with any platform. Our solutions work 24/7 to keep your systems in sync.</p>
+                <h3>From chaos to clarity, using automation to eliminate reconciliation bottlenecks and dramatically shorten close cycles.</h3>
             </div>
 
             <div class="enterprise-card fade-in fade-in-delay-3">
@@ -95,8 +97,7 @@
                     <path d="M12 2L2 7V12C2 17.5 6 21.5 12 22C18 21.5 22 17.5 22 12V7L12 2Z" transform="translate(12, 12)" stroke="currentColor" stroke-width="2"/>
                     <rect x="4" y="32" width="40" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
                 </svg>
-                <h3>Enterprise-grade<br>security and support</h3>
-                <p>Built with security-first architecture and backed by dedicated support teams ready to help.</p>
+                <h3>Continuous compliance by design, enabling faster audits and automatic alignment with new regulatory requirements.</h3>
             </div>
         </div>
     </div>
@@ -183,7 +184,7 @@
 <section id="solutions" class="section solutions-section fade-in">
     <div class="container">
         <div class="solutions-header">
-            <h2>Solutions for fast-moving<br>technology teams</h2>
+            <h2>Solutions for fast-moving teams</h2>
             <p>Whether you need AI strategy, custom software, or full-scale automation, we deliver solutions that accelerate growth.</p>
         </div>
 
@@ -243,58 +244,58 @@
 </section>
 
 <!-- Integrations Section -->
-<section id="integrations" class="section integrations-section fade-in">
-    <div class="container">
-        <div class="integrations-header">
-            <h2>Connect any data source or system</h2>
-            <p>Seamlessly integrate with the tools and platforms you already use</p>
-        </div>
-
-        <div class="integrations-grid">
-            <!-- Integration logos would go here -->
-            <div class="integration-logo">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2L2 7V17L12 22L22 17V7L12 2Z"/>
-                </svg>
-            </div>
-            <div class="integration-logo">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <circle cx="12" cy="12" r="10"/>
-                </svg>
-            </div>
-            <div class="integration-logo">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <rect x="2" y="2" width="20" height="20" rx="4"/>
-                </svg>
-            </div>
-            <div class="integration-logo">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5"/>
-                </svg>
-            </div>
-            <div class="integration-logo">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2L15 8L22 9L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9L9 8L12 2Z"/>
-                </svg>
-            </div>
-            <div class="integration-logo">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <polygon points="12 2 19 7 19 17 12 22 5 17 5 7"/>
-                </svg>
-            </div>
-            <div class="integration-logo">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <rect x="4" y="4" width="16" height="16" rx="2"/>
-                </svg>
-            </div>
-            <div class="integration-logo">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <circle cx="12" cy="12" r="8"/>
-                </svg>
-            </div>
-        </div>
-    </div>
-</section>
+<!--<section id="integrations" class="section integrations-section fade-in">-->
+<!--    <div class="container">-->
+<!--        <div class="integrations-header">-->
+<!--            <h2>Connect any data source or system</h2>-->
+<!--            <p>Seamlessly integrate with the tools and platforms you already use</p>-->
+<!--        </div>-->
+<!---->
+<!--        <div class="integrations-grid">-->
+<!--            <!-- Integration logos would go here -->-->
+<!--            <div class="integration-logo">-->
+<!--                <svg viewBox="0 0 24 24" fill="currentColor">-->
+<!--                    <path d="M12 2L2 7V17L12 22L22 17V7L12 2Z"/>-->
+<!--                </svg>-->
+<!--            </div>-->
+<!--            <div class="integration-logo">-->
+<!--                <svg viewBox="0 0 24 24" fill="currentColor">-->
+<!--                    <circle cx="12" cy="12" r="10"/>-->
+<!--                </svg>-->
+<!--            </div>-->
+<!--            <div class="integration-logo">-->
+<!--                <svg viewBox="0 0 24 24" fill="currentColor">-->
+<!--                    <rect x="2" y="2" width="20" height="20" rx="4"/>-->
+<!--                </svg>-->
+<!--            </div>-->
+<!--            <div class="integration-logo">-->
+<!--                <svg viewBox="0 0 24 24" fill="currentColor">-->
+<!--                    <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5"/>-->
+<!--                </svg>-->
+<!--            </div>-->
+<!--            <div class="integration-logo">-->
+<!--                <svg viewBox="0 0 24 24" fill="currentColor">-->
+<!--                    <path d="M12 2L15 8L22 9L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9L9 8L12 2Z"/>-->
+<!--                </svg>-->
+<!--            </div>-->
+<!--            <div class="integration-logo">-->
+<!--                <svg viewBox="0 0 24 24" fill="currentColor">-->
+<!--                    <polygon points="12 2 19 7 19 17 12 22 5 17 5 7"/>-->
+<!--                </svg>-->
+<!--            </div>-->
+<!--            <div class="integration-logo">-->
+<!--                <svg viewBox="0 0 24 24" fill="currentColor">-->
+<!--                    <rect x="4" y="4" width="16" height="16" rx="2"/>-->
+<!--                </svg>-->
+<!--            </div>-->
+<!--            <div class="integration-logo">-->
+<!--                <svg viewBox="0 0 24 24" fill="currentColor">-->
+<!--                    <circle cx="12" cy="12" r="8"/>-->
+<!--                </svg>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
 
 <!-- SeatServe Section -->
 <section id="seatserve" class="section client-section fade-in" data-client="seatserve">
@@ -469,67 +470,74 @@
 </section>
 
 <!-- Testimonials Section -->
-<section id="testimonials" class="section testimonials-section fade-in">
-    <div class="container">
-        <div class="testimonials-header">
-            <h2>Testimonials from our customers<br>about their transformation journey</h2>
-        </div>
-
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="Client" class="testimonial-image" />
-                <div class="testimonial-overlay">
-                    <div class="testimonial-name">Michael Chen</div>
-                    <div class="testimonial-company">SeatServe</div>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" alt="Client" class="testimonial-image" />
-                <div class="testimonial-overlay">
-                    <div class="testimonial-name">Sarah Martinez</div>
-                    <div class="testimonial-company">Rose Box</div>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80" alt="Client" class="testimonial-image" />
-                <div class="testimonial-overlay">
-                    <div class="testimonial-name">David Thompson</div>
-                    <div class="testimonial-company">DutchX</div>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80" alt="Client" class="testimonial-image" />
-                <div class="testimonial-overlay">
-                    <div class="testimonial-name">Emily Rodriguez</div>
-                    <div class="testimonial-company">Empire</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!--<section id="testimonials" class="section testimonials-section fade-in">-->
+<!--    <div class="container">-->
+<!--        <div class="testimonials-header">-->
+<!--            <h2>Testimonials from our customers<br>about their transformation journey</h2>-->
+<!--        </div>-->
+<!---->
+<!--        <div class="testimonials-grid">-->
+<!--            <div class="testimonial-card">-->
+<!--                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="Client" class="testimonial-image" />-->
+<!--                <div class="testimonial-overlay">-->
+<!--                    <div class="testimonial-name">Michael Chen</div>-->
+<!--                    <div class="testimonial-company">SeatServe</div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!---->
+<!--            <div class="testimonial-card">-->
+<!--                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" alt="Client" class="testimonial-image" />-->
+<!--                <div class="testimonial-overlay">-->
+<!--                    <div class="testimonial-name">Sarah Martinez</div>-->
+<!--                    <div class="testimonial-company">Rose Box</div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!---->
+<!--            <div class="testimonial-card">-->
+<!--                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80" alt="Client" class="testimonial-image" />-->
+<!--                <div class="testimonial-overlay">-->
+<!--                    <div class="testimonial-name">David Thompson</div>-->
+<!--                    <div class="testimonial-company">DutchX</div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!---->
+<!--            <div class="testimonial-card">-->
+<!--                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80" alt="Client" class="testimonial-image" />-->
+<!--                <div class="testimonial-overlay">-->
+<!--                    <div class="testimonial-name">Emily Rodriguez</div>-->
+<!--                    <div class="testimonial-company">Empire</div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
 
 <!-- Footer CTA Section -->
+<!--<section id="footer-cta" class="section footer-cta-section fade-in">-->
+<!--    <div class="container">-->
+<!--        <h2>Ready to transform your<br>business workflows?</h2>-->
+<!--        <p>Join innovative companies that trust us to deliver AI-powered solutions that accelerate growth and streamline operations.</p>-->
+<!--        <a href="#contact" class="hero-cta">Get Started</a>-->
+<!--    </div>-->
+<!--</section>-->
+
+
 <section id="footer-cta" class="section footer-cta-section fade-in">
     <div class="container">
         <h2>Ready to transform your<br>business workflows?</h2>
-        <p>Join innovative companies that trust us to deliver AI-powered solutions that accelerate growth and streamline operations.</p>
-        <a href="#contact" class="hero-cta">Get Started</a>
+<!--        <p>Join innovative companies that trust us to deliver AI-powered solutions that accelerate growth and streamline operations.</p>-->
+<!--        <a href="#contact" class="hero-cta">Get Started</a>-->
     </div>
-</section>
 
-<!-- Contact Section -->
-<section id="contact" class="section contact-section">
-    <div class="container">
-        <div class="contact-container">
-            <div style="text-align: center; margin-bottom: 40px;">
-                <h2>Start Innovating Now</h2>
-                <p style="color: var(--text-gray); font-size: 1.125rem;">
-                    We provide a preliminary assessment within 24 hours.
-                </p>
-            </div>
+<!--<section id="contact" class="section contact-section">-->
+<!--    <div class="container">-->
+<!--        <div class="contact-container">-->
+<!--            <div style="text-align: center; margin-bottom: 40px;">-->
+<!--                <h2>Start Innovating Now</h2>-->
+<!--                <p style="color: var(--text-gray); font-size: 1.125rem;">-->
+<!--                    We provide a preliminary assessment within 24 hours.-->
+<!--                </p>-->
+<!--            </div>-->
 
             <?php if (isset($_GET['contact']) && $_GET['contact'] === 'success'): ?>
                 <div class="success-message">
@@ -542,7 +550,7 @@
 
                 <div class="form-grid">
                     <div>
-                        <label style="display: block; margin-bottom: 10px; font-size: 0.875rem; font-weight: 600; color: var(--text-dark); text-transform: uppercase; letter-spacing: 0.05em;">
+                        <label>
                             I'm interested in...
                         </label>
                         <select id="serviceSelect" name="service" class="form-select" required>
@@ -561,7 +569,7 @@
                     </div>
 
                     <div id="dynamic-field-container">
-                        <label id="dynamic-label" style="display: block; margin-bottom: 10px; font-size: 0.875rem; font-weight: 600; color: var(--text-dark); text-transform: uppercase; letter-spacing: 0.05em;">
+                        <label id="dynamic-label">
                             Tell us about your project
                         </label>
                         <textarea id="message" name="message" class="form-input" rows="5" placeholder="Briefly describe your goals..." required></textarea>

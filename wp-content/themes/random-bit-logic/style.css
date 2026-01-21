@@ -78,19 +78,16 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     font-size: clamp(2.5rem, 6vw, 4.5rem);
-    font-weight: 800;
     letter-spacing: -0.02em;
 }
 
 h2 {
     font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 800;
     letter-spacing: -0.02em;
 }
 
 h3 {
     font-size: clamp(1.5rem, 3vw, 2rem);
-    font-weight: 700;
 }
 
 p {
@@ -270,7 +267,7 @@ strong {
 .main-nav a {
     color: var(--text-dark);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 0.9375rem;
     transition: var(--transition);
 }
@@ -302,8 +299,10 @@ strong {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: var(--primary-blue);
-    color: var(--text-light) !important;
+    /*background: var(--primary-blue);*/
+    /*color: var(--text-light) !important;*/
+    background: rgba(79, 70, 229, 0.1);
+    color: var(--primary-blue);
     padding: 0.625rem 1.25rem;
     border-radius: 1.5rem;
     font-weight: 600;
@@ -317,7 +316,7 @@ strong {
 }
 
 .nav-cta:hover {
-    background: var(--primary-blue-hover);
+    background: rgba(79, 70, 229, 0.15);
     transform: translateY(-1px);
 }
 
@@ -505,7 +504,7 @@ strong {
     background: var(--light-bg);
     padding: 2.5rem;
     border-radius: 1rem;
-    border: 1px solid var(--border-light);
+    /*border: 1px solid var(--border-light);*/
     transition: var(--transition);
     text-align: left;
 }
@@ -516,8 +515,8 @@ strong {
 }
 
 .enterprise-icon {
-    width: 48px;
-    height: 48px;
+    width: 30px;
+    height: 30px;
     margin-bottom: 1.5rem;
     color: var(--primary-blue);
 }
@@ -755,7 +754,7 @@ strong {
     border: 1px solid var(--border-light);
     border-radius: 2rem;
     font-size: 0.875rem;
-    cursor: pointer;
+    /*cursor: pointer;*/
     transition: var(--transition);
 }
 
@@ -1040,7 +1039,7 @@ strong {
 }
 
 .contact-form {
-    background: var(--light-bg);
+    /*background: var(--light-bg);*/
     padding: 3rem;
     border-radius: 1rem;
     border: 1px solid var(--border-light);
@@ -1052,6 +1051,16 @@ strong {
     gap: 1.5rem;
 }
 
+.form-grid label{
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
 .form-input,
 .form-select {
     width: 100%;
@@ -1061,7 +1070,9 @@ strong {
     font-size: 1rem;
     font-family: 'Plus Jakarta Sans', sans-serif;
     transition: var(--transition);
-    background: var(--light-bg);
+    /*background: var(--light-bg);*/
+    color: #fff;
+    background: #000;
 }
 
 .form-input:focus,
