@@ -41,9 +41,9 @@
 <!-- Partners Section -->
 <section id="partners" class="section partners-section fade-in">
     <div class="container">
-        <h3>
+        <h4 class="partners-label">
             Trusted by world-class companies in the US, UK, Israel, Japan and beyond
-        </h3>
+        </h4>
         <div class="partners-grid">
             <div class="client-logo">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/seatserve-logo.png" alt="SeatServe" class="partner-logo" />
@@ -109,10 +109,6 @@
 <!--            <h2>One platform for complete<br>business automation</h2>-->
             <h2>Here to answer the question <span>"How are we going to use AI in our business?"</span></h2>
             <p>From custom software to AI implementation, we deliver integrated solutions that transform how your business operates.</p>
-            <a href="#contact" class="hero-cta">
-                <span>Get Started</span>
-                <span class="arrow">→</span>
-            </a>
         </div>
     </div>
 </section>
@@ -126,6 +122,10 @@
                 <h3>Eliminate costly manual processes</h3>
                 <p>Reduce manual data entry and human error with AI-powered automation. Our intelligent workflows process thousands of operations daily, saving time and reducing costs.</p>
                 <p>Free your team to focus on strategic work while AI handles repetitive tasks with precision and accuracy.</p>
+                <a href="#contact" class="small-cta">
+                    <span>Learn More</span>
+                    <span class="arrow">→</span>
+                </a>
             </div>
             <div class="feature-mockup">
                 <div class="feature-mockup-dark">
@@ -147,6 +147,10 @@
                 <h3>Generate actionable, shareable insights</h3>
                 <p>Transform raw data into strategic insights. Our AI-powered analytics platforms deliver real-time reporting and predictive intelligence tailored to your business needs.</p>
                 <p>Share customized reports across teams and make data-driven decisions faster than ever.</p>
+                <a href="#contact" class="small-cta">
+                    <span>Learn More</span>
+                    <span class="arrow">→</span>
+                </a>
             </div>
             <div class="feature-mockup">
                 <div class="feature-mockup-dark">
@@ -168,6 +172,10 @@
                 <h3>Build faster without engineering bottlenecks</h3>
                 <p>When off-the-shelf solutions don't fit, we build custom platforms tailored to your exact requirements. From concept to deployment in weeks, not months.</p>
                 <p>Our agile approach delivers production-ready software without the overhead of traditional development.</p>
+                <a href="#contact" class="small-cta">
+                    <span>Learn More</span>
+                    <span class="arrow">→</span>
+                </a>
             </div>
             <div class="feature-mockup">
                 <div class="feature-mockup-dark">
@@ -213,6 +221,11 @@
                 </div>
             </div>
         </div>
+
+        <a href="#contact" class="hero-cta">
+            <span>Request a demo</span>
+            <span class="arrow">→</span>
+        </a>
     </div>
 </section>
 

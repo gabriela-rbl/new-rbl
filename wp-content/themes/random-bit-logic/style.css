@@ -471,6 +471,13 @@ strong {
     filter: grayscale(0%);
 }
 
+.partners-label{
+    text-align: center;
+    color: #555;
+    margin-bottom: 80px;
+    font-weight: 500;
+}
+
 /* ===================================
    Enterprise Section
    =================================== */
@@ -540,15 +547,21 @@ strong {
 .platform-section {
     background: var(--light-bg);
     text-align: center;
+    padding-bottom: 0px;
 }
 
 .platform-content {
-    max-width: 700px;
+    /*max-width: 700px;*/
     margin: 0 auto;
 }
 
 .platform-content h2 {
     margin-bottom: 1.5rem;
+}
+
+.platform-content h2 span{
+    display: block;
+    color: #4b58ff;
 }
 
 .platform-content p {
@@ -625,6 +638,13 @@ strong {
 
 .feature-mockup-dark .feature-mockup-image {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.small-cta{
+    color: var(--primary-blue);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-decoration: underline;
 }
 
 /* ===================================
