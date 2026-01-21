@@ -42,31 +42,15 @@ function rbl_enqueue_scripts() {
         'rbl-style',
         get_stylesheet_uri(),
         array(),
-        '1.0.0'
+        '2.0.0'
     );
 
-    // Custom JavaScript
+    // Animations JavaScript
     wp_enqueue_script(
-        'rbl-hero-animations',
-        get_template_directory_uri() . '/assets/js/hero-animations.js',
+        'rbl-animations',
+        get_template_directory_uri() . '/js/animations.js',
         array(),
-        '1.0.0',
-        true
-    );
-
-    wp_enqueue_script(
-        'rbl-scroll-animations',
-        get_template_directory_uri() . '/assets/js/scroll-animations.js',
-        array('rbl-hero-animations'),
-        '1.0.0',
-        true
-    );
-
-    wp_enqueue_script(
-        'rbl-main',
-        get_template_directory_uri() . '/assets/js/main.js',
-        array('rbl-scroll-animations'),
-        '1.0.0',
+        '2.0.0',
         true
     );
 }
