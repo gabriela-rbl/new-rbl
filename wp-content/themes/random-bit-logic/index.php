@@ -19,6 +19,10 @@
                 <span>Request a demo</span>
                 <span class="arrow">→</span>
             </a>
+
+            <p class="hero-trusted-by">
+                Trusted by world-class companies in the US, UK, Israel, Japan and beyond
+            </p>
         </div>
     </div>
 </section>
@@ -37,32 +41,6 @@
 <!--        </div>-->
 <!--    </div>-->
 <!--</section>-->
-
-<!-- Partners Section -->
-<section id="partners" class="section partners-section fade-in">
-    <div class="container">
-        <h4 class="partners-label">
-            Trusted by world-class companies in the US, UK, Israel, Japan and beyond
-        </h4>
-        <div class="partners-grid">
-            <div class="client-logo">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/seatserve-logo.png" alt="SeatServe" class="partner-logo" />
-            </div>
-            <div class="client-logo">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/rosebox-logo.png" alt="Rose Box" class="partner-logo" />
-            </div>
-            <div class="client-logo">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/dutchx-logo.png" alt="DutchX" class="partner-logo" />
-            </div>
-            <div class="client-logo">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/empire-logo.png" alt="Empire" class="partner-logo" />
-            </div>
-            <div class="client-logo">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/capsoil-logo.png" alt="Capsoil" class="partner-logo" />
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- Enterprise Section -->
 <section id="enterprise" class="section enterprise-section fade-in">

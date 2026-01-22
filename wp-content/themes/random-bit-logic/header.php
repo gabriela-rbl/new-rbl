@@ -38,6 +38,13 @@
 <!-- Site Header -->
 <header class="site-header with-topbar">
     <div class="header-container">
+        <!-- Mobile hamburger menu button -->
+        <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
         <?php if (has_custom_logo()) : ?>
             <?php the_custom_logo(); ?>
         <?php else : ?>
@@ -61,5 +68,17 @@
                 <span class="arrow">→</span>
             </a>
         </div>
+    </div>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay">
+        <nav class="mobile-nav">
+            <ul>
+                <li><a href="#enterprise">Solutions</a></li>
+                <li><a href="#solutions">Services</a></li>
+                <li><a href="#seatserve">Cases</a></li>
+                <li><a href="#" class="mobile-login">Login</a></li>
+            </ul>
+        </nav>
     </div>
 </header>
