@@ -51,6 +51,24 @@ function rbl_enqueue_scripts() {
         '2.0.0'
     );
 
+    // Three.js library
+    wp_enqueue_script(
+        'threejs',
+        'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js',
+        array(),
+        'r128',
+        false
+    );
+
+    // Hero animations
+    wp_enqueue_script(
+        'rbl-hero-animations',
+        get_template_directory_uri() . '/assets/js/hero-animations.js',
+        array('threejs'),
+        '2.0.0',
+        true
+    );
+
     // Animations JavaScript
     wp_enqueue_script(
         'rbl-animations',

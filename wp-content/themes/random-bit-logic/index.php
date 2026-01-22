@@ -2,6 +2,7 @@
 
 <!-- Hero Section -->
 <section id="hero" class="section hero fade-in">
+    <div id="canvas-container"></div>
     <div class="container">
         <div class="hero-content">
 <!--            <div class="hero-badge">AI-Powered Solutions</div>-->
