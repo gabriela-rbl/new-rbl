@@ -198,6 +198,80 @@
         setTimeout(type, 500);
     }
 
+    // Three.js animated element in hero
+    function initThreeJS() {
+        // Check if THREE is available
+        if (typeof THREE === 'undefined') {
+            console.warn('Three.js is not loaded');
+            return;
+        }
+
+        const container = document.getElementById('canvas-container');
+        if (!container) return;
+
+        const scene = new THREE.Scene();
+
+        // Camera Setup
+        const camera = new THREE.PerspectiveCamera(50, container.clientWidth / container.clientHeight, 0.1, 1000);
+        camera.position.z = 20;
+
+        // Renderer Setup
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        container.appendChild(renderer.domElement);
+
+        // Create the Wireframe Sphere
+        const geometry = new THREE.IcosahedronGeometry(6, 1);
+        const material = new THREE.MeshBasicMaterial({
+            color: 0x2563eb,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.25
+        });
+        const sphere = new THREE.Mesh(geometry, material);
+        scene.add(sphere);
+
+        // Create the Floating Particles
+        const particlesGeo = new THREE.BufferGeometry();
+        const particlesCount = 120;
+        const posArray = new Float32Array(particlesCount * 3);
+
+        for (let i = 0; i < particlesCount * 3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 12;
+        }
+
+        particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        const particlesMat = new THREE.PointsMaterial({
+            size: 0.12,
+            color: 0x2563eb,
+            transparent: true,
+            opacity: 0.6
+        });
+        const particles = new THREE.Points(particlesGeo, particlesMat);
+        scene.add(particles);
+
+        // Animation Loop
+        const animate = () => {
+            requestAnimationFrame(animate);
+            sphere.rotation.y += 0.002;
+            sphere.rotation.x += 0.001;
+            particles.rotation.y -= 0.001;
+            renderer.render(scene, camera);
+        };
+
+        animate();
+
+        // Handle Window Resize
+        window.addEventListener('resize', () => {
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+            renderer.setSize(width, height);
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+        });
+    }
+
     // Initialize all animations when DOM is ready
     function init() {
         if (document.readyState === 'loading') {
@@ -207,6 +281,7 @@
                 initHeaderScroll();
                 initAnimatedPlaceholder();
                 initHeroTypingAnimation();
+                initThreeJS();
             });
         } else {
             initScrollAnimations();
@@ -214,6 +289,7 @@
             initHeaderScroll();
             initAnimatedPlaceholder();
             initHeroTypingAnimation();
+            initThreeJS();
         }
     }
 
