@@ -145,6 +145,59 @@
         });
     }
 
+    // Typing animation for hero headline
+    function initHeroTypingAnimation() {
+        const typingElement = document.querySelector('.typing-word');
+        if (!typingElement) return;
+
+        const words = ['workflow', 'process', 'report', 'operation'];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let isPaused = false;
+
+        function type() {
+            const currentWord = words[wordIndex];
+
+            if (isPaused) {
+                isPaused = false;
+                setTimeout(type, 1500); // Pause for 1.5 seconds before deleting
+                return;
+            }
+
+            if (isDeleting) {
+                // Remove characters
+                typingElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                    setTimeout(type, 500); // Pause before typing next word
+                    return;
+                }
+            } else {
+                // Add characters
+                typingElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+
+                if (charIndex === currentWord.length) {
+                    isDeleting = true;
+                    isPaused = true;
+                    setTimeout(type, 2000); // Pause when word is complete
+                    return;
+                }
+            }
+
+            // Typing speed: faster when deleting
+            const typeSpeed = isDeleting ? 50 : 100;
+            setTimeout(type, typeSpeed);
+        }
+
+        // Start typing animation after initial delay
+        setTimeout(type, 500);
+    }
+
     // Initialize all animations when DOM is ready
     function init() {
         if (document.readyState === 'loading') {
@@ -153,12 +206,14 @@
                 initSmoothScroll();
                 initHeaderScroll();
                 initAnimatedPlaceholder();
+                initHeroTypingAnimation();
             });
         } else {
             initScrollAnimations();
             initSmoothScroll();
             initHeaderScroll();
             initAnimatedPlaceholder();
+            initHeroTypingAnimation();
         }
     }
 
