@@ -284,14 +284,13 @@
         if (!container) return;
 
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0x1a1a1a);
 
         // Camera Setup - smaller sphere
         const camera = new THREE.PerspectiveCamera(50, container.clientWidth / container.clientHeight, 0.1, 1000);
         camera.position.z = 12;
 
         // Renderer Setup
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
         renderer.setSize(container.clientWidth, container.clientHeight);
         renderer.setPixelRatio(window.devicePixelRatio);
         container.appendChild(renderer.domElement);
