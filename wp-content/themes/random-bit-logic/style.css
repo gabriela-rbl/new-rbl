@@ -432,6 +432,29 @@ strong {
     line-height: 1.1;
 }
 
+.typing-word {
+    display: inline-block;
+    min-width: 10ch;
+    color: var(--primary-blue);
+    font-weight: inherit;
+}
+
+.typing-cursor {
+    display: inline-block;
+    color: var(--primary-blue);
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
 .hero-description {
     font-size: clamp(1.125rem, 2.5vw, 1.375rem);
     color: var(--text-gray);
