@@ -216,12 +216,30 @@
         </div>
 
         <div class="ai-demo-container">
-            <div class="demo-input-group">
-                <input type="text" class="demo-input" placeholder="" readonly />
-                <button class="hero-cta demo-button">
-                    <span>Ask AI</span>
-                    <span class="arrow">→</span>
-                </button>
+            <div class="demo-input-wrapper">
+                <textarea class="demo-input" rows="3" readonly>Are you ready to prepare your year-end audit documents?</textarea>
+                <div class="demo-input-controls">
+                    <button class="demo-control-btn automate-btn">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>Automate</span>
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class="demo-control-btn icon-btn mic-btn" aria-label="Voice input">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 1a2 2 0 00-2 2v4a2 2 0 104 0V3a2 2 0 00-2-2z" fill="currentColor"/>
+                            <path d="M4 7a4 4 0 008 0M8 11v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <button class="demo-control-btn icon-btn submit-btn" aria-label="Submit">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 3v10M8 3l-3 3M8 3l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
 
             <div class="demo-suggestions">
