@@ -217,7 +217,7 @@
 
         <div class="ai-demo-container">
             <div class="demo-input-wrapper">
-                <textarea class="demo-input" rows="3" readonly>Are you ready to prepare your year-end audit documents?</textarea>
+                <textarea class="demo-input" rows="3" readonly></textarea>
                 <div class="demo-input-controls">
                     <button class="demo-control-btn automate-btn">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
