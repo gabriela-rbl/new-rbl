@@ -409,6 +409,27 @@ strong {
     background: var(--light-bg);
     padding-top: 8rem;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#canvas-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+#canvas-container canvas {
+    display: block;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
 }
 
 .hero-content {
