@@ -16,6 +16,53 @@
         handleHashNavigation();
         initStickyHeader();
         initAnimatedPlaceholder();
+        initMobileMenu();
+    }
+
+    /**
+     * Mobile menu toggle functionality
+     */
+    function initMobileMenu() {
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a, .mobile-nav .mobile-login');
+
+        if (!menuToggle || !mobileNavOverlay) return;
+
+        // Toggle menu on button click
+        menuToggle.addEventListener('click', function() {
+            const isActive = this.classList.contains('active');
+
+            if (isActive) {
+                // Close menu
+                this.classList.remove('active');
+                mobileNavOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            } else {
+                // Open menu
+                this.classList.add('active');
+                mobileNavOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+
+        // Close menu when clicking on a link
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                mobileNavOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Close menu on window resize if open
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                menuToggle.classList.remove('active');
+                mobileNavOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
     }
 
     /**
