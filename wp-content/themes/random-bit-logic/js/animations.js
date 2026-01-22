@@ -25,7 +25,7 @@
         }, observerOptions);
 
         // Observe all fade-in elements
-        const fadeElements = document.querySelectorAll('.fade-in');
+        const fadeElements = document.querySelectorAll('.fade-in, .fade-in-phone');
         fadeElements.forEach(element => {
             observer.observe(element);
         });
