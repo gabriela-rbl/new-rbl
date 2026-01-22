@@ -61,7 +61,6 @@
     // Header scroll effect
     function initHeaderScroll() {
         const header = document.querySelector('.site-header');
-        const topbar = document.getElementById('topbar');
         if (!header) return;
 
         let lastScroll = 0;
@@ -71,11 +70,6 @@
 
             if (currentScroll > 50) {
                 header.classList.add('scrolled');
-                // Remove topbar when scrolling down
-                if (topbar && currentScroll > 100) {
-                    topbar.style.display = 'none';
-                    header.classList.remove('with-topbar');
-                }
             } else {
                 header.classList.remove('scrolled');
             }

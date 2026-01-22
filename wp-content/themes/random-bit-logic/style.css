@@ -156,10 +156,7 @@ strong {
     color: var(--text-light);
     padding: 1rem 0;
     text-align: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    position: relative;
     z-index: 999;
     transition: var(--transition);
 }
@@ -199,7 +196,7 @@ strong {
    =================================== */
 
 .site-header {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;
@@ -211,10 +208,6 @@ strong {
 
 .site-header.scrolled {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.site-header.with-topbar {
-    top: 53px;
 }
 
 .header-container {
