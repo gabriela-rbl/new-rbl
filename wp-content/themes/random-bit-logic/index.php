@@ -344,37 +344,55 @@
     </div>
 </section>
 
-<!-- Rose Box Section -->
-<section id="rosebox" class="section client-section fade-in" data-client="rosebox">
+<!-- Brands Showcase Section (Rose Box & Zcrave) -->
+<section id="rosebox" class="section brands-showcase-section fade-in" data-section="brands">
     <div class="container">
-        <div class="client-content">
-            <div class="client-info">
-                <div class="client-logo">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/rosebox-logo.png" alt="Rose Box" />
+        <div class="brands-showcase-header">
+            <h2>Featured Brands</h2>
+            <p>Creating distinctive digital experiences for statement fashion and luxury floral brands</p>
+        </div>
+        <div class="brands-showcase-grid">
+            <!-- Rose Box Brand -->
+            <div class="brand-showcase-item">
+                <div class="brand-phone-mockup fade-in-phone slide-in-left">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/rosebox-phone.png"
+                         alt="Rose Box Platform"
+                         class="mockup-image">
                 </div>
-                <div class="client-niche">E-commerce • Branding • Inventory Management</div>
-                <p class="client-description">
-                    Premium floral e-commerce platform with sophisticated brand identity and
-                    comprehensive inventory management. Crafting beautiful digital experiences
-                    for luxury flower arrangements.
-                </p>
-                <ul class="services-list">
-                    <li>Custom e-commerce platform</li>
-                    <li>Brand identity and design system</li>
-                    <li>Inventory management system</li>
-                    <li>Order fulfillment automation</li>
-                    <li>Customer relationship management</li>
-                </ul>
-                <a href="#footer-cta" class="client-cta">
-                    <span>Start Your Project</span>
-                    <span class="arrow">→</span>
-                </a>
+                <div class="brand-info">
+                    <div class="brand-logo">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/rosebox-logo.png" alt="Rose Box" />
+                    </div>
+                    <div class="brand-niche">Premium Floral E-commerce</div>
+                    <p class="brand-description">
+                        Sophisticated brand identity and comprehensive inventory management for luxury flower arrangements.
+                    </p>
+                </div>
             </div>
-            <div class="client-mockup">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/rosebox-phone.png"
-                     alt="Rose Box Platform"
-                     class="mockup-image">
+
+            <!-- Zcrave Brand -->
+            <div class="brand-showcase-item">
+                <div class="brand-phone-mockup fade-in-phone slide-in-right">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/z-crave-phone.png"
+                         alt="Zcrave Platform"
+                         class="mockup-image">
+                </div>
+                <div class="brand-info">
+                    <div class="brand-logo">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/zcrave-logo.png" alt="Zcrave" />
+                    </div>
+                    <div class="brand-niche">Statement Fashion Brand</div>
+                    <p class="brand-description">
+                        Bold fashion e-commerce platform with striking visual identity and seamless shopping experience.
+                    </p>
+                </div>
             </div>
+        </div>
+        <div class="brands-showcase-cta">
+            <a href="#footer-cta" class="client-cta">
+                <span>Start Your Project</span>
+                <span class="arrow">→</span>
+            </a>
         </div>
     </div>
 </section>
