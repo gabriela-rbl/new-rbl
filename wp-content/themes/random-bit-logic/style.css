@@ -1331,6 +1331,28 @@ strong {
     color: var(--text-light);
     text-align: center;
     padding: 5rem var(--container-padding);
+    position: relative;
+    overflow: hidden;
+}
+
+#contact-canvas-container {
+    position: absolute;
+    right: -25%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+#contact-canvas-container canvas {
+    display: block;
+}
+
+.footer-cta-section .container {
+    position: relative;
+    z-index: 2;
 }
 
 .footer-cta-section h2 {
