@@ -545,6 +545,7 @@
 
 
 <section id="footer-cta" class="section footer-cta-section fade-in">
+    <div id="contact-canvas-container"></div>
     <div class="container">
         <h2>Ready to transform your<br>business workflows?</h2>
 <!--        <p>Join innovative companies that trust us to deliver AI-powered solutions that accelerate growth and streamline operations.</p>-->
