@@ -1440,6 +1440,67 @@ strong {
 }
 
 /* ===================================
+   Blog Preview Section
+   =================================== */
+
+.blog-preview-section {
+    background: var(--primary-blue);
+    color: var(--text-light);
+    text-align: center;
+    padding: 5rem var(--container-padding);
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-preview-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.blog-preview-section h2 {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.blog-preview-section p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+.blog-preview-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: var(--text-light);
+    color: var(--primary-blue);
+    text-decoration: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 1.125rem;
+    transition: var(--transition);
+    border: 2px solid var(--text-light);
+}
+
+.blog-preview-cta:hover {
+    background: transparent;
+    color: var(--text-light);
+    transform: translateY(-2px);
+}
+
+.blog-preview-cta .arrow {
+    font-size: 1.25rem;
+    transition: var(--transition);
+}
+
+.blog-preview-cta:hover .arrow {
+    transform: translateX(4px);
+}
+
+/* ===================================
    Footer CTA Section
    =================================== */
 
