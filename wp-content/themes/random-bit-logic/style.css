@@ -1139,6 +1139,49 @@ strong {
 }
 
 /* ===================================
+   Client Highlights (Statistics)
+   =================================== */
+
+.client-highlights {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.highlight-item {
+    flex: 1;
+    min-width: 150px;
+    padding: 1.5rem;
+    background: rgba(79, 70, 229, 0.08);
+    border-radius: 0.75rem;
+    text-align: center;
+    border: 1px solid rgba(79, 70, 229, 0.15);
+    transition: var(--transition);
+}
+
+.highlight-item:hover {
+    background: rgba(79, 70, 229, 0.12);
+    transform: translateY(-2px);
+}
+
+.highlight-number {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: var(--primary-blue);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+.highlight-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ===================================
    Dual Brands (Rose Box & Zcrave)
    =================================== */
 
@@ -1253,6 +1296,59 @@ strong {
 
     .brands-logos-group {
         justify-content: center;
+    }
+}
+
+/* ===================================
+   Dual Brand Layout (Capsoil & IAAC)
+   =================================== */
+
+.dual-brand-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.brand-half {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.brand-half .client-info {
+    text-align: left;
+}
+
+.brand-half .client-logo img {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.brand-half .client-niche {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.brand-half .client-description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.brand-half .client-mockup {
+    margin-top: auto;
+}
+
+/* Responsive Design for Dual Brand Layout */
+@media (max-width: 968px) {
+    .dual-brand-content {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .brand-half .client-logo img {
+        max-width: 180px;
     }
 }
 
@@ -1550,6 +1646,15 @@ textarea.form-input {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+
+    .client-highlights {
+        gap: 1.5rem;
+    }
+
+    .highlight-item {
+        min-width: 120px;
+        padding: 1.25rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1651,6 +1756,20 @@ textarea.form-input {
 
     .contact-form {
         padding: 2rem;
+    }
+
+    .client-highlights {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .highlight-item {
+        min-width: auto;
+        width: 100%;
+    }
+
+    .highlight-number {
+        font-size: 2.5rem;
     }
 }
 

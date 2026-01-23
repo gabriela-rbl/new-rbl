@@ -324,13 +324,20 @@
                     SeatServe brings the concession stand directly to fans' seats through an
                     intuitive mobile platform.
                 </p>
-                <ul class="services-list">
-                    <li>iOS and Android mobile applications</li>
-                    <li>Workforce management system</li>
-                    <li>Real-time delivery tracking</li>
-                    <li>Payment processing integration</li>
-                    <li>Venue-specific customization</li>
-                </ul>
+                <div class="client-highlights">
+                    <div class="highlight-item">
+                        <div class="highlight-number">67%</div>
+                        <div class="highlight-label">Operation Space Saved</div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-number">33%</div>
+                        <div class="highlight-label">Labor Reduction</div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-number">25%</div>
+                        <div class="highlight-label">Revenue Increase</div>
+                    </div>
+                </div>
                 <a href="#footer-cta" class="client-cta">
                     <span>Start Your Project</span>
                     <span class="arrow">→</span>
@@ -339,6 +346,43 @@
             <div class="client-mockup">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/seatserve-phones.png"
                      alt="SeatServe Mobile Apps"
+                     class="mockup-image">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Empire Section -->
+<section id="empire" class="section client-section fade-in" data-client="empire">
+    <div class="container">
+        <div class="client-content">
+            <div class="client-info">
+                <div class="client-logo">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/empire-logo.png" alt="Empire" />
+                </div>
+                <div class="client-niche">Chrome Extension • Shopping • Procurement</div>
+                <p class="client-description">
+                    Innovative Chrome extension revolutionizing the online shopping experience.
+                    Smart procurement tools and personalized customer experiences at scale.
+                </p>
+                <div class="client-highlights">
+                    <div class="highlight-item">
+                        <div class="highlight-number">3x</div>
+                        <div class="highlight-label">Faster Interior Design Projects</div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-number">50%</div>
+                        <div class="highlight-label">Procurement Errors Reduced</div>
+                    </div>
+                </div>
+                <a href="#footer-cta" class="client-cta">
+                    <span>Start Your Project</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+            <div class="client-mockup">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/empire-mockup.png"
+                     alt="Empire Extension"
                      class="mockup-image">
             </div>
         </div>
@@ -361,17 +405,18 @@
                 <div class="client-niche">E-commerce • Branding • Statement Fashion</div>
                 <p class="client-description">
                     From premium floral arrangements to bold statement fashion, we create sophisticated
-                    e-commerce platforms with striking brand identities. Crafting beautiful digital experiences
-                    that seamlessly blend luxury aesthetics with comprehensive inventory management.
+                    e-commerce platforms with striking brand identities.
                 </p>
-                <ul class="services-list">
-                    <li>Custom e-commerce platform</li>
-                    <li>Brand identity and design system</li>
-                    <li>Inventory management system</li>
-                    <li>Order fulfillment automation</li>
-                    <li>Customer relationship management</li>
-                    <li>Loyalty and engagement programs</li>
-                </ul>
+                <div class="client-highlights">
+                    <div class="highlight-item">
+                        <div class="highlight-number">40%</div>
+                        <div class="highlight-label">Faster Order Processing</div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-number">2.5x</div>
+                        <div class="highlight-label">Conversion Rate Increase</div>
+                    </div>
+                </div>
                 <a href="#footer-cta" class="client-cta">
                     <span>Start Your Project</span>
                     <span class="arrow">→</span>
@@ -393,103 +438,84 @@
     </div>
 </section>
 
-<!-- DutchX Section -->
-<section id="dutchx" class="section client-section fade-in" data-client="dutchx">
-    <div class="container">
-        <div class="client-content">
-            <div class="client-info">
-                <div class="client-logo">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/dutchx-logo.png" alt="DutchX" />
-                </div>
-                <div class="client-niche">Workforce Management • Custom Portal</div>
-                <p class="client-description">
-                    Enterprise workforce management solution with custom organizational portal.
-                    Streamlining team coordination and resource allocation for optimal efficiency.
-                </p>
-                <ul class="services-list">
-                    <li>Workforce management platform</li>
-                    <li>Custom organization portal</li>
-                    <li>Employee scheduling system</li>
-                    <li>Time tracking and reporting</li>
-                    <li>Role-based access control</li>
-                </ul>
-                <a href="#footer-cta" class="client-cta">
-                    <span>Start Your Project</span>
-                    <span class="arrow">→</span>
-                </a>
-            </div>
-            <div class="client-mockup">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/laptop-mockup.png"
-                     alt="DutchX Portal"
-                     class="mockup-image">
-            </div>
-        </div>
-    </div>
-</section>
+<!-- DutchX Section - Kept for future reference -->
+<!--<section id="dutchx" class="section client-section fade-in" data-client="dutchx">-->
+<!--    <div class="container">-->
+<!--        <div class="client-content">-->
+<!--            <div class="client-info">-->
+<!--                <div class="client-logo">-->
+<!--                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/dutchx-logo.png" alt="DutchX" />-->
+<!--                </div>-->
+<!--                <div class="client-niche">Workforce Management • Custom Portal</div>-->
+<!--                <p class="client-description">-->
+<!--                    Enterprise workforce management solution with custom organizational portal.-->
+<!--                    Streamlining team coordination and resource allocation for optimal efficiency.-->
+<!--                </p>-->
+<!--                <ul class="services-list">-->
+<!--                    <li>Workforce management platform</li>-->
+<!--                    <li>Custom organization portal</li>-->
+<!--                    <li>Employee scheduling system</li>-->
+<!--                    <li>Time tracking and reporting</li>-->
+<!--                    <li>Role-based access control</li>-->
+<!--                </ul>-->
+<!--                <a href="#footer-cta" class="client-cta">-->
+<!--                    <span>Start Your Project</span>-->
+<!--                    <span class="arrow">→</span>-->
+<!--                </a>-->
+<!--            </div>-->
+<!--            <div class="client-mockup">-->
+<!--                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/laptop-mockup.png"-->
+<!--                     alt="DutchX Portal"-->
+<!--                     class="mockup-image">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
 
-<!-- Empire Section -->
-<section id="empire" class="section client-section fade-in" data-client="empire">
+<!-- Capsoil & It's All About Choices Section -->
+<section id="capsoil" class="section client-section fade-in" data-client="kiosks">
     <div class="container">
-        <div class="client-content">
-            <div class="client-info">
-                <div class="client-logo">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/empire-logo.png" alt="Empire" />
+        <div class="dual-brand-content">
+            <div class="brand-half">
+                <div class="client-info">
+                    <div class="client-logo">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/capsoil-logo.png" alt="Capsoil" />
+                    </div>
+                    <div class="client-niche">Interactive Kiosk • Conference Experience</div>
+                    <p class="client-description">
+                        Conference interactive experience to learn more about products. Engaging touchscreen kiosk for product discovery and education.
+                    </p>
+                    <a href="#footer-cta" class="client-cta">
+                        <span>Start Your Project</span>
+                        <span class="arrow">→</span>
+                    </a>
                 </div>
-                <div class="client-niche">Chrome Extension • Shopping • Procurement</div>
-                <p class="client-description">
-                    Innovative Chrome extension revolutionizing the online shopping experience.
-                    Smart procurement tools and personalized customer experiences at scale.
-                </p>
-                <ul class="services-list">
-                    <li>Chrome extension development</li>
-                    <li>Customized shopping experience</li>
-                    <li>Procurement automation tools</li>
-                    <li>Website expansion features</li>
-                    <li>AI-powered recommendations</li>
-                </ul>
-                <a href="#footer-cta" class="client-cta">
-                    <span>Start Your Project</span>
-                    <span class="arrow">→</span>
-                </a>
+                <div class="client-mockup">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/capsoil-kiosk.png"
+                         alt="Capsoil Kiosk"
+                         class="mockup-image">
+                </div>
             </div>
-            <div class="client-mockup">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/empire-mockup.png"
-                     alt="Empire Extension"
-                     class="mockup-image">
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- Capsoil Section -->
-<section id="capsoil" class="section client-section fade-in" data-client="capsoil">
-    <div class="container">
-        <div class="client-content">
-            <div class="client-info">
-                <div class="client-logo">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/capsoil-logo.png" alt="Capsoil" />
+            <div class="brand-half">
+                <div class="client-info">
+                    <div class="client-logo">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/itsallaboutchoices-logo.png" alt="It's All About Choices" />
+                    </div>
+                    <div class="client-niche">POS System • Marketing Display</div>
+                    <p class="client-description">
+                        POS ordering system and marketing display at resellers. Streamlined ordering experience with integrated promotional content.
+                    </p>
+                    <a href="#footer-cta" class="client-cta">
+                        <span>Start Your Project</span>
+                        <span class="arrow">→</span>
+                    </a>
                 </div>
-                <div class="client-niche">Website • AI Automation • Process Optimization</div>
-                <p class="client-description">
-                    Corporate website with intelligent process automation. Leveraging AI to
-                    streamline operations and enhance business workflows.
-                </p>
-                <ul class="services-list">
-                    <li>Corporate website development</li>
-                    <li>Process automation with AI</li>
-                    <li>Workflow optimization</li>
-                    <li>Data integration systems</li>
-                    <li>Performance analytics</li>
-                </ul>
-                <a href="#footer-cta" class="client-cta">
-                    <span>Start Your Project</span>
-                    <span class="arrow">→</span>
-                </a>
-            </div>
-            <div class="client-mockup">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/laptop-mockup.png"
-                     alt="Capsoil Website"
-                     class="mockup-image">
+                <div class="client-mockup">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/choices-kiosk.png"
+                         alt="It's All About Choices Kiosk"
+                         class="mockup-image">
+                </div>
             </div>
         </div>
     </div>
