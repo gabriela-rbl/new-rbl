@@ -742,7 +742,7 @@
                     <label>
                         Preferred consultation date
                     </label>
-                    <input type="date" name="consultation_date" class="form-input" id="consultationDate" required>
+                    <input type="text" name="consultation_date" class="form-input" id="consultationDate" placeholder="Select a date..." required readonly>
                 </div>
 
                 <div>
