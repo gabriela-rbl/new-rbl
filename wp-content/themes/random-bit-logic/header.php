@@ -52,6 +52,9 @@
                 <span style="font-size: 1.5rem; font-weight: 800; color: var(--text-dark);">Random Bit Logic</span>
             </a>
         <?php endif; ?>
+<!--        <a href="--><?php //echo home_url(); ?><!--" class="site-logo">-->
+<!--            <img src="--><?php //echo get_template_directory_uri(); ?><!--/assets/images/rbl-logo-light-blue.png" alt="Random Bit Logic Logo" style="width: 100px; height: auto;">-->
+<!--        </a>-->
 
         <nav class="main-nav">
             <ul>

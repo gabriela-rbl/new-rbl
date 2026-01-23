@@ -112,8 +112,10 @@
             </div>
             <div class="feature-mockup">
                 <div class="feature-mockup-dark">
-                    <div style="background: #1e293b; height: 400px; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; color: white;">
-                        Automation Dashboard
+                    <div style="">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/repetitive.jpg"
+                             alt="Repetitive tasks are gone with AI Automation"
+                             class="mockup-image">
                     </div>
                 </div>
             </div>
@@ -137,8 +139,10 @@
             </div>
             <div class="feature-mockup">
                 <div class="feature-mockup-dark">
-                    <div style="background: #1e293b; height: 400px; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; color: white;">
-                        Analytics Dashboard
+                    <div style="">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/analytics.jpg"
+                             alt="See all info in real time with custom dashboards"
+                             class="mockup-image">
                     </div>
                 </div>
             </div>
@@ -162,8 +166,10 @@
             </div>
             <div class="feature-mockup">
                 <div class="feature-mockup-dark">
-                    <div style="background: #1e293b; height: 400px; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; color: white;">
-                        Custom Platform
+                    <div style="">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/n8n.jpg"
+                             alt="Leverage real automation in your company"
+                             class="mockup-image">
                     </div>
                 </div>
             </div>
@@ -253,6 +259,14 @@
                 <span class="suggestion-chip">Show me workflow optimization</span>
                 <span class="suggestion-chip">Generate a report</span>
             </div>
+        </div>
+
+        <div class="ai-solution-cta-container">
+            Ready to build something unique?
+            <a href="#footer-cta" class="small-cta">
+                <span>Reach out now</span>
+                <span class="arrow">↓</span>
+            </a>
         </div>
     </div>
 </section>
@@ -607,8 +621,10 @@
 <section id="blog-preview" class="section blog-preview-section fade-in">
     <div class="container">
         <div class="blog-preview-content">
-            <h2>We look a decade ahead so you can scale today.</h2>
-            <p>We've mapped the value in motion from now to 2036, so you can build a future-ready infrastructure to capture it.</p>
+            <div class="two-thirds">
+                <h2>We look a decade ahead so you can scale today.</h2>
+                <p>We've mapped the value in motion, so you can build a future-ready infrastructure to capture it.</p>
+            </div>
             <a href="#" class="blog-preview-cta">
                 <span>Read our insights</span>
                 <span class="arrow">→</span>

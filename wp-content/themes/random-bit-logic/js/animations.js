@@ -224,7 +224,7 @@
         // Create the Wireframe Sphere
         const geometry = new THREE.IcosahedronGeometry(6, 1);
         const material = new THREE.MeshBasicMaterial({
-            color: 0x2563eb,
+            color: 0x0016FD,
             wireframe: true,
             transparent: true,
             opacity: 0.25
@@ -244,7 +244,7 @@
         particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
         const particlesMat = new THREE.PointsMaterial({
             size: 0.2,
-            color: 0x2563eb,
+            color: 0x0016FD,
             transparent: true,
             opacity: 0.6
         });
