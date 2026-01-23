@@ -8,7 +8,7 @@
 <!--            <div class="hero-badge">AI-Powered Solutions</div>-->
 
             <h1 class="hero-headline">
-                AI-powered precision<br>across every <span class="typing-word"></span><span class="typing-cursor">|</span>
+                AI-powered precision<br>across every <span class="hide-desktop"></span><span class="typing-word"></span><span class="typing-cursor">|</span>
             </h1>
 
             <p class="hero-description">

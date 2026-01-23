@@ -1786,7 +1786,14 @@ textarea.form-input {
     }
 }
 
+.hide-desktop{
+    display: none;
+}
+
 @media (max-width: 768px) {
+    .hide-desktop{
+        display: block;
+    }
     /* Topbar - smaller font, better wrapping */
     .site-topbar {
         font-size: 0.75rem;
