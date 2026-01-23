@@ -174,6 +174,9 @@
                 submitButton.textContent = 'Scheduling...';
                 submitButton.disabled = true;
 
+                // Add submit button name to FormData (required for plugin detection)
+                formData.append('rbl_consultation_submit', '1');
+
                 // Send AJAX request
                 fetch(window.location.href, {
                     method: 'POST',
@@ -391,17 +394,31 @@
             // Prepare form data
             const formData = new FormData(form);
 
+            // Add submit button name to FormData (required for plugin detection)
+            formData.append('rbl_contact_submit', '1');
+
             // Send AJAX request
             fetch(window.location.href, {
                 method: 'POST',
                 body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
                 credentials: 'same-origin'
             })
             .then(response => {
-                if (response.ok) {
+                // Check if response is JSON
+                const contentType = response.headers.get('content-type');
+                if (!contentType || !contentType.includes('application/json')) {
+                    throw new Error('Invalid response format. Please try again.');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
                     // Success
                     form.reset();
-                    alert('Request Sent! We\'ll get back to you within 24 hours.');
+                    alert(data.data.message);
 
                     // Reset button
                     if (submitButton) {
@@ -409,7 +426,7 @@
                         submitButton.disabled = false;
                     }
                 } else {
-                    throw new Error('Form submission failed');
+                    throw new Error(data.data.message || 'Submission failed');
                 }
             })
             .catch(error => {
