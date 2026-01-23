@@ -461,6 +461,13 @@
 <!--                        <div class="highlight-label">Efficiency Improved</div>-->
 <!--                    </div>-->
 <!--                </div>-->
+<!--                <ul class="services-list">-->
+<!--                    <li>Workforce management platform</li>-->
+<!--                    <li>Custom organization portal</li>-->
+<!--                    <li>Employee scheduling system</li>-->
+<!--                    <li>Time tracking and reporting</li>-->
+<!--                    <li>Role-based access control</li>-->
+<!--                </ul>-->
 <!--                <a href="#footer-cta" class="client-cta">-->
 <!--                    <span>Start Your Project</span>-->
 <!--                    <span class="arrow">→</span>-->
