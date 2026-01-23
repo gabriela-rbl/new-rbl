@@ -1061,6 +1061,10 @@ strong {
     order: 1;
 }
 
+.client-section .dual-brand-content .client-info {
+    text-align: center;
+}
+
 .client-logo img {
     max-width: 180px;
     height: auto;
@@ -1075,7 +1079,7 @@ strong {
 }
 
 .client-description {
-    font-size: 1.125rem;
+    font-size: 1rem;
     margin-bottom: 2rem;
 }
 
@@ -1084,10 +1088,18 @@ strong {
     margin-bottom: 2rem;
 }
 
+.services-list.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0px;
+}
+
 .services-list li {
     padding: 0.25rem 0 0.25rem 1.75rem;
     position: relative;
     color: var(--text-gray);
+    font-size: 0.95rem;
+    line-height: 1.2;
 }
 
 .services-list li:before {
@@ -1154,10 +1166,13 @@ strong {
     min-width: 150px;
     padding: 1.5rem;
     background: rgba(79, 70, 229, 0.08);
-    border-radius: 0.75rem;
+    /*border-radius: 0.75rem;*/
     text-align: center;
-    border: 1px solid rgba(79, 70, 229, 0.15);
+    /*border: 1px solid rgba(79, 70, 229, 0.15);*/
     transition: var(--transition);
+    border: 2px solid var(--primary-blue);
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 20px rgba(75, 88, 255, 0.15);
 }
 
 .highlight-item:hover {
@@ -1166,7 +1181,7 @@ strong {
 }
 
 .highlight-number {
-    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-size: clamp(2rem, 3vw, 2em);
     font-weight: 800;
     color: var(--primary-blue);
     line-height: 1.2;
@@ -1179,6 +1194,7 @@ strong {
     color: var(--text-dark);
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    line-height: 1;
 }
 
 /* ===================================
@@ -1324,6 +1340,11 @@ strong {
     max-width: 150px;
     height: auto;
     margin-bottom: 1rem;
+}
+
+.brand-half:first-child .client-logo img{
+    margin-top: 30px;
+    max-width: 200px;
 }
 
 .brand-half .client-niche {

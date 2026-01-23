@@ -324,6 +324,14 @@
                     SeatServe brings the concession stand directly to fans' seats through an
                     intuitive mobile platform.
                 </p>
+                <ul class="services-list grid">
+                    <li>iOS and Android apps</li>
+                    <li>Workforce management system</li>
+                    <li>Real-time delivery tracking</li>
+                    <li>Real-time analytics</li>
+                    <li>Payment processing integration</li>
+                    <li>Venue-specific customization</li>
+                </ul>
                 <div class="client-highlights">
                     <div class="highlight-item">
                         <div class="highlight-number">67%</div>
@@ -365,6 +373,14 @@
                     Innovative Chrome extension revolutionizing the online shopping experience.
                     Smart procurement tools and personalized customer experiences at scale.
                 </p>
+                <ul class="services-list grid">
+                    <li>Customized shopping experience</li>
+                    <li>Credit card approval systems</li>
+                    <li>Chrome extension development</li>
+                    <li>Procurement automation tools</li>
+                    <li>Infrastructure consultancy</li>
+                    <li>AI-powered recommendations</li>
+                </ul>
                 <div class="client-highlights">
                     <div class="highlight-item">
                         <div class="highlight-number">3x</div>
@@ -402,12 +418,24 @@
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/zcrave-logo.png" alt="Zcrave" />
                     </div>
                 </div>
-                <div class="client-niche">E-commerce • Branding • Statement Fashion</div>
+                <div class="client-niche">E-commerce • Branding • Inventory Management</div>
                 <p class="client-description">
                     From premium floral arrangements to bold statement fashion, we create sophisticated
                     e-commerce platforms with striking brand identities.
                 </p>
+                <ul class="services-list grid">
+                    <li>Custom e-commerce platform</li>
+                    <li>Brand identity and design system</li>
+                    <li>Inventory management system</li>
+                    <li>Order fulfillment automation</li>
+                    <li>Customer relationship management</li>
+                    <li>Loyalty and engagement programs</li>
+                </ul>
                 <div class="client-highlights">
+                    <div class="highlight-item">
+                        <div class="highlight-number">2x</div>
+                        <div class="highlight-label">Faster Brand Strategy</div>
+                    </div>
                     <div class="highlight-item">
                         <div class="highlight-number">40%</div>
                         <div class="highlight-label">Faster Order Processing</div>
@@ -437,50 +465,6 @@
         </div>
     </div>
 </section>
-
-<!-- DutchX Section - Kept for future reference -->
-<!--<section id="dutchx" class="section client-section fade-in" data-client="dutchx">-->
-<!--    <div class="container">-->
-<!--        <div class="client-content">-->
-<!--            <div class="client-info">-->
-<!--                <div class="client-logo">-->
-<!--                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/dutchx-logo.png" alt="DutchX" />-->
-<!--                </div>-->
-<!--                <div class="client-niche">Workforce Management • Custom Portal</div>-->
-<!--                <p class="client-description">-->
-<!--                    Enterprise workforce management solution with custom organizational portal.-->
-<!--                    Unified dashboard aggregating data from 4 different platforms.-->
-<!--                </p>-->
-<!--                <div class="client-highlights">-->
-<!--                    <div class="highlight-item">-->
-<!--                        <div class="highlight-number">90%</div>-->
-<!--                        <div class="highlight-label">Error Rates Reduced</div>-->
-<!--                    </div>-->
-<!--                    <div class="highlight-item">-->
-<!--                        <div class="highlight-number">75%</div>-->
-<!--                        <div class="highlight-label">Efficiency Improved</div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <ul class="services-list">-->
-<!--                    <li>Workforce management platform</li>-->
-<!--                    <li>Custom organization portal</li>-->
-<!--                    <li>Employee scheduling system</li>-->
-<!--                    <li>Time tracking and reporting</li>-->
-<!--                    <li>Role-based access control</li>-->
-<!--                </ul>-->
-<!--                <a href="#footer-cta" class="client-cta">-->
-<!--                    <span>Start Your Project</span>-->
-<!--                    <span class="arrow">→</span>-->
-<!--                </a>-->
-<!--            </div>-->
-<!--            <div class="client-mockup">-->
-<!--                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/laptop-mockup.png"-->
-<!--                     alt="DutchX Portal"-->
-<!--                     class="mockup-image">-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
 
 <!-- Capsoil & It's All About Choices Section -->
 <section id="capsoil" class="section client-section fade-in" data-client="kiosks">
@@ -526,6 +510,40 @@
                          alt="It's All About Choices Kiosk"
                          class="mockup-image">
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DutchX Section - Kept for future reference -->
+<section id="dutchx" class="section client-section fade-in" data-client="dutchx">
+    <div class="container">
+        <div class="client-content">
+            <div class="client-info">
+                <div class="client-logo">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/dutchx-logo.png" alt="DutchX" />
+                </div>
+                <div class="client-niche">Workforce Management • Custom Portal</div>
+                <p class="client-description">
+                    Enterprise workforce management solution with custom organizational portal.
+                    Streamlining team coordination and resource allocation for optimal efficiency.
+                </p>
+                <ul class="services-list">
+                    <li>Workforce management platform</li>
+                    <li>Custom organization portal</li>
+                    <li>Employee scheduling system</li>
+                    <li>Time tracking and reporting</li>
+                    <li>Role-based access control</li>
+                </ul>
+                <a href="#footer-cta" class="client-cta">
+                    <span>Start Your Project</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+            <div class="client-mockup">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/laptop-mockup.png"
+                     alt="DutchX Portal"
+                     class="mockup-image">
             </div>
         </div>
     </div>
