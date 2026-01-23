@@ -68,6 +68,15 @@ function rbl_enqueue_scripts() {
         '2.0.0',
         true
     );
+
+    // Main JavaScript (includes form handling, popup functionality, etc.)
+    wp_enqueue_script(
+        'rbl-main',
+        get_template_directory_uri() . '/assets/js/main.js',
+        array('jquery'),
+        '2.0.0',
+        true
+    );
 }
 add_action('wp_enqueue_scripts', 'rbl_enqueue_scripts');
 
