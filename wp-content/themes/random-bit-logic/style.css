@@ -1969,3 +1969,136 @@ textarea.form-input {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+
+/* ===================================
+   Consultation Popup Modal
+   =================================== */
+
+.consultation-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+}
+
+.consultation-popup.active {
+    display: flex;
+}
+
+.consultation-popup-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.consultation-popup-content {
+    position: relative;
+    background: var(--dark-bg);
+    border-radius: 1rem;
+    border: 1px solid var(--border-light);
+    max-width: 700px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 10001;
+    animation: popupSlideIn 0.3s ease-out;
+}
+
+@keyframes popupSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.consultation-popup-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 2rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition);
+    z-index: 10002;
+}
+
+.consultation-popup-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+}
+
+.consultation-popup-header {
+    text-align: center;
+    padding: 3rem 3rem 1rem;
+}
+
+.consultation-popup-header h2 {
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+.consultation-popup-header p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+}
+
+.consultation-form {
+    padding: 0 3rem 3rem;
+}
+
+/* Date input styling */
+.form-input[type="date"] {
+    color-scheme: dark;
+}
+
+.form-input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .consultation-popup-content {
+        width: 95%;
+        max-height: 85vh;
+    }
+
+    .consultation-popup-header {
+        padding: 2rem 1.5rem 1rem;
+    }
+
+    .consultation-popup-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .consultation-form {
+        padding: 0 1.5rem 2rem;
+    }
+
+    .consultation-popup-close {
+        top: 1rem;
+        right: 1rem;
+    }
+}

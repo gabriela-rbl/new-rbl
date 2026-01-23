@@ -17,6 +17,7 @@
         initStickyHeader();
         initAnimatedPlaceholder();
         initMobileMenu();
+        initConsultationPopup();
     }
 
     /**
@@ -63,6 +64,146 @@
                 document.body.style.overflow = '';
             }
         });
+    }
+
+    /**
+     * Consultation Popup functionality
+     */
+    function initConsultationPopup() {
+        const popup = document.getElementById('consultationPopup');
+        const closeBtn = document.querySelector('.consultation-popup-close');
+        const overlay = document.querySelector('.consultation-popup-overlay');
+        const ctaButtons = document.querySelectorAll('.client-cta, .open-consultation-popup');
+        const dateInput = document.getElementById('consultationDate');
+
+        if (!popup) return;
+
+        // Function to open popup
+        function openPopup(e) {
+            e.preventDefault();
+            popup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Function to close popup
+        function closePopup() {
+            popup.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Add event listeners to all CTA buttons
+        ctaButtons.forEach(button => {
+            button.addEventListener('click', openPopup);
+        });
+
+        // Close button
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closePopup);
+        }
+
+        // Overlay click
+        if (overlay) {
+            overlay.addEventListener('click', closePopup);
+        }
+
+        // Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && popup.classList.contains('active')) {
+                closePopup();
+            }
+        });
+
+        // Date input restrictions
+        if (dateInput) {
+            // Set minimum date to today
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+
+            const year = tomorrow.getFullYear();
+            const month = String(tomorrow.getMonth() + 1).padStart(2, '0');
+            const day = String(tomorrow.getDate()).padStart(2, '0');
+            dateInput.min = `${year}-${month}-${day}`;
+
+            // Restrict to weekdays only (Mon-Fri)
+            dateInput.addEventListener('input', function() {
+                const selectedDate = new Date(this.value);
+                const dayOfWeek = selectedDate.getDay();
+
+                // If weekend (0 = Sunday, 6 = Saturday), clear the value
+                if (dayOfWeek === 0 || dayOfWeek === 6) {
+                    alert('Please select a weekday (Monday-Friday) for your consultation.');
+                    this.value = '';
+                }
+            });
+        }
+
+        // Form submission handling
+        const consultationForm = document.getElementById('consultationForm');
+        if (consultationForm) {
+            consultationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Basic validation
+                const formData = new FormData(this);
+                const service = formData.get('service');
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const date = formData.get('consultation_date');
+                const time = formData.get('consultation_time');
+                const message = formData.get('message');
+
+                if (!service || !name || !email || !date || !time || !message) {
+                    alert('Please fill in all required fields.');
+                    return false;
+                }
+
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Please enter a valid email address.');
+                    return false;
+                }
+
+                // Show loading state
+                const submitButton = this.querySelector('.submit-btn');
+                const originalText = submitButton.textContent;
+                submitButton.textContent = 'Scheduling...';
+                submitButton.disabled = true;
+
+                // Send AJAX request
+                fetch(window.location.href, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    credentials: 'same-origin'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Success
+                        alert(data.data.message);
+                        consultationForm.reset();
+                        closePopup();
+                    } else {
+                        throw new Error(data.data.message || 'Submission failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('There was an error submitting the form. Please try again.');
+                })
+                .finally(() => {
+                    // Reset button
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                });
+
+                return false;
+            });
+        }
     }
 
     /**
