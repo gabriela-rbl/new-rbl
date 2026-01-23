@@ -196,10 +196,21 @@
                 })
                 .then(data => {
                     if (data.success) {
-                        // Success
-                        alert(data.data.message);
-                        consultationForm.reset();
-                        closePopup();
+                        // Success - show success message and hide form
+                        const successMessage = document.getElementById('consultationSuccessMessage');
+                        if (successMessage) {
+                            consultationForm.style.display = 'none';
+                            successMessage.style.display = 'block';
+
+                            // Auto-close popup after 5 seconds
+                            setTimeout(() => {
+                                closePopup();
+                                // Reset form and show it again for next time
+                                consultationForm.style.display = 'block';
+                                successMessage.style.display = 'none';
+                                consultationForm.reset();
+                            }, 5000);
+                        }
                     } else {
                         throw new Error(data.data.message || 'Submission failed');
                     }
