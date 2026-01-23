@@ -360,8 +360,8 @@
                         <div class="highlight-label">Revenue Increase</div>
                     </div>
                 </div>
-                <a href="#footer-cta" class="client-cta">
-                    <span>Start Your Project</span>
+                <a href="#" class="client-cta">
+                    <span>Get a free consultation</span>
                     <span class="arrow">→</span>
                 </a>
             </div>
@@ -405,8 +405,8 @@
                         <div class="highlight-label">Procurement Errors Reduced</div>
                     </div>
                 </div>
-                <a href="#footer-cta" class="client-cta">
-                    <span>Start Your Project</span>
+                <a href="#" class="client-cta">
+                    <span>Get a free consultation</span>
                     <span class="arrow">→</span>
                 </a>
             </div>
@@ -459,8 +459,8 @@
                         <div class="highlight-label">Conversion Rate Increase</div>
                     </div>
                 </div>
-                <a href="#footer-cta" class="client-cta">
-                    <span>Start Your Project</span>
+                <a href="#" class="client-cta">
+                    <span>Get a free consultation</span>
                     <span class="arrow">→</span>
                 </a>
             </div>
@@ -560,8 +560,8 @@
                         <div class="highlight-label">Efficiency Improved</div>
                     </div>
                 </div>
-                <a href="#footer-cta" class="client-cta">
-                    <span>Start Your Project</span>
+                <a href="#" class="client-cta">
+                    <span>Get a free consultation</span>
                     <span class="arrow">→</span>
                 </a>
             </div>
@@ -703,5 +703,80 @@
         </div>
     </div>
 </section>
+
+<!-- Consultation Popup Modal -->
+<div id="consultationPopup" class="consultation-popup">
+    <div class="consultation-popup-overlay"></div>
+    <div class="consultation-popup-content">
+        <button class="consultation-popup-close" aria-label="Close popup">&times;</button>
+
+        <div class="consultation-popup-header">
+            <h2>Get a Free Consultation</h2>
+            <p>Schedule a call with our team to discuss your project (EST 10am-4pm Mon-Fri)</p>
+        </div>
+
+        <form method="post" action="" class="consultation-form" id="consultationForm">
+            <?php wp_nonce_field('rbl_consultation_form', 'rbl_consultation_nonce'); ?>
+
+            <div class="form-grid">
+                <div>
+                    <label>
+                        I'm interested in...
+                    </label>
+                    <select name="service" class="form-select" required>
+                        <option value="" disabled selected>Select a service...</option>
+                        <option value="strategy">AI Strategy Session</option>
+                        <option value="ai">AI & Automation Implementation</option>
+                        <option value="software">Custom Software Development</option>
+                        <option value="web">Web Platform / Redesign</option>
+                        <option value="other">Other / General Inquiry</option>
+                    </select>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <input type="text" name="name" class="form-input" placeholder="Name" required>
+                    <input type="email" name="email" class="form-input" placeholder="Work Email" required>
+                </div>
+
+                <div>
+                    <label>
+                        Preferred consultation date
+                    </label>
+                    <input type="date" name="consultation_date" class="form-input" id="consultationDate" required>
+                </div>
+
+                <div>
+                    <label>
+                        Preferred time (EST)
+                    </label>
+                    <select name="consultation_time" class="form-select" required>
+                        <option value="" disabled selected>Select a time...</option>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="10:30">10:30 AM</option>
+                        <option value="11:00">11:00 AM</option>
+                        <option value="11:30">11:30 AM</option>
+                        <option value="12:00">12:00 PM</option>
+                        <option value="12:30">12:30 PM</option>
+                        <option value="13:00">1:00 PM</option>
+                        <option value="13:30">1:30 PM</option>
+                        <option value="14:00">2:00 PM</option>
+                        <option value="14:30">2:30 PM</option>
+                        <option value="15:00">3:00 PM</option>
+                        <option value="15:30">3:30 PM</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        Tell us about your project
+                    </label>
+                    <textarea name="message" class="form-input" rows="4" placeholder="Briefly describe your goals..." required></textarea>
+                </div>
+
+                <button type="submit" name="rbl_consultation_submit" class="submit-btn">Schedule Consultation</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 <?php get_footer(); ?>

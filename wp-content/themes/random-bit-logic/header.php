@@ -29,9 +29,9 @@
 <!-- Topbar -->
 <div class="site-topbar" id="topbar">
     <div class="topbar-content">
-        <span class="topbar-badge">NEW</span>
-        <span>Request our one-pager to know more</span>
-        <a href="#contact" class="topbar-link">Learn more →</a>
+        <span class="topbar-badge">FREE</span>
+        <span>Schedule your free consultation call today - limited slots available</span>
+        <a href="#" class="topbar-link open-consultation-popup">Book now →</a>
     </div>
 </div>
 
