@@ -113,27 +113,30 @@
             }
         });
 
-        // Date input restrictions
-        if (dateInput) {
-            // Set minimum date to today
+        // Initialize Flatpickr datepicker
+        if (dateInput && typeof flatpickr !== 'undefined') {
             const today = new Date();
             const tomorrow = new Date(today);
             tomorrow.setDate(tomorrow.getDate() + 1);
 
-            const year = tomorrow.getFullYear();
-            const month = String(tomorrow.getMonth() + 1).padStart(2, '0');
-            const day = String(tomorrow.getDate()).padStart(2, '0');
-            dateInput.min = `${year}-${month}-${day}`;
-
-            // Restrict to weekdays only (Mon-Fri)
-            dateInput.addEventListener('input', function() {
-                const selectedDate = new Date(this.value);
-                const dayOfWeek = selectedDate.getDay();
-
-                // If weekend (0 = Sunday, 6 = Saturday), clear the value
-                if (dayOfWeek === 0 || dayOfWeek === 6) {
-                    alert('Please select a weekday (Monday-Friday) for your consultation.');
-                    this.value = '';
+            flatpickr(dateInput, {
+                minDate: tomorrow,
+                dateFormat: 'Y-m-d',
+                disable: [
+                    function(date) {
+                        // Disable weekends (0 = Sunday, 6 = Saturday)
+                        return (date.getDay() === 0 || date.getDay() === 6);
+                    }
+                ],
+                locale: {
+                    firstDayOfWeek: 1 // Start week on Monday
+                },
+                onChange: function(selectedDates, dateStr, instance) {
+                    // Additional validation if needed
+                },
+                onReady: function(selectedDates, dateStr, instance) {
+                    // Add custom class for styling
+                    instance.calendarContainer.classList.add('rbl-datepicker');
                 }
             });
         }
