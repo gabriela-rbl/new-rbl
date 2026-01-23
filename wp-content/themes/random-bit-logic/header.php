@@ -30,7 +30,7 @@
 <div class="site-topbar" id="topbar">
     <div class="topbar-content">
         <span class="topbar-badge">FREE</span>
-        <span>Schedule your free consultation call today - limited slots available</span>
+        <span>Schedule your consultation call today<span class="hide-mobile"> - limited slots available</span></span>
         <a href="#" class="topbar-link open-consultation-popup">Book now →</a>
     </div>
 </div>
@@ -52,9 +52,6 @@
                 <span style="font-size: 1.5rem; font-weight: 800; color: var(--text-dark);">Random Bit Logic</span>
             </a>
         <?php endif; ?>
-<!--        <a href="--><?php //echo home_url(); ?><!--" class="site-logo">-->
-<!--            <img src="--><?php //echo get_template_directory_uri(); ?><!--/assets/images/rbl-logo-light-blue.png" alt="Random Bit Logic Logo" style="width: 100px; height: auto;">-->
-<!--        </a>-->
 
         <nav class="main-nav">
             <ul>
@@ -65,7 +62,7 @@
         </nav>
 
         <div class="header-actions">
-            <a href="#" class="login-link">Login</a>
+<!--            <a href="#" class="login-link">Login</a>-->
             <a href="#footer-cta" class="nav-cta">
                 <span>Request a demo</span>
                 <span class="arrow">→</span>
@@ -80,7 +77,7 @@
                 <li><a href="#enterprise">Solutions</a></li>
                 <li><a href="#solutions">Services</a></li>
                 <li><a href="#seatserve">Cases</a></li>
-                <li><a href="#" class="mobile-login">Login</a></li>
+<!--                <li><a href="#" class="mobile-login">Login</a></li>-->
             </ul>
         </nav>
     </div>
