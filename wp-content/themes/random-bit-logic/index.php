@@ -603,6 +603,20 @@
 <!--    </div>-->
 <!--</section>-->
 
+<!-- Blog Preview Section -->
+<section id="blog-preview" class="section blog-preview-section fade-in">
+    <div class="container">
+        <div class="blog-preview-content">
+            <h2>We look a decade ahead so you can scale today.</h2>
+            <p>We've mapped the value in motion from now to 2036, so you can build a future-ready infrastructure to capture it.</p>
+            <a href="#" class="blog-preview-cta">
+                <span>Read our insights</span>
+                <span class="arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
 <!-- Footer CTA Section -->
 <!--<section id="footer-cta" class="section footer-cta-section fade-in">-->
 <!--    <div class="container">-->
