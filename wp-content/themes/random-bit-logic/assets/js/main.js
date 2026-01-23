@@ -113,27 +113,30 @@
             }
         });
 
-        // Date input restrictions
-        if (dateInput) {
-            // Set minimum date to today
+        // Initialize Flatpickr datepicker
+        if (dateInput && typeof flatpickr !== 'undefined') {
             const today = new Date();
             const tomorrow = new Date(today);
             tomorrow.setDate(tomorrow.getDate() + 1);
 
-            const year = tomorrow.getFullYear();
-            const month = String(tomorrow.getMonth() + 1).padStart(2, '0');
-            const day = String(tomorrow.getDate()).padStart(2, '0');
-            dateInput.min = `${year}-${month}-${day}`;
-
-            // Restrict to weekdays only (Mon-Fri)
-            dateInput.addEventListener('input', function() {
-                const selectedDate = new Date(this.value);
-                const dayOfWeek = selectedDate.getDay();
-
-                // If weekend (0 = Sunday, 6 = Saturday), clear the value
-                if (dayOfWeek === 0 || dayOfWeek === 6) {
-                    alert('Please select a weekday (Monday-Friday) for your consultation.');
-                    this.value = '';
+            flatpickr(dateInput, {
+                minDate: tomorrow,
+                dateFormat: 'Y-m-d',
+                disable: [
+                    function(date) {
+                        // Disable weekends (0 = Sunday, 6 = Saturday)
+                        return (date.getDay() === 0 || date.getDay() === 6);
+                    }
+                ],
+                locale: {
+                    firstDayOfWeek: 1 // Start week on Monday
+                },
+                onChange: function(selectedDates, dateStr, instance) {
+                    // Additional validation if needed
+                },
+                onReady: function(selectedDates, dateStr, instance) {
+                    // Add custom class for styling
+                    instance.calendarContainer.classList.add('rbl-datepicker');
                 }
             });
         }
@@ -171,6 +174,9 @@
                 submitButton.textContent = 'Scheduling...';
                 submitButton.disabled = true;
 
+                // Add submit button name to FormData (required for plugin detection)
+                formData.append('rbl_consultation_submit', '1');
+
                 // Send AJAX request
                 fetch(window.location.href, {
                     method: 'POST',
@@ -180,13 +186,31 @@
                     },
                     credentials: 'same-origin'
                 })
-                .then(response => response.json())
+                .then(response => {
+                    // Check if response is JSON
+                    const contentType = response.headers.get('content-type');
+                    if (!contentType || !contentType.includes('application/json')) {
+                        throw new Error('Invalid response format. Please try again.');
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     if (data.success) {
-                        // Success
-                        alert(data.data.message);
-                        consultationForm.reset();
-                        closePopup();
+                        // Success - show success message and hide form
+                        const successMessage = document.getElementById('consultationSuccessMessage');
+                        if (successMessage) {
+                            consultationForm.style.display = 'none';
+                            successMessage.style.display = 'block';
+
+                            // Auto-close popup after 5 seconds
+                            setTimeout(() => {
+                                closePopup();
+                                // Reset form and show it again for next time
+                                consultationForm.style.display = 'block';
+                                successMessage.style.display = 'none';
+                                consultationForm.reset();
+                            }, 5000);
+                        }
                     } else {
                         throw new Error(data.data.message || 'Submission failed');
                     }
@@ -381,17 +405,44 @@
             // Prepare form data
             const formData = new FormData(form);
 
+            // Add submit button name to FormData (required for plugin detection)
+            formData.append('rbl_contact_submit', '1');
+
             // Send AJAX request
             fetch(window.location.href, {
                 method: 'POST',
                 body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
                 credentials: 'same-origin'
             })
             .then(response => {
-                if (response.ok) {
-                    // Success
-                    form.reset();
-                    alert('Request Sent! We\'ll get back to you within 24 hours.');
+                // Check if response is JSON
+                const contentType = response.headers.get('content-type');
+                if (!contentType || !contentType.includes('application/json')) {
+                    throw new Error('Invalid response format. Please try again.');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    // Success - show success message and hide form
+                    const successMessage = document.getElementById('contactSuccessMessage');
+                    if (successMessage) {
+                        form.style.display = 'none';
+                        successMessage.style.display = 'block';
+
+                        // Scroll to success message
+                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                        // Reset form after a delay
+                        setTimeout(() => {
+                            form.style.display = 'block';
+                            successMessage.style.display = 'none';
+                            form.reset();
+                        }, 5000);
+                    }
 
                     // Reset button
                     if (submitButton) {
@@ -399,7 +450,7 @@
                         submitButton.disabled = false;
                     }
                 } else {
-                    throw new Error('Form submission failed');
+                    throw new Error(data.data.message || 'Submission failed');
                 }
             })
             .catch(error => {

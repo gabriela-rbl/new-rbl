@@ -68,6 +68,32 @@ function rbl_enqueue_scripts() {
         '2.0.0',
         true
     );
+
+    // Flatpickr CSS for datepicker
+    wp_enqueue_style(
+        'flatpickr',
+        'https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css',
+        array(),
+        '4.6.13'
+    );
+
+    // Flatpickr JavaScript for datepicker
+    wp_enqueue_script(
+        'flatpickr',
+        'https://cdn.jsdelivr.net/npm/flatpickr',
+        array(),
+        '4.6.13',
+        true
+    );
+
+    // Main JavaScript (includes form handling, popup functionality, etc.)
+    wp_enqueue_script(
+        'rbl-main',
+        get_template_directory_uri() . '/assets/js/main.js',
+        array('jquery', 'flatpickr'),
+        '2.0.1',
+        true
+    );
 }
 add_action('wp_enqueue_scripts', 'rbl_enqueue_scripts');
 

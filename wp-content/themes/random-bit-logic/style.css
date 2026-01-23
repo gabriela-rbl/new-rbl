@@ -2015,7 +2015,8 @@ textarea.form-input {
     position: relative;
     background: var(--dark-bg);
     border-radius: 1rem;
-    border: 1px solid var(--border-light);
+    border: 2px solid var(--primary-blue);
+    box-shadow: 0 0 30px rgba(79, 70, 229, 0.4), 0 0 60px rgba(79, 70, 229, 0.2);
     max-width: 700px;
     width: 90%;
     max-height: 90vh;
@@ -2079,14 +2080,104 @@ textarea.form-input {
     padding: 0 3rem 3rem;
 }
 
-/* Date input styling */
-.form-input[type="date"] {
-    color-scheme: dark;
+/* Success Message */
+.consultation-success-message {
+    margin: 0 3rem 2rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.05) 100%);
+    border: 2px solid #10b981;
+    border-radius: 1rem;
+    text-align: center;
+    animation: successSlideIn 0.5s ease-out;
 }
 
-.form-input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(1);
+.consultation-success-message .success-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1rem;
+    background: #10b981;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+}
+
+.consultation-success-message h3 {
+    color: #10b981;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.consultation-success-message p {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+@keyframes successSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Contact Form Success Message */
+.contact-success-message {
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.05) 100%);
+    border: 2px solid #10b981;
+    border-radius: 1rem;
+    text-align: center;
+    animation: successSlideIn 0.5s ease-out;
+}
+
+.contact-success-message .success-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1rem;
+    background: #10b981;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+}
+
+.contact-success-message h3 {
+    color: #10b981;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.contact-success-message p {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+/* Date input styling */
+#consultationDate {
     cursor: pointer;
+    position: relative;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%234f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 3rem;
+}
+
+#consultationDate:hover {
+    border-color: var(--primary-blue);
 }
 
 /* Mobile responsive */
@@ -2108,8 +2199,136 @@ textarea.form-input {
         padding: 0 1.5rem 2rem;
     }
 
+    .consultation-success-message {
+        margin: 0 1.5rem 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .consultation-success-message h3 {
+        font-size: 1.25rem;
+    }
+
     .consultation-popup-close {
         top: 1rem;
         right: 1rem;
     }
+}
+
+/* ===================================
+   Flatpickr Datepicker Custom Styling
+   =================================== */
+
+.rbl-datepicker.flatpickr-calendar {
+    background: #1a1a2e;
+    border: 1px solid var(--primary-blue);
+    box-shadow: 0 10px 40px rgba(79, 70, 229, 0.3);
+    border-radius: 8px;
+}
+
+.rbl-datepicker .flatpickr-months {
+    background: #1a1a2e;
+    border-bottom: 1px solid rgba(79, 70, 229, 0.3);
+}
+
+.rbl-datepicker .flatpickr-month {
+    color: var(--text-light);
+}
+
+.rbl-datepicker .flatpickr-current-month .flatpickr-monthDropdown-months {
+    background: #1a1a2e;
+    color: var(--text-light);
+    border: 1px solid var(--primary-blue);
+}
+
+.rbl-datepicker .flatpickr-current-month .flatpickr-monthDropdown-months:hover {
+    background: rgba(79, 70, 229, 0.2);
+}
+
+.rbl-datepicker .numInputWrapper:hover {
+    background: rgba(79, 70, 229, 0.2);
+}
+
+.rbl-datepicker .flatpickr-current-month input.cur-year {
+    color: var(--text-light);
+}
+
+.rbl-datepicker .flatpickr-weekdays {
+    background: #1a1a2e;
+}
+
+.rbl-datepicker .flatpickr-weekday {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.rbl-datepicker .flatpickr-days {
+    background: #1a1a2e;
+}
+
+.rbl-datepicker .flatpickr-day {
+    color: var(--text-light);
+    border: none;
+}
+
+.rbl-datepicker .flatpickr-day:hover:not(.flatpickr-disabled):not(.selected) {
+    background: rgba(79, 70, 229, 0.2);
+    border-color: transparent;
+}
+
+.rbl-datepicker .flatpickr-day.today {
+    border-color: var(--primary-blue);
+    background: rgba(79, 70, 229, 0.1);
+}
+
+.rbl-datepicker .flatpickr-day.today:hover {
+    background: rgba(79, 70, 229, 0.2);
+    border-color: var(--primary-blue);
+}
+
+.rbl-datepicker .flatpickr-day.selected {
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
+    color: white;
+}
+
+.rbl-datepicker .flatpickr-day.selected:hover {
+    background: var(--primary-blue-hover);
+    border-color: var(--primary-blue-hover);
+}
+
+.rbl-datepicker .flatpickr-day.flatpickr-disabled {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.rbl-datepicker .flatpickr-day.flatpickr-disabled:hover {
+    background: transparent;
+    cursor: not-allowed;
+}
+
+.rbl-datepicker .flatpickr-monthDropdown-months,
+.rbl-datepicker .numInputWrapper span {
+    border: 1px solid rgba(79, 70, 229, 0.3);
+}
+
+.rbl-datepicker .flatpickr-prev-month,
+.rbl-datepicker .flatpickr-next-month {
+    fill: var(--text-light);
+}
+
+.rbl-datepicker .flatpickr-prev-month:hover svg,
+.rbl-datepicker .flatpickr-next-month:hover svg {
+    fill: var(--primary-blue);
+}
+
+.rbl-datepicker .flatpickr-prev-month:hover,
+.rbl-datepicker .flatpickr-next-month:hover {
+    background: rgba(79, 70, 229, 0.2);
+}
+
+/* Arrow positioning */
+.rbl-datepicker.arrowTop:after {
+    border-bottom-color: #1a1a2e;
+}
+
+.rbl-datepicker.arrowTop:before {
+    border-bottom-color: var(--primary-blue);
 }

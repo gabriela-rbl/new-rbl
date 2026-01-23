@@ -667,6 +667,13 @@
                 </div>
             <?php endif; ?>
 
+            <!-- Success Message -->
+            <div id="contactSuccessMessage" class="contact-success-message" style="display: none;">
+                <div class="success-icon">✓</div>
+                <h3>Thank You!</h3>
+                <p>We'll get back to you within 24 hours.</p>
+            </div>
+
             <form method="post" action="" class="contact-form" id="contactForm">
                 <?php wp_nonce_field('rbl_contact_form', 'rbl_contact_nonce'); ?>
 
@@ -715,6 +722,13 @@
             <p>Schedule a call with our team to discuss your project (EST 10am-4pm Mon-Fri)</p>
         </div>
 
+        <!-- Success Message -->
+        <div id="consultationSuccessMessage" class="consultation-success-message" style="display: none;">
+            <div class="success-icon">✓</div>
+            <h3>Consultation Request Received!</h3>
+            <p>We'll confirm your appointment within 24 hours.</p>
+        </div>
+
         <form method="post" action="" class="consultation-form" id="consultationForm">
             <?php wp_nonce_field('rbl_consultation_form', 'rbl_consultation_nonce'); ?>
 
@@ -742,7 +756,7 @@
                     <label>
                         Preferred consultation date
                     </label>
-                    <input type="date" name="consultation_date" class="form-input" id="consultationDate" required>
+                    <input type="text" name="consultation_date" class="form-input" id="consultationDate" placeholder="Select a date..." required readonly>
                 </div>
 
                 <div>
