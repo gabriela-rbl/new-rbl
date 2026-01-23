@@ -523,25 +523,36 @@
                 <div class="client-logo">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/dutchx-logo.png" alt="DutchX" />
                 </div>
-                <div class="client-niche">Workforce Management • Custom Portal</div>
+                <div class="client-niche">Workforce Management • Custom Portal • Data Consolidation</div>
                 <p class="client-description">
                     Enterprise workforce management solution with custom organizational portal.
-                    Streamlining team coordination and resource allocation for optimal efficiency.
+                    Unified dashboard aggregating data from 4 different platforms.
                 </p>
-                <ul class="services-list">
+                <ul class="services-list grid">
                     <li>Workforce management platform</li>
                     <li>Custom organization portal</li>
                     <li>Employee scheduling system</li>
                     <li>Time tracking and reporting</li>
+                    <li>Automated Payroll & PTO calculations</li>
                     <li>Role-based access control</li>
                 </ul>
+                <div class="client-highlights">
+                    <div class="highlight-item">
+                        <div class="highlight-number">90%</div>
+                        <div class="highlight-label">Error Rates Reduced</div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-number">75%</div>
+                        <div class="highlight-label">Efficiency Improved</div>
+                    </div>
+                </div>
                 <a href="#footer-cta" class="client-cta">
                     <span>Start Your Project</span>
                     <span class="arrow">→</span>
                 </a>
             </div>
             <div class="client-mockup">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/laptop-mockup.png"
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/dutchx-laptop.png"
                      alt="DutchX Portal"
                      class="mockup-image">
             </div>
