@@ -2,11 +2,16 @@
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-column">
-                <h3>Random Bit Logic</h3>
+<!--                <h3>Random Bit Logic</h3>-->
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/rbl-logo-white.png" alt="Random Bit Logic Logo" style="width: 150px; height: auto;">
                 <p style="color: rgba(255, 255, 255, 0.7); margin-top: 1rem;">
-                    AI-powered software solutions that transform businesses.
+                    AI-powered software solutions that transform businesses.<br/>
                     Based in New York, serving clients worldwide.
                 </p>
+                <div class="labels">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gdpr-bw.png" alt="GDPR Compliant" title="GDPR Compliant">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/made-in-nyc.png" alt="Made in NYC" title="Made in NYC">
+                </div>
             </div>
 
             <div class="footer-column">
