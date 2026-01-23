@@ -433,7 +433,7 @@ strong {
 }
 
 .hero-content {
-    max-width: 900px;
+    /*max-width: 900px;*/
     margin: 0 auto;
 }
 
@@ -455,7 +455,7 @@ strong {
 
 .typing-word {
     display: inline-block;
-    min-width: 10ch;
+    /*min-width: 10ch;*/
     color: var(--primary-blue);
     font-weight: inherit;
 }
@@ -918,7 +918,7 @@ strong {
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 0.875rem;
     font-weight: 500;
-    cursor: pointer;
+    cursor: default;
     transition: var(--transition);
     background: rgba(75, 88, 255, 0.1);
     color: var(--primary-blue);
@@ -1449,8 +1449,11 @@ textarea.form-input {
     border-radius: 1.5rem;
     font-size: 1.0625rem;
     font-weight: 600;
-    cursor: pointer;
     transition: var(--transition);
+}
+
+.form-grid .submit-btn {
+    cursor: pointer;
 }
 
 .submit-btn:hover {

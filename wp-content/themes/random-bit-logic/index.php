@@ -78,6 +78,10 @@
                 <h3>Continuous compliance by design, enabling faster audits and automatic alignment with new regulatory requirements.</h3>
             </div>
         </div>
+        <a href="#platform" class="small-cta" style="margin-top: 50px; display:block;">
+            <span>Why choose us</span>
+            <span class="arrow">↓</span>
+        </a>
     </div>
 </section>
 
@@ -86,7 +90,7 @@
     <div class="container">
         <div class="platform-content">
 <!--            <h2>One platform for complete<br>business automation</h2>-->
-            <h2>Here to answer the question <span>"How are we going to use AI in our business?"</span></h2>
+            <h2>We answer the question <span>"How are we going to use AI in our business?"</span></h2>
             <p>From custom software to AI implementation, we deliver integrated solutions that transform how your business operates.</p>
         </div>
     </div>
@@ -212,7 +216,7 @@
 <section id="ai-agents" class="section ai-agents-section fade-in">
     <div class="container">
         <div class="ai-agents-header">
-            <h2>AI agents transform the way you work</h2>
+            <h2>AI solutions that transform the way your team works</h2>
             <p>Leverage cutting-edge AI to automate complex tasks, answer questions, and make intelligent decisions across your organization.</p>
         </div>
 
