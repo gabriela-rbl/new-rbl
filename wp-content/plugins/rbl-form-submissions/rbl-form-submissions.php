@@ -150,17 +150,26 @@ class RBL_Form_Submissions {
             ));
 
             // Return JSON response for AJAX
-            if (wp_doing_ajax() || (isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
-                strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')) {
+            if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+                strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
                 wp_send_json_success(array(
                     'message' => 'Consultation request received! We\'ll confirm your appointment within 24 hours.'
                 ));
+                exit; // Ensure we exit after sending JSON
             }
 
-            // Redirect with success message
+            // Redirect with success message (for non-AJAX)
             wp_redirect(add_query_arg('consultation', 'success', wp_get_referer()));
             exit;
         } else {
+            // Return JSON error for AJAX
+            if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+                strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+                wp_send_json_error(array(
+                    'message' => 'Error saving submission. Please try again.'
+                ));
+                exit;
+            }
             wp_die('Error saving submission. Please try again.');
         }
     }
@@ -213,17 +222,26 @@ class RBL_Form_Submissions {
             ));
 
             // Return JSON response for AJAX
-            if (wp_doing_ajax() || (isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
-                strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')) {
+            if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+                strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
                 wp_send_json_success(array(
                     'message' => 'Thank you! We\'ll get back to you within 24 hours.'
                 ));
+                exit; // Ensure we exit after sending JSON
             }
 
-            // Redirect with success message
+            // Redirect with success message (for non-AJAX)
             wp_redirect(add_query_arg('contact', 'success', wp_get_referer()));
             exit;
         } else {
+            // Return JSON error for AJAX
+            if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+                strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+                wp_send_json_error(array(
+                    'message' => 'Error saving submission. Please try again.'
+                ));
+                exit;
+            }
             wp_die('Error saving submission. Please try again.');
         }
     }

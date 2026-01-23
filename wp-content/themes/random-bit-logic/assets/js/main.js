@@ -180,7 +180,14 @@
                     },
                     credentials: 'same-origin'
                 })
-                .then(response => response.json())
+                .then(response => {
+                    // Check if response is JSON
+                    const contentType = response.headers.get('content-type');
+                    if (!contentType || !contentType.includes('application/json')) {
+                        throw new Error('Invalid response format. Please try again.');
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     if (data.success) {
                         // Success
