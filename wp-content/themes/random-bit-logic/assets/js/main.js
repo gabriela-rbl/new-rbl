@@ -171,15 +171,35 @@
                 submitButton.textContent = 'Scheduling...';
                 submitButton.disabled = true;
 
-                // TODO: This will be handled in the next prompt
-                // For now, just show a success message
-                setTimeout(() => {
-                    alert('Consultation request received! We\'ll confirm your appointment within 24 hours.');
-                    consultationForm.reset();
-                    closePopup();
+                // Send AJAX request
+                fetch(window.location.href, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    credentials: 'same-origin'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Success
+                        alert(data.data.message);
+                        consultationForm.reset();
+                        closePopup();
+                    } else {
+                        throw new Error(data.data.message || 'Submission failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('There was an error submitting the form. Please try again.');
+                })
+                .finally(() => {
+                    // Reset button
                     submitButton.textContent = originalText;
                     submitButton.disabled = false;
-                }, 1000);
+                });
 
                 return false;
             });
