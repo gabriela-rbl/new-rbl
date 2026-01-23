@@ -667,6 +667,13 @@
                 </div>
             <?php endif; ?>
 
+            <!-- Success Message -->
+            <div id="contactSuccessMessage" class="contact-success-message" style="display: none;">
+                <div class="success-icon">✓</div>
+                <h3>Thank You!</h3>
+                <p>We'll get back to you within 24 hours.</p>
+            </div>
+
             <form method="post" action="" class="contact-form" id="contactForm">
                 <?php wp_nonce_field('rbl_contact_form', 'rbl_contact_nonce'); ?>
 

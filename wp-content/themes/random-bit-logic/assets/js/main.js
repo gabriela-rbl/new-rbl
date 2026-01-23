@@ -427,9 +427,22 @@
             })
             .then(data => {
                 if (data.success) {
-                    // Success
-                    form.reset();
-                    alert(data.data.message);
+                    // Success - show success message and hide form
+                    const successMessage = document.getElementById('contactSuccessMessage');
+                    if (successMessage) {
+                        form.style.display = 'none';
+                        successMessage.style.display = 'block';
+
+                        // Scroll to success message
+                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                        // Reset form after a delay
+                        setTimeout(() => {
+                            form.style.display = 'block';
+                            successMessage.style.display = 'none';
+                            form.reset();
+                        }, 5000);
+                    }
 
                     // Reset button
                     if (submitButton) {
