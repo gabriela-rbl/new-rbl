@@ -8,7 +8,7 @@
 <!--            <div class="hero-badge">AI-Powered Solutions</div>-->
 
             <h1 class="hero-headline">
-                AI-powered precision<br>across every <span class="typing-word"></span><span class="typing-cursor">|</span>
+                AI-powered precision<br>across every <span class="hide-desktop"></span><span class="typing-word"></span><span class="typing-cursor">|</span>
             </h1>
 
             <p class="hero-description">
@@ -112,8 +112,10 @@
             </div>
             <div class="feature-mockup">
                 <div class="feature-mockup-dark">
-                    <div style="background: #1e293b; height: 400px; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; color: white;">
-                        Automation Dashboard
+                    <div style="">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/repetitive.jpg"
+                             alt="Repetitive tasks are gone with AI Automation"
+                             class="mockup-image">
                     </div>
                 </div>
             </div>
@@ -137,8 +139,10 @@
             </div>
             <div class="feature-mockup">
                 <div class="feature-mockup-dark">
-                    <div style="background: #1e293b; height: 400px; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; color: white;">
-                        Analytics Dashboard
+                    <div style="">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/analytics.jpg"
+                             alt="See all info in real time with custom dashboards"
+                             class="mockup-image">
                     </div>
                 </div>
             </div>
@@ -162,8 +166,10 @@
             </div>
             <div class="feature-mockup">
                 <div class="feature-mockup-dark">
-                    <div style="background: #1e293b; height: 400px; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; color: white;">
-                        Custom Platform
+                    <div style="">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/n8n.jpg"
+                             alt="Leverage real automation in your company"
+                             class="mockup-image">
                     </div>
                 </div>
             </div>
@@ -253,6 +259,14 @@
                 <span class="suggestion-chip">Show me workflow optimization</span>
                 <span class="suggestion-chip">Generate a report</span>
             </div>
+        </div>
+
+        <div class="ai-solution-cta-container">
+            Ready to build something unique?
+            <a href="#footer-cta" class="small-cta">
+                <span>Reach out now</span>
+                <span class="arrow">↓</span>
+            </a>
         </div>
     </div>
 </section>
@@ -346,8 +360,8 @@
                         <div class="highlight-label">Revenue Increase</div>
                     </div>
                 </div>
-                <a href="#footer-cta" class="client-cta">
-                    <span>Start Your Project</span>
+                <a href="#" class="client-cta">
+                    <span>Get a free consultation</span>
                     <span class="arrow">→</span>
                 </a>
             </div>
@@ -391,8 +405,8 @@
                         <div class="highlight-label">Procurement Errors Reduced</div>
                     </div>
                 </div>
-                <a href="#footer-cta" class="client-cta">
-                    <span>Start Your Project</span>
+                <a href="#" class="client-cta">
+                    <span>Get a free consultation</span>
                     <span class="arrow">→</span>
                 </a>
             </div>
@@ -445,8 +459,8 @@
                         <div class="highlight-label">Conversion Rate Increase</div>
                     </div>
                 </div>
-                <a href="#footer-cta" class="client-cta">
-                    <span>Start Your Project</span>
+                <a href="#" class="client-cta">
+                    <span>Get a free consultation</span>
                     <span class="arrow">→</span>
                 </a>
             </div>
@@ -546,8 +560,8 @@
                         <div class="highlight-label">Efficiency Improved</div>
                     </div>
                 </div>
-                <a href="#footer-cta" class="client-cta">
-                    <span>Start Your Project</span>
+                <a href="#" class="client-cta">
+                    <span>Get a free consultation</span>
                     <span class="arrow">→</span>
                 </a>
             </div>
@@ -607,8 +621,10 @@
 <section id="blog-preview" class="section blog-preview-section fade-in">
     <div class="container">
         <div class="blog-preview-content">
-            <h2>We look a decade ahead so you can scale today.</h2>
-            <p>We've mapped the value in motion from now to 2036, so you can build a future-ready infrastructure to capture it.</p>
+            <div class="two-thirds">
+                <h2>We look a decade ahead so you can scale today.</h2>
+                <p>We've mapped the value in motion, so you can build a future-ready infrastructure to capture it.</p>
+            </div>
             <a href="#" class="blog-preview-cta">
                 <span>Read our insights</span>
                 <span class="arrow">→</span>
@@ -651,6 +667,13 @@
                 </div>
             <?php endif; ?>
 
+            <!-- Success Message -->
+            <div id="contactSuccessMessage" class="contact-success-message" style="display: none;">
+                <div class="success-icon">✓</div>
+                <h3>Thank You!</h3>
+                <p>We'll get back to you within 24 hours.</p>
+            </div>
+
             <form method="post" action="" class="contact-form" id="contactForm">
                 <?php wp_nonce_field('rbl_contact_form', 'rbl_contact_nonce'); ?>
 
@@ -687,5 +710,87 @@
         </div>
     </div>
 </section>
+
+<!-- Consultation Popup Modal -->
+<div id="consultationPopup" class="consultation-popup">
+    <div class="consultation-popup-overlay"></div>
+    <div class="consultation-popup-content">
+        <button class="consultation-popup-close" aria-label="Close popup">&times;</button>
+
+        <div class="consultation-popup-header">
+            <h2>Get a Free Consultation</h2>
+            <p>Schedule a call with our team to discuss your project (EST 10am-4pm Mon-Fri)</p>
+        </div>
+
+        <!-- Success Message -->
+        <div id="consultationSuccessMessage" class="consultation-success-message" style="display: none;">
+            <div class="success-icon">✓</div>
+            <h3>Consultation Request Received!</h3>
+            <p>We'll confirm your appointment within 24 hours.</p>
+        </div>
+
+        <form method="post" action="" class="consultation-form" id="consultationForm">
+            <?php wp_nonce_field('rbl_consultation_form', 'rbl_consultation_nonce'); ?>
+
+            <div class="form-grid">
+                <div>
+                    <label>
+                        I'm interested in...
+                    </label>
+                    <select name="service" class="form-select" required>
+                        <option value="" disabled selected>Select a service...</option>
+                        <option value="strategy">AI Strategy Session</option>
+                        <option value="ai">AI & Automation Implementation</option>
+                        <option value="software">Custom Software Development</option>
+                        <option value="web">Web Platform / Redesign</option>
+                        <option value="other">Other / General Inquiry</option>
+                    </select>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <input type="text" name="name" class="form-input" placeholder="Name" required>
+                    <input type="email" name="email" class="form-input" placeholder="Work Email" required>
+                </div>
+
+                <div>
+                    <label>
+                        Preferred consultation date
+                    </label>
+                    <input type="text" name="consultation_date" class="form-input" id="consultationDate" placeholder="Select a date..." required readonly>
+                </div>
+
+                <div>
+                    <label>
+                        Preferred time (EST)
+                    </label>
+                    <select name="consultation_time" class="form-select" required>
+                        <option value="" disabled selected>Select a time...</option>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="10:30">10:30 AM</option>
+                        <option value="11:00">11:00 AM</option>
+                        <option value="11:30">11:30 AM</option>
+                        <option value="12:00">12:00 PM</option>
+                        <option value="12:30">12:30 PM</option>
+                        <option value="13:00">1:00 PM</option>
+                        <option value="13:30">1:30 PM</option>
+                        <option value="14:00">2:00 PM</option>
+                        <option value="14:30">2:30 PM</option>
+                        <option value="15:00">3:00 PM</option>
+                        <option value="15:30">3:30 PM</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        Tell us about your project
+                    </label>
+                    <textarea name="message" class="form-input" rows="4" placeholder="Briefly describe your goals..." required></textarea>
+                </div>
+
+                <button type="submit" name="rbl_consultation_submit" class="submit-btn">Schedule Consultation</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 <?php get_footer(); ?>

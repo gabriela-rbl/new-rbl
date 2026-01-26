@@ -31,9 +31,9 @@
 <!-- Topbar -->
 <div class="site-topbar" id="topbar">
     <div class="topbar-content">
-        <span class="topbar-badge">NEW</span>
-        <span>Request our one-pager to know more</span>
-        <a href="#contact" class="topbar-link">Learn more →</a>
+        <span class="topbar-badge">FREE</span>
+        <span>Schedule your consultation call today<span class="hide-mobile"> - limited slots available</span></span>
+        <a href="#" class="topbar-link open-consultation-popup">Book now →</a>
     </div>
 </div>
 
@@ -64,7 +64,7 @@
         </nav>
 
         <div class="header-actions">
-            <a href="#" class="login-link">Login</a>
+<!--            <a href="#" class="login-link">Login</a>-->
             <a href="#footer-cta" class="nav-cta">
                 <span>Request a demo</span>
                 <span class="arrow">→</span>
@@ -79,7 +79,7 @@
                 <li><a href="#enterprise">Solutions</a></li>
                 <li><a href="#solutions">Services</a></li>
                 <li><a href="#seatserve">Cases</a></li>
-                <li><a href="#" class="mobile-login">Login</a></li>
+<!--                <li><a href="#" class="mobile-login">Login</a></li>-->
             </ul>
         </nav>
     </div>

@@ -35,7 +35,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; <?php echo date('Y'); ?> Random Bit Logic. All Rights Reserved.</p>
+            <p>&copy; <?php echo date('Y'); ?> Random Bit Logic. All Rights Reserved. Shipping digital solutions since 1998.</p>
         </div>
     </footer>
 

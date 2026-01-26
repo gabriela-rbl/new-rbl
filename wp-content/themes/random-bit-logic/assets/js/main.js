@@ -17,6 +17,7 @@
         initStickyHeader();
         initAnimatedPlaceholder();
         initMobileMenu();
+        initConsultationPopup();
     }
 
     /**
@@ -63,6 +64,170 @@
                 document.body.style.overflow = '';
             }
         });
+    }
+
+    /**
+     * Consultation Popup functionality
+     */
+    function initConsultationPopup() {
+        const popup = document.getElementById('consultationPopup');
+        const closeBtn = document.querySelector('.consultation-popup-close');
+        const overlay = document.querySelector('.consultation-popup-overlay');
+        const ctaButtons = document.querySelectorAll('.client-cta, .open-consultation-popup');
+        const dateInput = document.getElementById('consultationDate');
+
+        if (!popup) return;
+
+        // Function to open popup
+        function openPopup(e) {
+            e.preventDefault();
+            popup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Function to close popup
+        function closePopup() {
+            popup.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Add event listeners to all CTA buttons
+        ctaButtons.forEach(button => {
+            button.addEventListener('click', openPopup);
+        });
+
+        // Close button
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closePopup);
+        }
+
+        // Overlay click
+        if (overlay) {
+            overlay.addEventListener('click', closePopup);
+        }
+
+        // Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && popup.classList.contains('active')) {
+                closePopup();
+            }
+        });
+
+        // Initialize Flatpickr datepicker
+        if (dateInput && typeof flatpickr !== 'undefined') {
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+
+            flatpickr(dateInput, {
+                minDate: tomorrow,
+                dateFormat: 'Y-m-d',
+                disable: [
+                    function(date) {
+                        // Disable weekends (0 = Sunday, 6 = Saturday)
+                        return (date.getDay() === 0 || date.getDay() === 6);
+                    }
+                ],
+                locale: {
+                    firstDayOfWeek: 1 // Start week on Monday
+                },
+                onChange: function(selectedDates, dateStr, instance) {
+                    // Additional validation if needed
+                },
+                onReady: function(selectedDates, dateStr, instance) {
+                    // Add custom class for styling
+                    instance.calendarContainer.classList.add('rbl-datepicker');
+                }
+            });
+        }
+
+        // Form submission handling
+        const consultationForm = document.getElementById('consultationForm');
+        if (consultationForm) {
+            consultationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Basic validation
+                const formData = new FormData(this);
+                const service = formData.get('service');
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const date = formData.get('consultation_date');
+                const time = formData.get('consultation_time');
+                const message = formData.get('message');
+
+                if (!service || !name || !email || !date || !time || !message) {
+                    alert('Please fill in all required fields.');
+                    return false;
+                }
+
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Please enter a valid email address.');
+                    return false;
+                }
+
+                // Show loading state
+                const submitButton = this.querySelector('.submit-btn');
+                const originalText = submitButton.textContent;
+                submitButton.textContent = 'Scheduling...';
+                submitButton.disabled = true;
+
+                // Add submit button name to FormData (required for plugin detection)
+                formData.append('rbl_consultation_submit', '1');
+
+                // Send AJAX request
+                fetch(window.location.href, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    credentials: 'same-origin'
+                })
+                .then(response => {
+                    // Check if response is JSON
+                    const contentType = response.headers.get('content-type');
+                    if (!contentType || !contentType.includes('application/json')) {
+                        throw new Error('Invalid response format. Please try again.');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        // Success - show success message and hide form
+                        const successMessage = document.getElementById('consultationSuccessMessage');
+                        if (successMessage) {
+                            consultationForm.style.display = 'none';
+                            successMessage.style.display = 'block';
+
+                            // Auto-close popup after 5 seconds
+                            setTimeout(() => {
+                                closePopup();
+                                // Reset form and show it again for next time
+                                consultationForm.style.display = 'block';
+                                successMessage.style.display = 'none';
+                                consultationForm.reset();
+                            }, 5000);
+                        }
+                    } else {
+                        throw new Error(data.data.message || 'Submission failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('There was an error submitting the form. Please try again.');
+                })
+                .finally(() => {
+                    // Reset button
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                });
+
+                return false;
+            });
+        }
     }
 
     /**
@@ -240,17 +405,44 @@
             // Prepare form data
             const formData = new FormData(form);
 
+            // Add submit button name to FormData (required for plugin detection)
+            formData.append('rbl_contact_submit', '1');
+
             // Send AJAX request
             fetch(window.location.href, {
                 method: 'POST',
                 body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
                 credentials: 'same-origin'
             })
             .then(response => {
-                if (response.ok) {
-                    // Success
-                    form.reset();
-                    alert('Request Sent! We\'ll get back to you within 24 hours.');
+                // Check if response is JSON
+                const contentType = response.headers.get('content-type');
+                if (!contentType || !contentType.includes('application/json')) {
+                    throw new Error('Invalid response format. Please try again.');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    // Success - show success message and hide form
+                    const successMessage = document.getElementById('contactSuccessMessage');
+                    if (successMessage) {
+                        form.style.display = 'none';
+                        successMessage.style.display = 'block';
+
+                        // Scroll to success message
+                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                        // Reset form after a delay
+                        setTimeout(() => {
+                            form.style.display = 'block';
+                            successMessage.style.display = 'none';
+                            form.reset();
+                        }, 5000);
+                    }
 
                     // Reset button
                     if (submitButton) {
@@ -258,7 +450,7 @@
                         submitButton.disabled = false;
                     }
                 } else {
-                    throw new Error('Form submission failed');
+                    throw new Error(data.data.message || 'Submission failed');
                 }
             })
             .catch(error => {
