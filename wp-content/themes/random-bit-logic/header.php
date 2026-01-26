@@ -57,9 +57,10 @@
 
         <nav class="main-nav">
             <ul>
-                <li><a href="#enterprise">Solutions</a></li>
-                <li><a href="#solutions">Services</a></li>
-                <li><a href="#seatserve">Cases</a></li>
+                <li><a href="<?php echo home_url('/#enterprise'); ?>">Solutions</a></li>
+                <li><a href="<?php echo home_url('/#solutions'); ?>">Services</a></li>
+                <li><a href="<?php echo home_url('/#seatserve'); ?>">Cases</a></li>
+                <li><a href="<?php echo esc_url(home_url('/insights/')); ?>">Insights</a></li>
             </ul>
         </nav>
 
@@ -76,9 +77,10 @@
     <div class="mobile-nav-overlay">
         <nav class="mobile-nav">
             <ul>
-                <li><a href="#enterprise">Solutions</a></li>
-                <li><a href="#solutions">Services</a></li>
-                <li><a href="#seatserve">Cases</a></li>
+                <li><a href="<?php echo home_url('/#enterprise'); ?>">Solutions</a></li>
+                <li><a href="<?php echo home_url('/#solutions'); ?>">Services</a></li>
+                <li><a href="<?php echo home_url('/#seatserve'); ?>">Cases</a></li>
+                <li><a href="<?php echo esc_url(home_url('/insights/')); ?>">Insights</a></li>
 <!--                <li><a href="#" class="mobile-login">Login</a></li>-->
             </ul>
         </nav>
