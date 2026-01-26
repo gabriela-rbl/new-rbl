@@ -2540,6 +2540,7 @@ textarea.form-input {
 
 .single-post {
     background: var(--light-bg);
+    overflow: visible;
 }
 
 .single-post-header {
@@ -2599,6 +2600,11 @@ textarea.form-input {
 
 .single-post-content {
     padding: 0 0 4rem;
+    overflow: visible;
+}
+
+.single-post-content > .container {
+    overflow: visible;
 }
 
 .post-content-wrapper {
@@ -2814,9 +2820,11 @@ textarea.form-input {
 
 /* Sticky Sidebar */
 .single-post-sidebar {
+    position: -webkit-sticky;
     position: sticky;
     top: 100px;
-    align-self: start;
+    height: fit-content;
+    max-height: calc(100vh - 120px);
 }
 
 .sidebar-form-wrapper {
