@@ -1,5 +1,6 @@
 <?php get_header(); ?>
 
+
 <!-- Hero Section -->
 <section id="hero" class="section hero fade-in">
     <div id="canvas-container"></div>
