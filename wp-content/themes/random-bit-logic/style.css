@@ -2375,7 +2375,14 @@ textarea.form-input {
     display: flex;
     flex-direction: column;
     background: var(--light-bg);
-    transition: var(--transition);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: -1rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.insight-card:hover {
+    background: var(--light-gray-bg);
 }
 
 .insight-card-link {
@@ -2407,7 +2414,7 @@ textarea.form-input {
 }
 
 .insight-card-link:hover .insight-image img {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 .insight-image-placeholder {
