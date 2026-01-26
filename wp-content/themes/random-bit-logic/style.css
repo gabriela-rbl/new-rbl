@@ -2338,7 +2338,7 @@ textarea.form-input {
    =================================== */
 
 .insights-hero {
-    background: linear-gradient(180deg, var(--light-gray-bg) 0%, var(--light-bg) 100%);
+    background: var(--light-gray-bg);
     padding: 6rem 0 4rem;
     text-align: left;
 }
@@ -2356,7 +2356,7 @@ textarea.form-input {
     font-weight: 700;
     line-height: 1.2;
     color: var(--text-dark);
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0;
 }
 
@@ -2450,6 +2450,11 @@ textarea.form-input {
     color: var(--text-dark);
     margin: 0 0 0.75rem 0;
     transition: color 0.3s ease;
+    -webkit-line-clamp: 3;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
 }
 
 .insight-date {
@@ -2551,7 +2556,7 @@ textarea.form-input {
 }
 
 .single-post-header {
-    background: linear-gradient(180deg, var(--light-gray-bg) 0%, var(--light-bg) 100%);
+    background: var(--light-gray-bg);
     padding: 6rem 0 3rem;
     text-align: left;
 }
@@ -2594,15 +2599,16 @@ textarea.form-input {
 }
 
 .single-post-featured-image {
-    padding: 0 0 3rem;
+    padding: 2rem 0 0;
 }
 
 .single-post-featured-image img {
     width: 100%;
-    max-width: 1000px;
     height: auto;
     border-radius: 1rem;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    max-height: 25vh;
+    object-fit: cover;
 }
 
 .single-post-content {
@@ -2825,6 +2831,23 @@ textarea.form-input {
     min-width: 0;
 }
 
+.single-post-main .cta-box{
+    background: var(--primary-blue);
+    padding: 2rem var(--container-padding);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    color: #fff !important;
+    border-radius: 30px;
+}
+
+.single-post-main .cta-box h3,
+.single-post-main .cta-box p,
+.single-post-main .cta-box strong{
+    margin-top: 0;
+    color:#fff;
+}
+
 /* Sticky Sidebar */
 .single-post-sidebar {
     position: -webkit-sticky;
@@ -2832,6 +2855,7 @@ textarea.form-input {
     top: 100px;
     height: fit-content;
     max-height: calc(100vh - 120px);
+    padding-top: 30px;
 }
 
 .sidebar-form-wrapper {

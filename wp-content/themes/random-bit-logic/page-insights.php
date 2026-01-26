@@ -11,7 +11,7 @@ get_header();
 <section class="insights-hero">
     <div class="container">
         <span class="insights-label">Blog</span>
-        <h1 class="insights-title">Insights and ideas driving the future of financial & operational automation</h1>
+        <h1 class="insights-title">Insights and ideas driving the future of operational automation & custom software</h1>
     </div>
 </section>
 
