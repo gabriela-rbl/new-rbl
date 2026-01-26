@@ -617,15 +617,15 @@
 <!--    </div>-->
 <!--</section>-->
 
-<!-- Blog Preview Section -->
-<section id="blog-preview" class="section blog-preview-section fade-in">
+<!-- Insights Preview Section -->
+<section id="insights-preview" class="section blog-preview-section fade-in">
     <div class="container">
         <div class="blog-preview-content">
             <div class="two-thirds">
                 <h2>We look a decade ahead so you can scale today.</h2>
                 <p>We've mapped the value in motion, so you can build a future-ready infrastructure to capture it.</p>
             </div>
-            <a href="#" class="blog-preview-cta">
+            <a href="<?php echo esc_url(home_url('/insights/')); ?>" class="blog-preview-cta">
                 <span>Read our insights</span>
                 <span class="arrow">→</span>
             </a>

@@ -1469,7 +1469,7 @@ strong {
 }
 
 /* ===================================
-   Blog Preview Section
+   Insights Preview Section (formerly Blog Preview)
    =================================== */
 
 .blog-preview-section {
@@ -2331,4 +2331,205 @@ textarea.form-input {
 
 .rbl-datepicker.arrowTop:before {
     border-bottom-color: var(--primary-blue);
+}
+
+/* ===================================
+   Insights Page Styles
+   =================================== */
+
+.insights-hero {
+    background: linear-gradient(180deg, var(--light-gray-bg) 0%, var(--light-bg) 100%);
+    padding: 6rem 0 4rem;
+    text-align: left;
+}
+
+.insights-label {
+    display: inline-block;
+    color: var(--primary-blue);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.insights-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-dark);
+    max-width: 800px;
+    margin: 0;
+}
+
+.insights-section {
+    padding: 3rem 0 6rem;
+    background: var(--light-bg);
+}
+
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+.insight-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--light-bg);
+    transition: var(--transition);
+}
+
+.insight-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.insight-card-link:hover .insight-title {
+    color: var(--primary-blue);
+}
+
+.insight-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/10;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.insight-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.insight-card-link:hover .insight-image img {
+    transform: scale(1.05);
+}
+
+.insight-image-placeholder {
+    background: linear-gradient(135deg, #f0f4ff 0%, #e8ebf5 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.insight-image-placeholder .placeholder-content {
+    color: var(--primary-blue);
+    opacity: 0.5;
+}
+
+.insight-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.insight-category {
+    display: inline-block;
+    color: var(--primary-blue);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.insight-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--text-dark);
+    margin: 0 0 0.75rem 0;
+    transition: color 0.3s ease;
+}
+
+.insight-date {
+    font-size: 0.875rem;
+    color: var(--text-gray);
+    margin-top: auto;
+}
+
+/* Insights Pagination */
+.insights-pagination {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.insights-pagination ul {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.insights-pagination li a,
+.insights-pagination li span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    padding: 0 0.75rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: var(--transition);
+    color: var(--text-dark);
+    background: var(--light-gray-bg);
+}
+
+.insights-pagination li a:hover {
+    background: var(--primary-blue);
+    color: var(--text-light);
+}
+
+.insights-pagination li span.current {
+    background: var(--primary-blue);
+    color: var(--text-light);
+}
+
+.no-insights {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--light-gray-bg);
+    border-radius: 1rem;
+}
+
+.no-insights p {
+    margin: 0;
+    font-size: 1.125rem;
+}
+
+/* Insights Responsive */
+@media (max-width: 1024px) {
+    .insights-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .insights-hero {
+        padding: 4rem 0 3rem;
+    }
+
+    .insights-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .insight-image {
+        aspect-ratio: 16/9;
+    }
+
+    .insights-pagination ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }

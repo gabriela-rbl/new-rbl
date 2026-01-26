@@ -27,9 +27,9 @@
             <div class="footer-column">
                 <h3>Company</h3>
                 <ul class="footer-nav">
-                    <li><a href="#seatserve">Our Work</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="<?php echo home_url('/#seatserve'); ?>">Our Work</a></li>
+                    <li><a href="<?php echo esc_url(home_url('/insights/')); ?>">Insights</a></li>
+                    <li><a href="<?php echo home_url('/#footer-cta'); ?>">Contact</a></li>
                 </ul>
             </div>
         </div>
