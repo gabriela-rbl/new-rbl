@@ -34,9 +34,9 @@
          */
         function updateFavicon(isDark) {
             if (isDark) {
-                faviconDefault.href = `${themeURI}/favicon-dark.svg`;
+                faviconDefault.href = `${themeURI}/favicon-dark-mode.svg`;
             } else {
-                faviconDefault.href = `${themeURI}/favicon-light.svg`;
+                faviconDefault.href = `${themeURI}/favicon-light-mode.svg`;
             }
         }
 

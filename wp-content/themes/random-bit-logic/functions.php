@@ -74,7 +74,9 @@ function rbl_enqueue_scripts() {
         'rbl-theme-utils',
         get_template_directory_uri() . '/js/theme-utils.js',
         array(),
-        '2.0.0',
+        '2.0.0'
+    );
+
     // Flatpickr CSS for datepicker
     wp_enqueue_style(
         'flatpickr',
