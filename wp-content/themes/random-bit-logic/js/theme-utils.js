@@ -48,17 +48,6 @@
         darkModeQuery.addEventListener('change', (e) => {
             updateFavicon(e.matches);
         });
-
-        // Remove WordPress default favicon if it exists
-        // This ensures our custom favicons take precedence
-        document.querySelectorAll('link[rel="icon"]').forEach(link => {
-            if (link.id !== 'favicon-light' &&
-                link.id !== 'favicon-dark' &&
-                link.id !== 'favicon-default' &&
-                link.href.includes('wp-includes')) {
-                link.remove();
-            }
-        });
     }
 
     // Initialize when DOM is ready
