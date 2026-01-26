@@ -10,6 +10,7 @@
      * Initialize all functionality
      */
     function init() {
+        initAntispam();
         initContactForm();
         initMockupAnimations();
         initGeometricShapes();
@@ -18,6 +19,92 @@
         initAnimatedPlaceholder();
         initMobileMenu();
         initConsultationPopup();
+    }
+
+    /**
+     * Anti-spam protection
+     * - Adds honeypot fields (hidden fields that bots fill out)
+     * - Tracks form load time (bots submit too fast)
+     * - Sets JavaScript token (bots without JS won't have it)
+     */
+    function initAntispam() {
+        const forms = document.querySelectorAll('#consultationForm, #contactForm');
+
+        forms.forEach(form => {
+            // Record when the form was loaded (for time-based validation)
+            const loadTime = Date.now();
+            form.dataset.loadTime = loadTime;
+
+            // Create honeypot field (hidden from users, bots will fill it)
+            const honeypot = document.createElement('input');
+            honeypot.type = 'text';
+            honeypot.name = 'website_url'; // Attractive name for bots
+            honeypot.id = 'website_url_' + Math.random().toString(36).substr(2, 9);
+            honeypot.autocomplete = 'off';
+            honeypot.tabIndex = -1;
+            honeypot.style.cssText = 'position:absolute;left:-9999px;top:-9999px;height:0;width:0;z-index:-1;opacity:0;';
+            honeypot.setAttribute('aria-hidden', 'true');
+            form.appendChild(honeypot);
+
+            // Create second honeypot with different approach
+            const honeypot2 = document.createElement('input');
+            honeypot2.type = 'text';
+            honeypot2.name = 'phone_number'; // Another attractive name for bots
+            honeypot2.autocomplete = 'off';
+            honeypot2.tabIndex = -1;
+            honeypot2.style.cssText = 'position:absolute;left:-9999px;top:-9999px;height:0;width:0;z-index:-1;opacity:0;';
+            honeypot2.setAttribute('aria-hidden', 'true');
+            form.appendChild(honeypot2);
+
+            // Add hidden field for JS token (proves JavaScript is enabled)
+            const jsToken = document.createElement('input');
+            jsToken.type = 'hidden';
+            jsToken.name = 'rbl_js_token';
+            jsToken.value = typeof rblAntispam !== 'undefined' ? rblAntispam.token : '';
+            form.appendChild(jsToken);
+
+            // Add hidden field for form load timestamp
+            const timeField = document.createElement('input');
+            timeField.type = 'hidden';
+            timeField.name = 'rbl_form_time';
+            timeField.value = loadTime;
+            form.appendChild(timeField);
+        });
+    }
+
+    /**
+     * Validate anti-spam before form submission
+     * Returns true if submission looks legitimate, false if spam
+     */
+    function validateAntispam(form, formData) {
+        // Check honeypot fields (should be empty)
+        const honeypot1 = formData.get('website_url');
+        const honeypot2 = formData.get('phone_number');
+
+        if (honeypot1 || honeypot2) {
+            console.log('Spam detected: honeypot filled');
+            return false;
+        }
+
+        // Check time-based validation (minimum time before submission)
+        const loadTime = parseInt(form.dataset.loadTime, 10);
+        const currentTime = Date.now();
+        const elapsedSeconds = (currentTime - loadTime) / 1000;
+        const minTime = typeof rblAntispam !== 'undefined' ? rblAntispam.minTime : 3;
+
+        if (elapsedSeconds < minTime) {
+            console.log('Spam detected: submitted too fast');
+            return false;
+        }
+
+        // Check JS token (should be present)
+        const jsToken = formData.get('rbl_js_token');
+        if (!jsToken) {
+            console.log('Spam detected: no JS token');
+            return false;
+        }
+
+        return true;
     }
 
     /**
@@ -174,78 +261,64 @@
                 submitButton.textContent = 'Scheduling...';
                 submitButton.disabled = true;
 
+                // Anti-spam validation
+                if (!validateAntispam(this, formData)) {
+                    // Silently fail for spam - don't give feedback to bots
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                    return false;
+                }
+
                 // Add submit button name to FormData (required for plugin detection)
                 formData.append('rbl_consultation_submit', '1');
 
-                // Function to submit the form
-                function submitForm(formData) {
-                    fetch(window.location.href, {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'X-Requested-With': 'XMLHttpRequest'
-                        },
-                        credentials: 'same-origin'
-                    })
-                    .then(response => {
-                        // Check if response is JSON
-                        const contentType = response.headers.get('content-type');
-                        if (!contentType || !contentType.includes('application/json')) {
-                            throw new Error('Invalid response format. Please try again.');
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        if (data.success) {
-                            // Success - show success message and hide form
-                            const successMessage = document.getElementById('consultationSuccessMessage');
-                            if (successMessage) {
-                                consultationForm.style.display = 'none';
-                                successMessage.style.display = 'block';
+                // Submit the form
+                fetch(window.location.href, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    credentials: 'same-origin'
+                })
+                .then(response => {
+                    // Check if response is JSON
+                    const contentType = response.headers.get('content-type');
+                    if (!contentType || !contentType.includes('application/json')) {
+                        throw new Error('Invalid response format. Please try again.');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        // Success - show success message and hide form
+                        const successMessage = document.getElementById('consultationSuccessMessage');
+                        if (successMessage) {
+                            consultationForm.style.display = 'none';
+                            successMessage.style.display = 'block';
 
-                                // Auto-close popup after 5 seconds
-                                setTimeout(() => {
-                                    closePopup();
-                                    // Reset form and show it again for next time
-                                    consultationForm.style.display = 'block';
-                                    successMessage.style.display = 'none';
-                                    consultationForm.reset();
-                                }, 5000);
-                            }
-                        } else {
-                            throw new Error(data.data.message || 'Submission failed');
+                            // Auto-close popup after 5 seconds
+                            setTimeout(() => {
+                                closePopup();
+                                // Reset form and show it again for next time
+                                consultationForm.style.display = 'block';
+                                successMessage.style.display = 'none';
+                                consultationForm.reset();
+                            }, 5000);
                         }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('There was an error submitting the form. Please try again.');
-                    })
-                    .finally(() => {
-                        // Reset button
-                        submitButton.textContent = originalText;
-                        submitButton.disabled = false;
-                    });
-                }
-
-                // Check if reCAPTCHA is enabled
-                if (typeof rblRecaptcha !== 'undefined' && rblRecaptcha.enabled && typeof grecaptcha !== 'undefined') {
-                    grecaptcha.ready(function() {
-                        grecaptcha.execute(rblRecaptcha.siteKey, {action: 'consultation_form'})
-                            .then(function(token) {
-                                formData.append('recaptcha_token', token);
-                                formData.append('recaptcha_action', 'consultation_form');
-                                submitForm(formData);
-                            })
-                            .catch(function(error) {
-                                console.error('reCAPTCHA error:', error);
-                                // Submit without reCAPTCHA token if it fails
-                                submitForm(formData);
-                            });
-                    });
-                } else {
-                    // Submit without reCAPTCHA if not configured
-                    submitForm(formData);
-                }
+                    } else {
+                        throw new Error(data.data.message || 'Submission failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('There was an error submitting the form. Please try again.');
+                })
+                .finally(() => {
+                    // Reset button
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                });
 
                 return false;
             });
@@ -427,86 +500,74 @@
             // Prepare form data
             const formData = new FormData(form);
 
+            // Anti-spam validation
+            if (!validateAntispam(form, formData)) {
+                // Silently fail for spam - don't give feedback to bots
+                if (submitButton) {
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                }
+                return false;
+            }
+
             // Add submit button name to FormData (required for plugin detection)
             formData.append('rbl_contact_submit', '1');
 
-            // Function to submit the form
-            function submitContactForm(formData) {
-                fetch(window.location.href, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'X-Requested-With': 'XMLHttpRequest'
-                    },
-                    credentials: 'same-origin'
-                })
-                .then(response => {
-                    // Check if response is JSON
-                    const contentType = response.headers.get('content-type');
-                    if (!contentType || !contentType.includes('application/json')) {
-                        throw new Error('Invalid response format. Please try again.');
+            // Submit the form
+            fetch(window.location.href, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                credentials: 'same-origin'
+            })
+            .then(response => {
+                // Check if response is JSON
+                const contentType = response.headers.get('content-type');
+                if (!contentType || !contentType.includes('application/json')) {
+                    throw new Error('Invalid response format. Please try again.');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    // Success - show success message and hide form
+                    const successMessage = document.getElementById('contactSuccessMessage');
+                    if (successMessage) {
+                        form.style.display = 'none';
+                        successMessage.style.display = 'block';
+
+                        // Scroll to success message
+                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                        // Reset form after a delay
+                        setTimeout(() => {
+                            form.style.display = 'block';
+                            successMessage.style.display = 'none';
+                            form.reset();
+                        }, 5000);
                     }
-                    return response.json();
-                })
-                .then(data => {
-                    if (data.success) {
-                        // Success - show success message and hide form
-                        const successMessage = document.getElementById('contactSuccessMessage');
-                        if (successMessage) {
-                            form.style.display = 'none';
-                            successMessage.style.display = 'block';
-
-                            // Scroll to success message
-                            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-                            // Reset form after a delay
-                            setTimeout(() => {
-                                form.style.display = 'block';
-                                successMessage.style.display = 'none';
-                                form.reset();
-                            }, 5000);
-                        }
-
-                        // Reset button
-                        if (submitButton) {
-                            submitButton.textContent = originalText;
-                            submitButton.disabled = false;
-                        }
-                    } else {
-                        throw new Error(data.data.message || 'Submission failed');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('There was an error submitting the form. Please try again.');
 
                     // Reset button
                     if (submitButton) {
                         submitButton.textContent = originalText;
                         submitButton.disabled = false;
                     }
-                });
-            }
+                } else {
+                    throw new Error(data.data.message || 'Submission failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error submitting the form. Please try again.');
 
-            // Check if reCAPTCHA is enabled
-            if (typeof rblRecaptcha !== 'undefined' && rblRecaptcha.enabled && typeof grecaptcha !== 'undefined') {
-                grecaptcha.ready(function() {
-                    grecaptcha.execute(rblRecaptcha.siteKey, {action: 'contact_form'})
-                        .then(function(token) {
-                            formData.append('recaptcha_token', token);
-                            formData.append('recaptcha_action', 'contact_form');
-                            submitContactForm(formData);
-                        })
-                        .catch(function(error) {
-                            console.error('reCAPTCHA error:', error);
-                            // Submit without reCAPTCHA token if it fails
-                            submitContactForm(formData);
-                        });
-                });
-            } else {
-                // Submit without reCAPTCHA if not configured
-                submitContactForm(formData);
-            }
+                // Reset button
+                if (submitButton) {
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                }
+            });
 
             return false;
         });

@@ -96,75 +96,114 @@ class RBL_Form_Submissions {
     }
 
     /**
-     * Verify reCAPTCHA v3 token
+     * Validate anti-spam measures
      *
-     * @param string $token The reCAPTCHA token from the form
-     * @param string $expected_action The expected action name
-     * @return array Array with 'success' boolean and 'score' float
+     * Checks:
+     * - Honeypot fields (should be empty)
+     * - Time-based validation (form submitted too quickly = bot)
+     * - JavaScript token (proves JS is enabled)
+     * - Common spam patterns in content
+     *
+     * @return array Array with 'success' boolean and 'reason' string
      */
-    private function verify_recaptcha($token, $expected_action = '') {
-        // Get secret key from theme functions
-        $secret_key = '';
-        if (defined('RBL_RECAPTCHA_SECRET_KEY') && RBL_RECAPTCHA_SECRET_KEY) {
-            $secret_key = RBL_RECAPTCHA_SECRET_KEY;
-        } else {
-            $secret_key = get_option('rbl_recaptcha_secret_key', '');
+    private function validate_antispam() {
+        // Check honeypot fields - should be empty
+        $honeypot1 = isset($_POST['website_url']) ? $_POST['website_url'] : '';
+        $honeypot2 = isset($_POST['phone_number']) ? $_POST['phone_number'] : '';
+
+        if (!empty($honeypot1) || !empty($honeypot2)) {
+            return array('success' => false, 'reason' => 'honeypot');
         }
 
-        // If no secret key configured, skip verification (allow submission)
-        if (empty($secret_key)) {
-            return array('success' => true, 'score' => 1.0, 'skipped' => true);
+        // Check JavaScript token
+        $js_token = isset($_POST['rbl_js_token']) ? sanitize_text_field($_POST['rbl_js_token']) : '';
+        if (empty($js_token) || !wp_verify_nonce($js_token, 'rbl_antispam_token')) {
+            return array('success' => false, 'reason' => 'invalid_token');
         }
 
-        // If no token provided but reCAPTCHA is configured, fail
-        if (empty($token)) {
-            return array('success' => false, 'score' => 0, 'error' => 'No reCAPTCHA token provided');
+        // Check time-based validation (minimum 3 seconds to fill form)
+        $form_time = isset($_POST['rbl_form_time']) ? intval($_POST['rbl_form_time']) : 0;
+        $current_time = round(microtime(true) * 1000); // Current time in milliseconds
+        $elapsed_seconds = ($current_time - $form_time) / 1000;
+
+        if ($form_time === 0 || $elapsed_seconds < 3) {
+            return array('success' => false, 'reason' => 'too_fast');
         }
 
-        // Verify with Google
-        $response = wp_remote_post('https://www.google.com/recaptcha/api/siteverify', array(
-            'body' => array(
-                'secret' => $secret_key,
-                'response' => $token,
-                'remoteip' => $this->get_client_ip()
-            )
-        ));
+        // Check for spam patterns in content
+        $message = isset($_POST['message']) ? $_POST['message'] : '';
+        $name = isset($_POST['name']) ? $_POST['name'] : '';
+        $email = isset($_POST['email']) ? $_POST['email'] : '';
 
-        if (is_wp_error($response)) {
-            // If verification request fails, log and allow (fail open)
-            error_log('RBL reCAPTCHA verification failed: ' . $response->get_error_message());
-            return array('success' => true, 'score' => 0.5, 'error' => 'Verification request failed');
+        if ($this->contains_spam_patterns($message) ||
+            $this->contains_spam_patterns($name) ||
+            $this->is_disposable_email($email)) {
+            return array('success' => false, 'reason' => 'spam_content');
         }
 
-        $body = wp_remote_retrieve_body($response);
-        $result = json_decode($body, true);
+        return array('success' => true, 'reason' => '');
+    }
 
-        if (!$result || !isset($result['success'])) {
-            return array('success' => false, 'score' => 0, 'error' => 'Invalid response from reCAPTCHA');
+    /**
+     * Check if content contains common spam patterns
+     */
+    private function contains_spam_patterns($content) {
+        if (empty($content)) {
+            return false;
         }
 
-        // Check if verification was successful
-        if (!$result['success']) {
-            $errors = isset($result['error-codes']) ? implode(', ', $result['error-codes']) : 'Unknown error';
-            return array('success' => false, 'score' => 0, 'error' => $errors);
-        }
-
-        // Check action matches (if provided)
-        if (!empty($expected_action) && isset($result['action']) && $result['action'] !== $expected_action) {
-            return array('success' => false, 'score' => 0, 'error' => 'Action mismatch');
-        }
-
-        // Get score (reCAPTCHA v3 returns a score between 0.0 and 1.0)
-        $score = isset($result['score']) ? floatval($result['score']) : 0;
-
-        // Score threshold - 0.5 is Google's recommended default
-        $threshold = apply_filters('rbl_recaptcha_score_threshold', 0.5);
-
-        return array(
-            'success' => $score >= $threshold,
-            'score' => $score,
-            'threshold' => $threshold
+        $spam_patterns = array(
+            // Common spam keywords
+            '/\b(viagra|cialis|casino|poker|lottery|winner|prize|congratulations)\b/i',
+            // Excessive URLs
+            '/(https?:\/\/[^\s]+){3,}/i',
+            // Suspicious HTML
+            '/<(script|iframe|embed|object)/i',
+            // Cyrillic spam (unless you expect Cyrillic input)
+            '/[\x{0400}-\x{04FF}]{10,}/u',
+            // Too many special characters
+            '/[!@#$%^&*()]{5,}/',
+            // Common spam phrases
+            '/\b(click here|buy now|act now|limited time|free money|earn \$|make money fast)\b/i',
+            // Suspicious link patterns
+            '/\[url=|bb\s*code/i',
         );
+
+        foreach ($spam_patterns as $pattern) {
+            if (preg_match($pattern, $content)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Check if email is from a known disposable email service
+     */
+    private function is_disposable_email($email) {
+        if (empty($email)) {
+            return false;
+        }
+
+        // Extract domain from email
+        $parts = explode('@', $email);
+        if (count($parts) !== 2) {
+            return false;
+        }
+
+        $domain = strtolower($parts[1]);
+
+        // Common disposable email domains
+        $disposable_domains = array(
+            'tempmail.com', 'throwaway.email', 'guerrillamail.com', 'mailinator.com',
+            '10minutemail.com', 'trashmail.com', 'fakeinbox.com', 'tempinbox.com',
+            'getnada.com', 'yopmail.com', 'sharklasers.com', 'spam4.me',
+            'dispostable.com', 'maildrop.cc', 'mytemp.email', 'temp-mail.org',
+            'emailondeck.com', 'mohmal.com', 'tempail.com', 'burnermail.io'
+        );
+
+        return in_array($domain, $disposable_domains);
     }
 
     /**
@@ -177,22 +216,21 @@ class RBL_Form_Submissions {
             wp_die('Security check failed');
         }
 
-        // Verify reCAPTCHA if token provided
-        $recaptcha_token = isset($_POST['recaptcha_token']) ? sanitize_text_field($_POST['recaptcha_token']) : '';
-        $recaptcha_action = isset($_POST['recaptcha_action']) ? sanitize_text_field($_POST['recaptcha_action']) : 'consultation_form';
-        $recaptcha_result = $this->verify_recaptcha($recaptcha_token, $recaptcha_action);
+        // Validate anti-spam measures
+        $antispam_result = $this->validate_antispam();
 
-        if (!$recaptcha_result['success']) {
-            $error_message = isset($recaptcha_result['error']) ? $recaptcha_result['error'] : 'reCAPTCHA verification failed';
+        if (!$antispam_result['success']) {
+            // Log spam attempt for monitoring (optional)
+            error_log('RBL Spam blocked: ' . $antispam_result['reason'] . ' - IP: ' . $this->get_client_ip());
 
             if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
                 strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
                 wp_send_json_error(array(
-                    'message' => 'Security verification failed. Please try again.'
+                    'message' => 'Your submission could not be processed. Please try again.'
                 ));
                 exit;
             }
-            wp_die('Security verification failed. Please try again.');
+            wp_die('Your submission could not be processed. Please try again.');
         }
 
         // Sanitize and validate inputs
@@ -274,22 +312,21 @@ class RBL_Form_Submissions {
             wp_die('Security check failed');
         }
 
-        // Verify reCAPTCHA if token provided
-        $recaptcha_token = isset($_POST['recaptcha_token']) ? sanitize_text_field($_POST['recaptcha_token']) : '';
-        $recaptcha_action = isset($_POST['recaptcha_action']) ? sanitize_text_field($_POST['recaptcha_action']) : 'contact_form';
-        $recaptcha_result = $this->verify_recaptcha($recaptcha_token, $recaptcha_action);
+        // Validate anti-spam measures
+        $antispam_result = $this->validate_antispam();
 
-        if (!$recaptcha_result['success']) {
-            $error_message = isset($recaptcha_result['error']) ? $recaptcha_result['error'] : 'reCAPTCHA verification failed';
+        if (!$antispam_result['success']) {
+            // Log spam attempt for monitoring (optional)
+            error_log('RBL Spam blocked: ' . $antispam_result['reason'] . ' - IP: ' . $this->get_client_ip());
 
             if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
                 strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
                 wp_send_json_error(array(
-                    'message' => 'Security verification failed. Please try again.'
+                    'message' => 'Your submission could not be processed. Please try again.'
                 ));
                 exit;
             }
-            wp_die('Security verification failed. Please try again.');
+            wp_die('Your submission could not be processed. Please try again.');
         }
 
         // Sanitize and validate inputs

@@ -106,60 +106,20 @@ function rbl_enqueue_scripts() {
 add_action('wp_enqueue_scripts', 'rbl_enqueue_scripts');
 
 /**
- * reCAPTCHA v3 Configuration
+ * Anti-Spam Configuration
  *
- * To enable reCAPTCHA v3, add these constants to wp-config.php:
- * define('RBL_RECAPTCHA_SITE_KEY', 'your-site-key-here');
- * define('RBL_RECAPTCHA_SECRET_KEY', 'your-secret-key-here');
- *
- * Or use the WordPress options:
- * - rbl_recaptcha_site_key
- * - rbl_recaptcha_secret_key
+ * Uses honeypot fields, time-based validation, and JavaScript token
+ * to prevent spam submissions without requiring external services.
  */
-function rbl_get_recaptcha_site_key() {
-    if (defined('RBL_RECAPTCHA_SITE_KEY') && RBL_RECAPTCHA_SITE_KEY) {
-        return RBL_RECAPTCHA_SITE_KEY;
-    }
-    return get_option('rbl_recaptcha_site_key', '');
+function rbl_enqueue_antispam() {
+    // Pass anti-spam configuration to JavaScript
+    wp_localize_script('rbl-main', 'rblAntispam', array(
+        'enabled' => true,
+        'minTime' => 3, // Minimum seconds before form can be submitted
+        'token' => wp_create_nonce('rbl_antispam_token')
+    ));
 }
-
-function rbl_get_recaptcha_secret_key() {
-    if (defined('RBL_RECAPTCHA_SECRET_KEY') && RBL_RECAPTCHA_SECRET_KEY) {
-        return RBL_RECAPTCHA_SECRET_KEY;
-    }
-    return get_option('rbl_recaptcha_secret_key', '');
-}
-
-/**
- * Enqueue reCAPTCHA v3 script if keys are configured
- */
-function rbl_enqueue_recaptcha() {
-    $site_key = rbl_get_recaptcha_site_key();
-
-    if (!empty($site_key)) {
-        // Enqueue reCAPTCHA v3 API
-        wp_enqueue_script(
-            'google-recaptcha',
-            'https://www.google.com/recaptcha/api.js?render=' . esc_attr($site_key),
-            array(),
-            null,
-            true
-        );
-
-        // Pass the site key to JavaScript
-        wp_localize_script('rbl-main', 'rblRecaptcha', array(
-            'siteKey' => $site_key,
-            'enabled' => true
-        ));
-    } else {
-        // reCAPTCHA not configured
-        wp_localize_script('rbl-main', 'rblRecaptcha', array(
-            'siteKey' => '',
-            'enabled' => false
-        ));
-    }
-}
-add_action('wp_enqueue_scripts', 'rbl_enqueue_recaptcha', 20);
+add_action('wp_enqueue_scripts', 'rbl_enqueue_antispam', 20);
 
 /**
  * Custom excerpt length
