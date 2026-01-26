@@ -98,4 +98,55 @@ get_header();
     </div>
 </section>
 
+<!-- Footer CTA Section -->
+<section id="footer-cta" class="section footer-cta-section fade-in">
+    <div id="contact-canvas-container"></div>
+    <div class="container">
+        <h2>Ready to transform your<br>business workflows?</h2>
+    </div>
+
+    <?php if (isset($_GET['contact']) && $_GET['contact'] === 'success'): ?>
+        <div class="success-message">
+            <p style="margin: 0;">Thank you! We'll get back to you within 24 hours.</p>
+        </div>
+    <?php endif; ?>
+
+    <!-- Success Message -->
+    <div id="contactSuccessMessage" class="contact-success-message" style="display: none;">
+        <div class="success-icon">✓</div>
+        <h3>Thank You!</h3>
+        <p>We'll get back to you within 24 hours.</p>
+    </div>
+
+    <form method="post" action="" class="contact-form" id="contactForm">
+        <?php wp_nonce_field('rbl_contact_form', 'rbl_contact_nonce'); ?>
+
+        <div class="form-grid">
+            <div>
+                <label>I'm interested in...</label>
+                <select id="serviceSelect" name="service" class="form-select" required>
+                    <option value="" disabled selected>Select a service...</option>
+                    <option value="strategy">AI Strategy Session</option>
+                    <option value="ai">AI & Automation Implementation</option>
+                    <option value="software">Custom Software Development</option>
+                    <option value="web">Web Platform / Redesign</option>
+                    <option value="other">Other / General Inquiry</option>
+                </select>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                <input type="text" id="name" name="name" class="form-input" placeholder="Name" required>
+                <input type="email" id="email" name="email" class="form-input" placeholder="Work Email" required>
+            </div>
+
+            <div id="dynamic-field-container">
+                <label id="dynamic-label">Tell us about your project</label>
+                <textarea id="message" name="message" class="form-input" rows="5" placeholder="Briefly describe your goals..." required></textarea>
+            </div>
+
+            <button type="submit" name="rbl_contact_submit" class="submit-btn">Send Inquiry</button>
+        </div>
+    </form>
+</section>
+
 <?php get_footer(); ?>
