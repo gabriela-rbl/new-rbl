@@ -106,6 +106,62 @@ function rbl_enqueue_scripts() {
 add_action('wp_enqueue_scripts', 'rbl_enqueue_scripts');
 
 /**
+ * reCAPTCHA v3 Configuration
+ *
+ * To enable reCAPTCHA v3, add these constants to wp-config.php:
+ * define('RBL_RECAPTCHA_SITE_KEY', 'your-site-key-here');
+ * define('RBL_RECAPTCHA_SECRET_KEY', 'your-secret-key-here');
+ *
+ * Or use the WordPress options:
+ * - rbl_recaptcha_site_key
+ * - rbl_recaptcha_secret_key
+ */
+function rbl_get_recaptcha_site_key() {
+    if (defined('RBL_RECAPTCHA_SITE_KEY') && RBL_RECAPTCHA_SITE_KEY) {
+        return RBL_RECAPTCHA_SITE_KEY;
+    }
+    return get_option('rbl_recaptcha_site_key', '');
+}
+
+function rbl_get_recaptcha_secret_key() {
+    if (defined('RBL_RECAPTCHA_SECRET_KEY') && RBL_RECAPTCHA_SECRET_KEY) {
+        return RBL_RECAPTCHA_SECRET_KEY;
+    }
+    return get_option('rbl_recaptcha_secret_key', '');
+}
+
+/**
+ * Enqueue reCAPTCHA v3 script if keys are configured
+ */
+function rbl_enqueue_recaptcha() {
+    $site_key = rbl_get_recaptcha_site_key();
+
+    if (!empty($site_key)) {
+        // Enqueue reCAPTCHA v3 API
+        wp_enqueue_script(
+            'google-recaptcha',
+            'https://www.google.com/recaptcha/api.js?render=' . esc_attr($site_key),
+            array(),
+            null,
+            true
+        );
+
+        // Pass the site key to JavaScript
+        wp_localize_script('rbl-main', 'rblRecaptcha', array(
+            'siteKey' => $site_key,
+            'enabled' => true
+        ));
+    } else {
+        // reCAPTCHA not configured
+        wp_localize_script('rbl-main', 'rblRecaptcha', array(
+            'siteKey' => '',
+            'enabled' => false
+        ));
+    }
+}
+add_action('wp_enqueue_scripts', 'rbl_enqueue_recaptcha', 20);
+
+/**
  * Custom excerpt length
  */
 function rbl_excerpt_length($length) {
