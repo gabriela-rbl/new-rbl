@@ -69,6 +69,12 @@ function rbl_enqueue_scripts() {
         true
     );
 
+    // Theme utilities (favicon switcher, etc.)
+    wp_enqueue_script(
+        'rbl-theme-utils',
+        get_template_directory_uri() . '/js/theme-utils.js',
+        array(),
+        '2.0.0',
     // Flatpickr CSS for datepicker
     wp_enqueue_style(
         'flatpickr',
@@ -161,6 +167,15 @@ function rbl_handle_contact_form() {
     }
 }
 add_action('template_redirect', 'rbl_handle_contact_form');
+
+/**
+ * Remove WordPress default favicon
+ * Ensures our custom theme-aware favicons take precedence
+ */
+function rbl_remove_default_favicon() {
+    return '';
+}
+add_filter('get_site_icon_url', 'rbl_remove_default_favicon');
 
 /**
  * Add body classes
