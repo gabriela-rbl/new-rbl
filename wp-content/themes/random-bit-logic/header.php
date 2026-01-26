@@ -66,7 +66,7 @@
 
         <div class="header-actions">
 <!--            <a href="#" class="login-link">Login</a>-->
-            <a href="#footer-cta" class="nav-cta">
+            <a href="#" class="nav-cta open-consultation-popup">
                 <span>Request a demo</span>
                 <span class="arrow">→</span>
             </a>
