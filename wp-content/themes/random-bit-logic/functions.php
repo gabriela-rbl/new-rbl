@@ -146,13 +146,13 @@ function rbl_handle_contact_form() {
 add_action('template_redirect', 'rbl_handle_contact_form');
 
 /**
- * Remove WordPress default favicon
+ * Remove WordPress default favicon from head
  * Ensures our custom theme-aware favicons take precedence
  */
 function rbl_remove_default_favicon() {
-    return '';
+    remove_action('wp_head', 'wp_site_icon', 99);
 }
-add_filter('get_site_icon_url', 'rbl_remove_default_favicon');
+add_action('wp_head', 'rbl_remove_default_favicon', 1);
 
 /**
  * Add body classes
