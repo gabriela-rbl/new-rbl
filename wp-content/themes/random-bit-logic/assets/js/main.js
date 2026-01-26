@@ -177,53 +177,75 @@
                 // Add submit button name to FormData (required for plugin detection)
                 formData.append('rbl_consultation_submit', '1');
 
-                // Send AJAX request
-                fetch(window.location.href, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'X-Requested-With': 'XMLHttpRequest'
-                    },
-                    credentials: 'same-origin'
-                })
-                .then(response => {
-                    // Check if response is JSON
-                    const contentType = response.headers.get('content-type');
-                    if (!contentType || !contentType.includes('application/json')) {
-                        throw new Error('Invalid response format. Please try again.');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    if (data.success) {
-                        // Success - show success message and hide form
-                        const successMessage = document.getElementById('consultationSuccessMessage');
-                        if (successMessage) {
-                            consultationForm.style.display = 'none';
-                            successMessage.style.display = 'block';
-
-                            // Auto-close popup after 5 seconds
-                            setTimeout(() => {
-                                closePopup();
-                                // Reset form and show it again for next time
-                                consultationForm.style.display = 'block';
-                                successMessage.style.display = 'none';
-                                consultationForm.reset();
-                            }, 5000);
+                // Function to submit the form
+                function submitForm(formData) {
+                    fetch(window.location.href, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest'
+                        },
+                        credentials: 'same-origin'
+                    })
+                    .then(response => {
+                        // Check if response is JSON
+                        const contentType = response.headers.get('content-type');
+                        if (!contentType || !contentType.includes('application/json')) {
+                            throw new Error('Invalid response format. Please try again.');
                         }
-                    } else {
-                        throw new Error(data.data.message || 'Submission failed');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('There was an error submitting the form. Please try again.');
-                })
-                .finally(() => {
-                    // Reset button
-                    submitButton.textContent = originalText;
-                    submitButton.disabled = false;
-                });
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data.success) {
+                            // Success - show success message and hide form
+                            const successMessage = document.getElementById('consultationSuccessMessage');
+                            if (successMessage) {
+                                consultationForm.style.display = 'none';
+                                successMessage.style.display = 'block';
+
+                                // Auto-close popup after 5 seconds
+                                setTimeout(() => {
+                                    closePopup();
+                                    // Reset form and show it again for next time
+                                    consultationForm.style.display = 'block';
+                                    successMessage.style.display = 'none';
+                                    consultationForm.reset();
+                                }, 5000);
+                            }
+                        } else {
+                            throw new Error(data.data.message || 'Submission failed');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('There was an error submitting the form. Please try again.');
+                    })
+                    .finally(() => {
+                        // Reset button
+                        submitButton.textContent = originalText;
+                        submitButton.disabled = false;
+                    });
+                }
+
+                // Check if reCAPTCHA is enabled
+                if (typeof rblRecaptcha !== 'undefined' && rblRecaptcha.enabled && typeof grecaptcha !== 'undefined') {
+                    grecaptcha.ready(function() {
+                        grecaptcha.execute(rblRecaptcha.siteKey, {action: 'consultation_form'})
+                            .then(function(token) {
+                                formData.append('recaptcha_token', token);
+                                formData.append('recaptcha_action', 'consultation_form');
+                                submitForm(formData);
+                            })
+                            .catch(function(error) {
+                                console.error('reCAPTCHA error:', error);
+                                // Submit without reCAPTCHA token if it fails
+                                submitForm(formData);
+                            });
+                    });
+                } else {
+                    // Submit without reCAPTCHA if not configured
+                    submitForm(formData);
+                }
 
                 return false;
             });
@@ -408,61 +430,83 @@
             // Add submit button name to FormData (required for plugin detection)
             formData.append('rbl_contact_submit', '1');
 
-            // Send AJAX request
-            fetch(window.location.href, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest'
-                },
-                credentials: 'same-origin'
-            })
-            .then(response => {
-                // Check if response is JSON
-                const contentType = response.headers.get('content-type');
-                if (!contentType || !contentType.includes('application/json')) {
-                    throw new Error('Invalid response format. Please try again.');
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.success) {
-                    // Success - show success message and hide form
-                    const successMessage = document.getElementById('contactSuccessMessage');
-                    if (successMessage) {
-                        form.style.display = 'none';
-                        successMessage.style.display = 'block';
-
-                        // Scroll to success message
-                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-                        // Reset form after a delay
-                        setTimeout(() => {
-                            form.style.display = 'block';
-                            successMessage.style.display = 'none';
-                            form.reset();
-                        }, 5000);
+            // Function to submit the form
+            function submitContactForm(formData) {
+                fetch(window.location.href, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    credentials: 'same-origin'
+                })
+                .then(response => {
+                    // Check if response is JSON
+                    const contentType = response.headers.get('content-type');
+                    if (!contentType || !contentType.includes('application/json')) {
+                        throw new Error('Invalid response format. Please try again.');
                     }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        // Success - show success message and hide form
+                        const successMessage = document.getElementById('contactSuccessMessage');
+                        if (successMessage) {
+                            form.style.display = 'none';
+                            successMessage.style.display = 'block';
+
+                            // Scroll to success message
+                            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                            // Reset form after a delay
+                            setTimeout(() => {
+                                form.style.display = 'block';
+                                successMessage.style.display = 'none';
+                                form.reset();
+                            }, 5000);
+                        }
+
+                        // Reset button
+                        if (submitButton) {
+                            submitButton.textContent = originalText;
+                            submitButton.disabled = false;
+                        }
+                    } else {
+                        throw new Error(data.data.message || 'Submission failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('There was an error submitting the form. Please try again.');
 
                     // Reset button
                     if (submitButton) {
                         submitButton.textContent = originalText;
                         submitButton.disabled = false;
                     }
-                } else {
-                    throw new Error(data.data.message || 'Submission failed');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('There was an error submitting the form. Please try again.');
+                });
+            }
 
-                // Reset button
-                if (submitButton) {
-                    submitButton.textContent = originalText;
-                    submitButton.disabled = false;
-                }
-            });
+            // Check if reCAPTCHA is enabled
+            if (typeof rblRecaptcha !== 'undefined' && rblRecaptcha.enabled && typeof grecaptcha !== 'undefined') {
+                grecaptcha.ready(function() {
+                    grecaptcha.execute(rblRecaptcha.siteKey, {action: 'contact_form'})
+                        .then(function(token) {
+                            formData.append('recaptcha_token', token);
+                            formData.append('recaptcha_action', 'contact_form');
+                            submitContactForm(formData);
+                        })
+                        .catch(function(error) {
+                            console.error('reCAPTCHA error:', error);
+                            // Submit without reCAPTCHA token if it fails
+                            submitContactForm(formData);
+                        });
+                });
+            } else {
+                // Submit without reCAPTCHA if not configured
+                submitContactForm(formData);
+            }
 
             return false;
         });

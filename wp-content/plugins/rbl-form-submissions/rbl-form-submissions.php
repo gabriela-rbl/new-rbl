@@ -96,6 +96,78 @@ class RBL_Form_Submissions {
     }
 
     /**
+     * Verify reCAPTCHA v3 token
+     *
+     * @param string $token The reCAPTCHA token from the form
+     * @param string $expected_action The expected action name
+     * @return array Array with 'success' boolean and 'score' float
+     */
+    private function verify_recaptcha($token, $expected_action = '') {
+        // Get secret key from theme functions
+        $secret_key = '';
+        if (defined('RBL_RECAPTCHA_SECRET_KEY') && RBL_RECAPTCHA_SECRET_KEY) {
+            $secret_key = RBL_RECAPTCHA_SECRET_KEY;
+        } else {
+            $secret_key = get_option('rbl_recaptcha_secret_key', '');
+        }
+
+        // If no secret key configured, skip verification (allow submission)
+        if (empty($secret_key)) {
+            return array('success' => true, 'score' => 1.0, 'skipped' => true);
+        }
+
+        // If no token provided but reCAPTCHA is configured, fail
+        if (empty($token)) {
+            return array('success' => false, 'score' => 0, 'error' => 'No reCAPTCHA token provided');
+        }
+
+        // Verify with Google
+        $response = wp_remote_post('https://www.google.com/recaptcha/api/siteverify', array(
+            'body' => array(
+                'secret' => $secret_key,
+                'response' => $token,
+                'remoteip' => $this->get_client_ip()
+            )
+        ));
+
+        if (is_wp_error($response)) {
+            // If verification request fails, log and allow (fail open)
+            error_log('RBL reCAPTCHA verification failed: ' . $response->get_error_message());
+            return array('success' => true, 'score' => 0.5, 'error' => 'Verification request failed');
+        }
+
+        $body = wp_remote_retrieve_body($response);
+        $result = json_decode($body, true);
+
+        if (!$result || !isset($result['success'])) {
+            return array('success' => false, 'score' => 0, 'error' => 'Invalid response from reCAPTCHA');
+        }
+
+        // Check if verification was successful
+        if (!$result['success']) {
+            $errors = isset($result['error-codes']) ? implode(', ', $result['error-codes']) : 'Unknown error';
+            return array('success' => false, 'score' => 0, 'error' => $errors);
+        }
+
+        // Check action matches (if provided)
+        if (!empty($expected_action) && isset($result['action']) && $result['action'] !== $expected_action) {
+            return array('success' => false, 'score' => 0, 'error' => 'Action mismatch');
+        }
+
+        // Get score (reCAPTCHA v3 returns a score between 0.0 and 1.0)
+        $score = isset($result['score']) ? floatval($result['score']) : 0;
+
+        // Score threshold - 0.5 is Google's recommended default
+        $threshold = apply_filters('rbl_recaptcha_score_threshold', 0.5);
+
+        return array(
+            'success' => $score >= $threshold,
+            'score' => $score,
+            'threshold' => $threshold
+        );
+    }
+
+    /**
      * Handle consultation form submission
      */
     private function handle_consultation_submission() {
@@ -103,6 +175,24 @@ class RBL_Form_Submissions {
         if (!isset($_POST['rbl_consultation_nonce']) ||
             !wp_verify_nonce($_POST['rbl_consultation_nonce'], 'rbl_consultation_form')) {
             wp_die('Security check failed');
+        }
+
+        // Verify reCAPTCHA if token provided
+        $recaptcha_token = isset($_POST['recaptcha_token']) ? sanitize_text_field($_POST['recaptcha_token']) : '';
+        $recaptcha_action = isset($_POST['recaptcha_action']) ? sanitize_text_field($_POST['recaptcha_action']) : 'consultation_form';
+        $recaptcha_result = $this->verify_recaptcha($recaptcha_token, $recaptcha_action);
+
+        if (!$recaptcha_result['success']) {
+            $error_message = isset($recaptcha_result['error']) ? $recaptcha_result['error'] : 'reCAPTCHA verification failed';
+
+            if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+                strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+                wp_send_json_error(array(
+                    'message' => 'Security verification failed. Please try again.'
+                ));
+                exit;
+            }
+            wp_die('Security verification failed. Please try again.');
         }
 
         // Sanitize and validate inputs
@@ -182,6 +272,24 @@ class RBL_Form_Submissions {
         if (!isset($_POST['rbl_contact_nonce']) ||
             !wp_verify_nonce($_POST['rbl_contact_nonce'], 'rbl_contact_form')) {
             wp_die('Security check failed');
+        }
+
+        // Verify reCAPTCHA if token provided
+        $recaptcha_token = isset($_POST['recaptcha_token']) ? sanitize_text_field($_POST['recaptcha_token']) : '';
+        $recaptcha_action = isset($_POST['recaptcha_action']) ? sanitize_text_field($_POST['recaptcha_action']) : 'contact_form';
+        $recaptcha_result = $this->verify_recaptcha($recaptcha_token, $recaptcha_action);
+
+        if (!$recaptcha_result['success']) {
+            $error_message = isset($recaptcha_result['error']) ? $recaptcha_result['error'] : 'reCAPTCHA verification failed';
+
+            if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+                strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+                wp_send_json_error(array(
+                    'message' => 'Security verification failed. Please try again.'
+                ));
+                exit;
+            }
+            wp_die('Security verification failed. Please try again.');
         }
 
         // Sanitize and validate inputs
