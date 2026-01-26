@@ -19,9 +19,9 @@
     <meta name="twitter:description" content="AI-first software development agency">
 
     <!-- Favicons for Light and Dark Mode -->
-    <link rel="icon" type="image/svg+xml" href="<?php echo get_template_directory_uri(); ?>/assets/images/favicon-light.svg" id="favicon-light" media="(prefers-color-scheme: light)">
-    <link rel="icon" type="image/svg+xml" href="<?php echo get_template_directory_uri(); ?>/assets/images/favicon-dark.svg" id="favicon-dark" media="(prefers-color-scheme: dark)">
-    <link rel="icon" type="image/svg+xml" href="<?php echo get_template_directory_uri(); ?>/assets/images/favicon-light.svg" id="favicon-default">
+    <link rel="icon" type="image/svg+xml" href="<?php echo get_template_directory_uri(); ?>/assets/images/favicon/favicon-light-mode.svg" id="favicon-light" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/svg+xml" href="<?php echo get_template_directory_uri(); ?>/assets/images/favicon/favicon-dark-mode.svg" id="favicon-dark" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/svg+xml" href="<?php echo get_template_directory_uri(); ?>/assets/images/favicon/favicon-light-mode.svg" id="favicon-default">
 
     <?php wp_head(); ?>
 </head>
