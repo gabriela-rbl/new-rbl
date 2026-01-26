@@ -2800,7 +2800,169 @@ textarea.form-input {
     transform: translateX(-4px);
 }
 
+/* Single Post Two-Column Layout */
+.single-post-layout {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 3rem;
+    align-items: start;
+}
+
+.single-post-main {
+    min-width: 0;
+}
+
+/* Sticky Sidebar */
+.single-post-sidebar {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+}
+
+.sidebar-form-wrapper {
+    background: var(--dark-bg);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-form-header {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.sidebar-form-header h3 {
+    color: var(--text-light);
+    font-size: 1.375rem;
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-form-header p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9375rem;
+    margin: 0;
+}
+
+.sidebar-contact-form .form-field {
+    margin-bottom: 1rem;
+}
+
+.sidebar-contact-form label {
+    display: block;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.sidebar-contact-form .form-input,
+.sidebar-contact-form .form-select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.5rem;
+    font-size: 0.9375rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    transition: var(--transition);
+    color: var(--text-light);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-contact-form .form-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.sidebar-contact-form .form-input:focus,
+.sidebar-contact-form .form-select:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-contact-form .form-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+}
+
+.sidebar-contact-form .form-select option {
+    background: var(--dark-bg);
+    color: var(--text-light);
+}
+
+.sidebar-contact-form textarea.form-input {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.sidebar-contact-form .submit-btn {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    background: var(--primary-blue);
+    color: var(--text-light);
+    border: none;
+    border-radius: 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.sidebar-contact-form .submit-btn:hover {
+    background: var(--primary-blue-hover);
+    transform: translateY(-2px);
+}
+
+/* Sidebar Success Message */
+.sidebar-success-message {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid #10b981;
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.sidebar-success-message .success-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 1rem;
+    background: #10b981;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+}
+
+.sidebar-success-message h4 {
+    color: #10b981;
+    margin-bottom: 0.25rem;
+    font-size: 1.125rem;
+}
+
+.sidebar-success-message p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
 /* Single Post Responsive */
+@media (max-width: 1024px) {
+    .single-post-layout {
+        grid-template-columns: 1fr 300px;
+        gap: 2rem;
+    }
+}
+
 @media (max-width: 768px) {
     .single-post-header {
         padding: 4rem 0 2rem;
@@ -2810,6 +2972,16 @@ textarea.form-input {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
+    }
+
+    .single-post-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .single-post-sidebar {
+        position: relative;
+        top: 0;
     }
 
     .single-post-navigation {
