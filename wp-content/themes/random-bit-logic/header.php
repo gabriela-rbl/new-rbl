@@ -47,13 +47,18 @@
             <span class="hamburger-line"></span>
         </button>
 
+        <?php /*
+        <a href="<?php echo home_url(); ?>" class="site-logo">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" alt="Random Bit Logic Logo" style="height: 45px;">
+        </a> */ ?>
+
         <?php if (has_custom_logo()) : ?>
             <?php the_custom_logo(); ?>
         <?php else : ?>
             <a href="<?php echo home_url(); ?>" class="site-logo">
                 <span style="font-size: 1.5rem; font-weight: 800; color: var(--text-dark);">Random Bit Logic</span>
             </a>
-        <?php endif; ?>
+        <?php endif;?>
 
         <nav class="main-nav">
             <ul>
