@@ -466,12 +466,21 @@
             </div>
             <div class="client-mockup dual-phones-mockup">
                 <div class="phone-wrapper phone-slide-up">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/rosebox-phone.png"
+<!--                    <img src="--><?php //echo get_template_directory_uri(); ?><!--/assets/images/mockups/rosebox-phone.png"-->
+<!--                         alt="Rose Box Platform"-->
+<!--                         class="mockup-image fade-in-phone">-->
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/rosebox-new-mockup-no-shadow.png"
                          alt="Rose Box Platform"
                          class="mockup-image fade-in-phone">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/rosebox-new-mockup-only-shadow.png"
+                         alt="Rose Box Platform"
+                         class="mockup-image fade-in-phone shadow">
                 </div>
                 <div class="phone-wrapper phone-slide-down">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/z-crave-phone.png"
+<!--                    <img src="--><?php //echo get_template_directory_uri(); ?><!--/assets/images/mockups/z-crave-phone.png"-->
+<!--                         alt="Zcrave Platform"-->
+<!--                         class="mockup-image fade-in-phone">-->
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/zcrave-new-mockup.png"
                          alt="Zcrave Platform"
                          class="mockup-image fade-in-phone">
                 </div>

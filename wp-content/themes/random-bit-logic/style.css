@@ -4,7 +4,7 @@ Theme URI: https://randombitlogic.com
 Author: Random Bit Logic
 Author URI: https://randombitlogic.com
 Description: Modern, minimalist WordPress theme for Random Bit Logic - AI-first software development agency
-Version: 2.0.0
+Version: 3.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: random-bit-logic
@@ -1260,6 +1260,12 @@ img{
 .fade-in-phone {
     opacity: 0;
     transition: opacity 1.2s ease, transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 1;
+    position: relative;
+}
+
+.phone-slide-down .fade-in-phone{
+    z-index: 2;
 }
 
 .fade-in-phone.visible {
@@ -1269,6 +1275,11 @@ img{
 /* Slide Up Animation (Rose Box) */
 .phone-slide-up {
     margin-top: 3rem;
+}
+
+.phone-slide-up img:not(.shadow){
+    position: relative;
+    animation: float-phone-up 3s ease-in-out infinite;
 }
 
 .phone-slide-up .fade-in-phone {
@@ -1282,7 +1293,10 @@ img{
 
 /* Slide Down Animation (Zcrave) */
 .phone-slide-down {
-    margin-top: 0;
+    /*margin-top: 0;*/
+    margin-top: -7rem;
+    margin-left: -7rem;
+    animation: float-phone-down 3s ease-in-out infinite;
 }
 
 .phone-slide-down .fade-in-phone {
@@ -1292,6 +1306,52 @@ img{
 .phone-slide-down .fade-in-phone.visible {
     transform: translateY(0) scale(1);
     transition-delay: 0.2s;
+}
+
+.fade-in-phone.shadow{
+    position: absolute;
+    left: 0;
+    width: 280px;
+    margin-top: -3rem;
+    z-index: 0;
+    animation: float-shadow 3s ease-in-out infinite;
+}
+
+
+@keyframes float-phone-down {
+    0% {
+        margin-top: -7rem;
+    }
+    50% {
+        margin-top: -6rem;
+    }
+    100% {
+        margin-top: -7rem;
+    }
+}
+
+@keyframes float-phone-up {
+    0% {
+        top:0;
+    }
+    50% {
+        top: -20px;
+    }
+    100% {
+        top:0;
+    }
+}
+
+@keyframes float-shadow {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0.3;
+    }
+    100% {
+        opacity:1;
+    }
 }
 
 /* Responsive Design for Dual Phones */
