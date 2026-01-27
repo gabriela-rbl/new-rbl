@@ -148,6 +148,10 @@ strong {
     transition-delay: 0.3s;
 }
 
+img{
+    transition: 0.3s ease;
+}
+
 /* ===================================
    Topbar
    =================================== */
@@ -2228,6 +2232,7 @@ textarea.form-input {
 .rbl-datepicker .flatpickr-months {
     background: #1a1a2e;
     border-bottom: 1px solid rgba(79, 70, 229, 0.3);
+    border-radius: 10px 10px 0 0px;
 }
 
 .rbl-datepicker .flatpickr-month {
@@ -2237,7 +2242,8 @@ textarea.form-input {
 .rbl-datepicker .flatpickr-current-month .flatpickr-monthDropdown-months {
     background: #1a1a2e;
     color: var(--text-light);
-    border: 1px solid var(--primary-blue);
+    /*border: 1px solid var(--primary-blue);*/
+    font-size: 16px !important;
 }
 
 .rbl-datepicker .flatpickr-current-month .flatpickr-monthDropdown-months:hover {
@@ -2247,9 +2253,26 @@ textarea.form-input {
 .rbl-datepicker .numInputWrapper:hover {
     background: rgba(79, 70, 229, 0.2);
 }
+.rbl-datepicker .flatpickr-innerContainer {
+    border-radius: 0px 0px 10px 10px;
+}
+
+.rbl-datepicker.flatpickr-calendar.arrowTop:before,
+.rbl-datepicker.flatpickr-calendar.arrowTop:after {
+    border-bottom-color: var(--primary-blue);
+}
 
 .rbl-datepicker .flatpickr-current-month input.cur-year {
     color: var(--text-light);
+    font-size: 15px;
+}
+
+.rbl-datepicker .flatpickr-months .flatpickr-month{
+    height: 37px;
+}
+
+.rbl-datepicker .flatpickr-current-month{
+    padding: 7.48px 0 8px 0;
 }
 
 .rbl-datepicker .flatpickr-weekdays {
@@ -2331,6 +2354,11 @@ textarea.form-input {
 
 .rbl-datepicker.arrowTop:before {
     border-bottom-color: var(--primary-blue);
+}
+
+.rbl-datepicker .flatpickr-months .flatpickr-prev-month svg path,
+.rbl-datepicker .flatpickr-months .flatpickr-next-month svg path {
+    stroke: #fff;
 }
 
 /* ===================================
@@ -2829,6 +2857,7 @@ textarea.form-input {
 
 .single-post-main {
     min-width: 0;
+    padding-top:25px;
 }
 
 .single-post-main .cta-box{
