@@ -16,7 +16,7 @@
                 We build AI-first platforms that eliminate complexity and deliver measurable results.
             </p>
 
-            <a href="#footer-cta" class="hero-cta">
+            <a href="#footer-cta" class="hero-cta open-consultation-popup">
                 <span>Request a demo</span>
                 <span class="arrow">→</span>
             </a>
@@ -105,7 +105,7 @@
                 <h3>Eliminate costly manual processes</h3>
                 <p>Reduce manual data entry and human error with AI-powered automation. Our intelligent workflows process thousands of operations daily, saving time and reducing costs.</p>
                 <p>Free your team to focus on strategic work while AI handles repetitive tasks with precision and accuracy.</p>
-                <a href="#footer-cta" class="small-cta">
+                <a href="<?php echo home_url('/eliminate-costly-manual-processes-how-ai-powered-automation-saves-time-money-and-sanity/') ;?> " class="small-cta">
                     <span>Learn More</span>
                     <span class="arrow">→</span>
                 </a>
@@ -132,7 +132,7 @@
                 <h3>Generate actionable, shareable insights</h3>
                 <p>Transform raw data into strategic insights. Our AI-powered analytics platforms deliver real-time reporting and predictive intelligence tailored to your business needs.</p>
                 <p>Share customized reports across teams and make data-driven decisions faster than ever.</p>
-                <a href="#footer-cta" class="small-cta">
+                <a href="<?php echo home_url('/from-data-overload-to-strategic-clarity-generate-actionable-shareable-insights-your-teams-actually-use/') ;?> " class="small-cta">
                     <span>Learn More</span>
                     <span class="arrow">→</span>
                 </a>
@@ -159,7 +159,7 @@
                 <h3>Build faster without engineering bottlenecks</h3>
                 <p>When off-the-shelf solutions don't fit, we build custom platforms tailored to your exact requirements. From concept to deployment in weeks, not months.</p>
                 <p>Our agile approach delivers production-ready software without the overhead of traditional development.</p>
-                <a href="#footer-cta" class="small-cta">
+                <a href="<?php echo home_url('/build-faster-without-engineering-bottlenecks-how-custom-software-delivers-in-weeks-not-months/') ;?> " class="small-cta">
                     <span>Learn More</span>
                     <span class="arrow">→</span>
                 </a>
@@ -211,7 +211,7 @@
             </div>
         </div>
 
-        <a href="#footer-cta" class="hero-cta">
+        <a href="#" class="hero-cta open-consultation-popup">
             <span>Request a demo</span>
             <span class="arrow">→</span>
         </a>

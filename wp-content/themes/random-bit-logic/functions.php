@@ -43,12 +43,13 @@ add_action('after_setup_theme', 'rbl_theme_setup');
  * Enqueue scripts and styles
  */
 function rbl_enqueue_scripts() {
+
     // Theme stylesheet
     wp_enqueue_style(
         'rbl-style',
         get_stylesheet_uri(),
         array(),
-        '2.0.0'
+        filemtime(get_stylesheet_directory() . '/style.css')
     );
 
     // Three.js library
