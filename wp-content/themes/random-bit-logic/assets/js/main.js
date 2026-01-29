@@ -243,7 +243,7 @@
                 const time = formData.get('consultation_time');
                 const message = formData.get('message');
 
-                if (!service || !name || !email || !date || !time || !message) {
+                if (!service || !name || !email || !date) {
                     alert('Please fill in all required fields.');
                     return false;
                 }
