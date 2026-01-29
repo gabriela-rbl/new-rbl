@@ -248,9 +248,8 @@ class RBL_Form_Submissions {
         $consultation_date = sanitize_text_field($_POST['consultation_date']);
         $consultation_time = sanitize_text_field($_POST['consultation_time']);
 
-        // Validate required fields
-        if (empty($service) || empty($name) || empty($email) || empty($message) ||
-            empty($consultation_date) || empty($consultation_time)) {
+        // Validate required fields (time and message are optional)
+        if (empty($service) || empty($name) || empty($email) || empty($consultation_date)) {
             if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
                 strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
                 wp_send_json_error(array(
