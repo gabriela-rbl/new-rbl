@@ -3126,3 +3126,106 @@ textarea.form-input {
         font-size: 1rem;
     }
 }
+
+/* ===================================
+   Page Transition Animations
+   Smooth fade-in for non-home pages
+   =================================== */
+
+/* Main content area starts hidden on non-home pages */
+body:not(.home) .page-content-wrapper {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Animate in when page is ready */
+body:not(.home).page-loaded .page-content-wrapper {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Staggered animations for child sections */
+body:not(.home).page-loaded .page-content-wrapper > *:nth-child(1) {
+    transition-delay: 0s;
+}
+
+body:not(.home).page-loaded .page-content-wrapper > *:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+body:not(.home).page-loaded .page-content-wrapper > *:nth-child(3) {
+    transition-delay: 0.15s;
+}
+
+body:not(.home).page-loaded .page-content-wrapper > *:nth-child(4) {
+    transition-delay: 0.2s;
+}
+
+/* Fallback for pages without wrapper - animate main sections */
+body:not(.home) .insights-hero,
+body:not(.home) .insights-section,
+body:not(.home) .single-post-header,
+body:not(.home) .single-post-content,
+body:not(.home) .back-to-insights,
+body:not(.home) main > .section,
+body:not(.home) main > section {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+body:not(.home).page-loaded .insights-hero,
+body:not(.home).page-loaded .insights-section,
+body:not(.home).page-loaded .single-post-header,
+body:not(.home).page-loaded .single-post-content,
+body:not(.home).page-loaded .back-to-insights,
+body:not(.home).page-loaded main > .section,
+body:not(.home).page-loaded main > section {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Stagger the sections */
+body:not(.home).page-loaded .insights-hero,
+body:not(.home).page-loaded .single-post-header {
+    transition-delay: 0s;
+}
+
+body:not(.home).page-loaded .insights-section,
+body:not(.home).page-loaded .single-post-content {
+    transition-delay: 0.15s;
+}
+
+body:not(.home).page-loaded .back-to-insights {
+    transition-delay: 0.25s;
+}
+
+/* Footer fade-in on all non-home pages */
+body:not(.home) .site-footer {
+    opacity: 0;
+}
+
+body:not(.home).page-loaded .site-footer {
+    opacity: 1;
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    body:not(.home) .page-content-wrapper,
+    body:not(.home) .insights-hero,
+    body:not(.home) .insights-section,
+    body:not(.home) .single-post-header,
+    body:not(.home) .single-post-content,
+    body:not(.home) .back-to-insights,
+    body:not(.home) main > .section,
+    body:not(.home) main > section,
+    body:not(.home) .site-footer {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
