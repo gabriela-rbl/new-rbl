@@ -104,17 +104,17 @@ if (have_posts()) :
                             <div class="sidebar-form-grid">
                                 <div class="form-field">
                                     <label for="sidebar-name">Name</label>
-                                    <input type="text" id="sidebar-name" name="name" class="form-input" placeholder="Your name" required>
+                                    <input type="text" id="sidebar-name" name="name" class="form-input" placeholder="Your name (*)" required>
                                 </div>
 
                                 <div class="form-field">
                                     <label for="sidebar-email">Email</label>
-                                    <input type="email" id="sidebar-email" name="email" class="form-input" placeholder="Work email" required>
+                                    <input type="email" id="sidebar-email" name="email" class="form-input" placeholder="Work email (*)" required>
                                 </div>
 
                                 <div class="form-field">
                                     <label for="sidebar-service">I'm interested in...</label>
-                                    <select id="sidebar-service" name="service" class="form-select" required>
+                                    <select id="sidebar-service" name="service" class="form-select">
                                         <option value="" disabled selected>Select a service</option>
                                         <option value="strategy">AI Strategy Session</option>
                                         <option value="ai">AI & Automation</option>
@@ -126,7 +126,7 @@ if (have_posts()) :
 
                                 <div class="form-field">
                                     <label for="sidebar-message">Message</label>
-                                    <textarea id="sidebar-message" name="message" class="form-input" rows="4" placeholder="Tell us about your project..." required></textarea>
+                                    <textarea id="sidebar-message" name="message" class="form-input" rows="4" placeholder="Tell us about your project..."></textarea>
                                 </div>
 
                                 <button type="submit" name="rbl_sidebar_submit" class="submit-btn">Send Message</button>

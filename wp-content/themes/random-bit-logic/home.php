@@ -127,7 +127,7 @@ get_header();
         <div class="form-grid">
             <div>
                 <label>I'm interested in...</label>
-                <select id="serviceSelect" name="service" class="form-select" required>
+                <select id="serviceSelect" name="service" class="form-select">
                     <option value="" disabled selected>Select a service...</option>
                     <option value="strategy">AI Strategy Session</option>
                     <option value="ai">AI & Automation Implementation</option>
@@ -138,13 +138,13 @@ get_header();
             </div>
 
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                <input type="text" id="name" name="name" class="form-input" placeholder="Name" required>
-                <input type="email" id="email" name="email" class="form-input" placeholder="Work Email" required>
+                <input type="text" id="name" name="name" class="form-input" placeholder="Name (*)" required>
+                <input type="email" id="email" name="email" class="form-input" placeholder="Work Email (*)" required>
             </div>
 
             <div id="dynamic-field-container">
                 <label id="dynamic-label">Tell us about your project</label>
-                <textarea id="message" name="message" class="form-input" rows="5" placeholder="Briefly describe your goals..." required></textarea>
+                <textarea id="message" name="message" class="form-input" rows="5" placeholder="Briefly describe your goals..."></textarea>
             </div>
 
             <button type="submit" name="rbl_contact_submit" class="submit-btn">Send Inquiry</button>

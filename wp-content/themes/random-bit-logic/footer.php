@@ -24,7 +24,7 @@
                         <label>
                             I'm interested in...
                         </label>
-                        <select name="service" class="form-select" required>
+                        <select name="service" class="form-select">
                             <option value="" disabled selected>Select a service...</option>
                             <option value="strategy">AI Strategy Session</option>
                             <option value="ai">AI & Automation Implementation</option>
@@ -35,15 +35,15 @@
                     </div>
 
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                        <input type="text" name="name" class="form-input" placeholder="Name" required>
-                        <input type="email" name="email" class="form-input" placeholder="Work Email" required>
+                        <input type="text" name="name" class="form-input" placeholder="Name (*)" required>
+                        <input type="email" name="email" class="form-input" placeholder="Work Email (*)" required>
                     </div>
 
                     <div>
                         <label>
                             Preferred consultation date
                         </label>
-                        <input type="text" name="consultation_date" class="form-input" id="consultationDate" placeholder="Select a date..." required readonly>
+                        <input type="text" name="consultation_date" class="form-input" id="consultationDate" placeholder="Select a date (*)" required readonly>
                     </div>
 
                     <div>
@@ -51,7 +51,7 @@
                             Preferred time (EST)
                         </label>
                         <select name="consultation_time" class="form-select">
-                            <option value="" disabled selected>Select a time...</option>
+                            <option value="" disabled selected>Select a time</option>
                             <option value="10:00">10:00 AM</option>
                             <option value="10:30">10:30 AM</option>
                             <option value="11:00">11:00 AM</option>
