@@ -595,23 +595,12 @@
         const form = document.getElementById('sidebarContactForm');
         const successMessage = document.getElementById('sidebarSuccessMessage');
 
-        // Check for success parameter in URL (server-side redirect)
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('contact') === 'success' && successMessage && form) {
-            form.style.display = 'none';
-            successMessage.style.display = 'block';
-            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-            // Clean URL without reload
-            const cleanUrl = window.location.pathname;
-            window.history.replaceState({}, document.title, cleanUrl);
-        }
-
         if (!form) return;
 
         // AJAX form submission
         form.addEventListener('submit', function(e) {
             e.preventDefault();
+            e.stopPropagation();
 
             // Basic validation
             const formData = new FormData(this);
@@ -636,16 +625,16 @@
             submitButton.textContent = 'Sending...';
             submitButton.disabled = true;
 
-            // Add submit button name to FormData
-            formData.append('rbl_sidebar_submit', '1');
+            // Add WordPress AJAX action
+            formData.append('action', 'rbl_sidebar_form');
+
+            // Get AJAX URL
+            const ajaxUrl = typeof rblAjax !== 'undefined' ? rblAjax.ajaxurl : '/wp-admin/admin-ajax.php';
 
             // Submit the form via AJAX
-            fetch(window.location.href, {
+            fetch(ajaxUrl, {
                 method: 'POST',
                 body: formData,
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest'
-                },
                 credentials: 'same-origin'
             })
             .then(response => response.json())
@@ -665,7 +654,8 @@
                         }, 5000);
                     }
                 } else {
-                    throw new Error(data.data && data.data.message ? data.data.message : 'Submission failed');
+                    const errorMsg = data.data && data.data.message ? data.data.message : 'Submission failed. Please try again.';
+                    alert(errorMsg);
                 }
             })
             .catch(error => {

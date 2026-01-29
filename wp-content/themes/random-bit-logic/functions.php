@@ -188,82 +188,76 @@ function rbl_handle_contact_form() {
 add_action('template_redirect', 'rbl_handle_contact_form');
 
 /**
- * Handle sidebar contact form submission (single.php)
+ * Handle sidebar contact form AJAX submission
  */
-function rbl_handle_sidebar_form() {
-    if (isset($_POST['rbl_sidebar_submit'])) {
-        // Check if this is an AJAX request
-        $is_ajax = !empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
-                   strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
-
-        // Verify nonce
-        if (!isset($_POST['rbl_sidebar_nonce']) ||
-            !wp_verify_nonce($_POST['rbl_sidebar_nonce'], 'rbl_contact_form')) {
-            if ($is_ajax) {
-                wp_send_json_error(array('message' => 'Security check failed'));
-            }
-            wp_die('Security check failed');
-        }
-
-        // Sanitize input
-        $name = sanitize_text_field($_POST['name']);
-        $email = sanitize_email($_POST['email']);
-        $service = isset($_POST['service']) ? sanitize_text_field($_POST['service']) : '';
-        $message = isset($_POST['message']) ? sanitize_textarea_field($_POST['message']) : '';
-
-        // Validate required fields only
-        if (empty($name) || empty($email)) {
-            if ($is_ajax) {
-                wp_send_json_error(array('message' => 'Please fill in your name and email.'));
-            }
-            // Redirect back with error
-            wp_redirect(add_query_arg('contact', 'error', wp_get_referer() ? wp_get_referer() : home_url()));
-            exit;
-        }
-
-        // Map service values to readable names
-        $service_names = array(
-            'strategy' => 'AI Strategy Session',
-            'ai' => 'AI & Automation Implementation',
-            'software' => 'Custom Software Development',
-            'web' => 'Web Platform / Redesign',
-            'other' => 'Other / General Inquiry'
-        );
-        $service_name = isset($service_names[$service]) ? $service_names[$service] : ($service ?: 'Not specified');
-
-        // Send email
-        $to = get_option('admin_email');
-        $subject = 'New Sidebar Inquiry: ' . $service_name . ' - ' . $name;
-        $body = "New sidebar contact form submission\n\n";
-        $body .= "Name: $name\n";
-        $body .= "Email: $email\n";
-        $body .= "Interested In: $service_name\n\n";
-        if (!empty($message)) {
-            $body .= "Message:\n$message\n\n";
-        }
-        $body .= "---\n";
-        $body .= "Submitted: " . date('Y-m-d H:i:s') . "\n";
-        $body .= "Source: Sidebar form\n";
-
-        $headers = array(
-            'Content-Type: text/plain; charset=UTF-8',
-            'Reply-To: ' . $name . ' <' . $email . '>'
-        );
-
-        wp_mail($to, $subject, $body, $headers);
-
-        // Return JSON for AJAX requests
-        if ($is_ajax) {
-            wp_send_json_success(array('message' => 'Thank you! We\'ll get back to you soon.'));
-        }
-
-        // Redirect back to the same page with success message (non-AJAX)
-        $redirect_url = wp_get_referer() ? wp_get_referer() : home_url();
-        wp_redirect(add_query_arg('contact', 'success', $redirect_url));
-        exit;
+function rbl_handle_sidebar_form_ajax() {
+    // Verify nonce
+    if (!isset($_POST['rbl_sidebar_nonce']) ||
+        !wp_verify_nonce($_POST['rbl_sidebar_nonce'], 'rbl_contact_form')) {
+        wp_send_json_error(array('message' => 'Security check failed'));
     }
+
+    // Sanitize input
+    $name = sanitize_text_field($_POST['name']);
+    $email = sanitize_email($_POST['email']);
+    $service = isset($_POST['service']) ? sanitize_text_field($_POST['service']) : '';
+    $message = isset($_POST['message']) ? sanitize_textarea_field($_POST['message']) : '';
+
+    // Validate required fields
+    if (empty($name) || empty($email)) {
+        wp_send_json_error(array('message' => 'Please fill in your name and email.'));
+    }
+
+    // Email validation
+    if (!is_email($email)) {
+        wp_send_json_error(array('message' => 'Please enter a valid email address.'));
+    }
+
+    // Map service values to readable names
+    $service_names = array(
+        'strategy' => 'AI Strategy Session',
+        'ai' => 'AI & Automation Implementation',
+        'software' => 'Custom Software Development',
+        'web' => 'Web Platform / Redesign',
+        'other' => 'Other / General Inquiry'
+    );
+    $service_name = isset($service_names[$service]) ? $service_names[$service] : ($service ?: 'Not specified');
+
+    // Send email
+    $to = get_option('admin_email');
+    $subject = 'New Sidebar Inquiry: ' . $service_name . ' - ' . $name;
+    $body = "New sidebar contact form submission\n\n";
+    $body .= "Name: $name\n";
+    $body .= "Email: $email\n";
+    $body .= "Interested In: $service_name\n\n";
+    if (!empty($message)) {
+        $body .= "Message:\n$message\n\n";
+    }
+    $body .= "---\n";
+    $body .= "Submitted: " . date('Y-m-d H:i:s') . "\n";
+    $body .= "Source: Sidebar form\n";
+
+    $headers = array(
+        'Content-Type: text/plain; charset=UTF-8',
+        'Reply-To: ' . $name . ' <' . $email . '>'
+    );
+
+    wp_mail($to, $subject, $body, $headers);
+
+    wp_send_json_success(array('message' => 'Thank you! We\'ll get back to you soon.'));
 }
-add_action('template_redirect', 'rbl_handle_sidebar_form');
+add_action('wp_ajax_rbl_sidebar_form', 'rbl_handle_sidebar_form_ajax');
+add_action('wp_ajax_nopriv_rbl_sidebar_form', 'rbl_handle_sidebar_form_ajax');
+
+/**
+ * Pass AJAX URL to JavaScript
+ */
+function rbl_localize_ajax() {
+    wp_localize_script('rbl-main', 'rblAjax', array(
+        'ajaxurl' => admin_url('admin-ajax.php')
+    ));
+}
+add_action('wp_enqueue_scripts', 'rbl_localize_ajax', 20);
 
 /**
  * Add body classes
