@@ -3167,6 +3167,7 @@ body:not(.home).page-loaded .page-content-wrapper > *:nth-child(4) {
 body:not(.home) .insights-hero,
 body:not(.home) .insights-section,
 body:not(.home) .single-post-header,
+body:not(.home) .single-post-featured-image,
 body:not(.home) .single-post-content,
 body:not(.home) .back-to-insights,
 body:not(.home) main > .section,
@@ -3178,6 +3179,7 @@ body:not(.home) main > section {
 body:not(.home).page-loaded .insights-hero,
 body:not(.home).page-loaded .insights-section,
 body:not(.home).page-loaded .single-post-header,
+body:not(.home).page-loaded .single-post-featured-image,
 body:not(.home).page-loaded .single-post-content,
 body:not(.home).page-loaded .back-to-insights,
 body:not(.home).page-loaded main > .section,
@@ -3194,9 +3196,13 @@ body:not(.home).page-loaded .single-post-header {
     transition-delay: 0s;
 }
 
+body:not(.home).page-loaded .single-post-featured-image {
+    transition-delay: 0.1s;
+}
+
 body:not(.home).page-loaded .insights-section,
 body:not(.home).page-loaded .single-post-content {
-    transition-delay: 0.15s;
+    transition-delay: 0.2s;
 }
 
 body:not(.home).page-loaded .back-to-insights {
@@ -3219,6 +3225,7 @@ body:not(.home).page-loaded .site-footer {
     body:not(.home) .insights-hero,
     body:not(.home) .insights-section,
     body:not(.home) .single-post-header,
+    body:not(.home) .single-post-featured-image,
     body:not(.home) .single-post-content,
     body:not(.home) .back-to-insights,
     body:not(.home) main > .section,
