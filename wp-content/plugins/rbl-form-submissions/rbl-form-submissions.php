@@ -93,6 +93,10 @@ class RBL_Form_Submissions {
         if (isset($_POST['rbl_contact_submit'])) {
             $this->handle_contact_submission();
         }
+
+        // Register AJAX handlers for sidebar form
+        add_action('wp_ajax_rbl_sidebar_form', array($this, 'handle_sidebar_submission_ajax'));
+        add_action('wp_ajax_nopriv_rbl_sidebar_form', array($this, 'handle_sidebar_submission_ajax'));
     }
 
     /**
@@ -433,6 +437,89 @@ class RBL_Form_Submissions {
     }
 
     /**
+     * Handle sidebar form AJAX submission
+     */
+    public function handle_sidebar_submission_ajax() {
+        // Verify nonce
+        if (!isset($_POST['rbl_sidebar_nonce']) ||
+            !wp_verify_nonce($_POST['rbl_sidebar_nonce'], 'rbl_contact_form')) {
+            wp_send_json_error(array('message' => 'Security check failed. Please refresh the page and try again.'));
+        }
+
+        // Sanitize and validate inputs
+        $name = sanitize_text_field($_POST['name']);
+        $email = sanitize_email($_POST['email']);
+        $service = isset($_POST['service']) ? sanitize_text_field($_POST['service']) : '';
+        $message = isset($_POST['message']) ? sanitize_textarea_field($_POST['message']) : '';
+
+        // Validate required fields
+        if (empty($name) || empty($email)) {
+            wp_send_json_error(array('message' => 'Please fill in your name and email.'));
+        }
+
+        // Validate email
+        if (!is_email($email)) {
+            wp_send_json_error(array('message' => 'Please enter a valid email address.'));
+        }
+
+        // Store in database
+        $submission_id = $this->store_submission(array(
+            'form_type' => 'sidebar',
+            'service' => $service,
+            'name' => $name,
+            'email' => $email,
+            'message' => $message,
+            'ip_address' => $this->get_client_ip(),
+            'user_agent' => isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : ''
+        ));
+
+        if ($submission_id) {
+            // Send email notification
+            $this->send_sidebar_email(array(
+                'service' => $service,
+                'name' => $name,
+                'email' => $email,
+                'message' => $message,
+                'submission_id' => $submission_id
+            ));
+
+            wp_send_json_success(array('message' => 'Thank you! We\'ll get back to you within 24 hours.'));
+        } else {
+            wp_send_json_error(array('message' => 'Error saving submission. Please try again.'));
+        }
+    }
+
+    /**
+     * Send sidebar form email notification
+     */
+    private function send_sidebar_email($data) {
+        $to = $this->notification_email;
+        $subject = 'New Sidebar Inquiry - ' . $data['name'];
+
+        $message = "New sidebar contact form submission!\n\n";
+        $message .= "Submission ID: " . $data['submission_id'] . "\n";
+        $message .= "Name: " . $data['name'] . "\n";
+        $message .= "Email: " . $data['email'] . "\n";
+        if (!empty($data['service'])) {
+            $message .= "Service: " . $this->format_service_label($data['service']) . "\n";
+        }
+        if (!empty($data['message'])) {
+            $message .= "\nMessage:\n" . $data['message'] . "\n";
+        }
+        $message .= "\n---\n";
+        $message .= "Submitted: " . current_time('mysql') . "\n";
+        $message .= "Source: Blog sidebar form\n";
+
+        $headers = array(
+            'Content-Type: text/plain; charset=UTF-8',
+            'From: Random Bit Logic <noreply@randombitlogic.com>',
+            'Reply-To: ' . $data['email']
+        );
+
+        wp_mail($to, $subject, $message, $headers);
+    }
+
+    /**
      * Store form submission in database
      */
     private function store_submission($data) {
@@ -599,6 +686,7 @@ class RBL_Form_Submissions {
         $total_count = $wpdb->get_var("SELECT COUNT(*) FROM {$this->table_name}");
         $consultation_count = $wpdb->get_var("SELECT COUNT(*) FROM {$this->table_name} WHERE form_type = 'consultation'");
         $contact_count = $wpdb->get_var("SELECT COUNT(*) FROM {$this->table_name} WHERE form_type = 'contact'");
+        $sidebar_count = $wpdb->get_var("SELECT COUNT(*) FROM {$this->table_name} WHERE form_type = 'sidebar'");
 
         ?>
         <div class="wrap">
@@ -618,6 +706,11 @@ class RBL_Form_Submissions {
                 <li>
                     <a href="?page=rbl-form-submissions&filter=contact" class="<?php echo $filter === 'contact' ? 'current' : ''; ?>">
                         Contact Forms <span class="count">(<?php echo $contact_count; ?>)</span>
+                    </a> |
+                </li>
+                <li>
+                    <a href="?page=rbl-form-submissions&filter=sidebar" class="<?php echo $filter === 'sidebar' ? 'current' : ''; ?>">
+                        Sidebar <span class="count">(<?php echo $sidebar_count; ?>)</span>
                     </a>
                 </li>
             </ul>
@@ -777,6 +870,11 @@ class RBL_Form_Submissions {
             .rbl-badge-contact {
                 background: #e0f7e9;
                 color: #00a86b;
+            }
+
+            .rbl-badge-sidebar {
+                background: #fff3e0;
+                color: #e65100;
             }
 
             .rbl-message-preview {
