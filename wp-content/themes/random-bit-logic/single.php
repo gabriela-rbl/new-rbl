@@ -100,6 +100,7 @@ if (have_posts()) :
                         <form method="post" action="" class="sidebar-contact-form" id="sidebarContactForm">
                             <?php wp_nonce_field('rbl_contact_form', 'rbl_sidebar_nonce'); ?>
                             <input type="hidden" name="form_source" value="sidebar">
+                            <input type="hidden" name="redirect_url" value="<?php echo esc_url(get_permalink()); ?>">
 
                             <div class="sidebar-form-grid">
                                 <div class="form-field">

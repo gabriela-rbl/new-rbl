@@ -211,13 +211,19 @@ function rbl_handle_sidebar_form() {
         $service = isset($_POST['service']) ? sanitize_text_field($_POST['service']) : '';
         $message = isset($_POST['message']) ? sanitize_textarea_field($_POST['message']) : '';
 
+        // Get redirect URL from form (more reliable than wp_get_referer)
+        $redirect_url = isset($_POST['redirect_url']) ? esc_url_raw($_POST['redirect_url']) : '';
+        if (empty($redirect_url)) {
+            $redirect_url = wp_get_referer() ? wp_get_referer() : home_url();
+        }
+
         // Validate required fields only
         if (empty($name) || empty($email)) {
             if ($is_ajax) {
                 wp_send_json_error(array('message' => 'Please fill in your name and email.'));
             }
             // Redirect back with error
-            wp_redirect(add_query_arg('contact', 'error', wp_get_referer() ? wp_get_referer() : home_url()));
+            wp_redirect(add_query_arg('contact', 'error', $redirect_url));
             exit;
         }
 
@@ -258,7 +264,6 @@ function rbl_handle_sidebar_form() {
         }
 
         // Redirect back to the same page with success message (non-AJAX)
-        $redirect_url = wp_get_referer() ? wp_get_referer() : home_url();
         wp_redirect(add_query_arg('contact', 'success', $redirect_url));
         exit;
     }
