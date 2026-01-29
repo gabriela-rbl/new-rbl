@@ -6,6 +6,22 @@
 (function() {
     'use strict';
 
+    // Page load transition for non-home pages
+    function initPageTransition() {
+        // Skip if on home page (WordPress adds 'home' class to body)
+        if (document.body.classList.contains('home')) {
+            return;
+        }
+
+        // Add page-loaded class after a minimal delay to ensure CSS is ready
+        // Using requestAnimationFrame for smoother timing
+        requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+                document.body.classList.add('page-loaded');
+            });
+        });
+    }
+
     // Intersection Observer for fade-in animations
     function initScrollAnimations() {
         const observerOptions = {
@@ -350,6 +366,7 @@
     function init() {
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => {
+                initPageTransition();
                 initScrollAnimations();
                 initSmoothScroll();
                 initHeaderScroll();
@@ -359,6 +376,7 @@
                 initContactThreeJS();
             });
         } else {
+            initPageTransition();
             initScrollAnimations();
             initSmoothScroll();
             initHeaderScroll();
