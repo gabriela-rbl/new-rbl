@@ -16,7 +16,7 @@
                 We build AI-first platforms that eliminate complexity and deliver measurable results.
             </p>
 
-            <a href="#footer-cta" class="hero-cta open-consultation-popup">
+            <a href="#" class="hero-cta open-consultation-popup">
                 <span>Request a demo</span>
                 <span class="arrow">→</span>
             </a>
