@@ -213,6 +213,13 @@ class RBL_Form_Submissions {
         // Verify nonce
         if (!isset($_POST['rbl_consultation_nonce']) ||
             !wp_verify_nonce($_POST['rbl_consultation_nonce'], 'rbl_consultation_form')) {
+            if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+                strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+                wp_send_json_error(array(
+                    'message' => 'Security check failed. Please refresh the page and try again.'
+                ));
+                exit;
+            }
             wp_die('Security check failed');
         }
 
@@ -244,11 +251,25 @@ class RBL_Form_Submissions {
         // Validate required fields
         if (empty($service) || empty($name) || empty($email) || empty($message) ||
             empty($consultation_date) || empty($consultation_time)) {
+            if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+                strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+                wp_send_json_error(array(
+                    'message' => 'Please fill in all required fields.'
+                ));
+                exit;
+            }
             wp_die('Please fill in all required fields.');
         }
 
         // Validate email
         if (!is_email($email)) {
+            if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+                strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+                wp_send_json_error(array(
+                    'message' => 'Please enter a valid email address.'
+                ));
+                exit;
+            }
             wp_die('Please enter a valid email address.');
         }
 
@@ -309,6 +330,13 @@ class RBL_Form_Submissions {
         // Verify nonce
         if (!isset($_POST['rbl_contact_nonce']) ||
             !wp_verify_nonce($_POST['rbl_contact_nonce'], 'rbl_contact_form')) {
+            if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+                strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+                wp_send_json_error(array(
+                    'message' => 'Security check failed. Please refresh the page and try again.'
+                ));
+                exit;
+            }
             wp_die('Security check failed');
         }
 
@@ -337,11 +365,25 @@ class RBL_Form_Submissions {
 
         // Validate required fields
         if (empty($service) || empty($name) || empty($email) || empty($message)) {
+            if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+                strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+                wp_send_json_error(array(
+                    'message' => 'Please fill in all required fields.'
+                ));
+                exit;
+            }
             wp_die('Please fill in all required fields.');
         }
 
         // Validate email
         if (!is_email($email)) {
+            if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+                strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+                wp_send_json_error(array(
+                    'message' => 'Please enter a valid email address.'
+                ));
+                exit;
+            }
             wp_die('Please enter a valid email address.');
         }
 
