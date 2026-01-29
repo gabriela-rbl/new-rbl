@@ -50,7 +50,7 @@
                         <label>
                             Preferred time (EST)
                         </label>
-                        <select name="consultation_time" class="form-select" required>
+                        <select name="consultation_time" class="form-select">
                             <option value="" disabled selected>Select a time...</option>
                             <option value="10:00">10:00 AM</option>
                             <option value="10:30">10:30 AM</option>
@@ -71,7 +71,7 @@
                         <label>
                             Tell us about your project
                         </label>
-                        <textarea name="message" class="form-input" rows="4" placeholder="Briefly describe your goals..." required></textarea>
+                        <textarea name="message" class="form-input" rows="4" placeholder="Briefly describe your goals..."></textarea>
                     </div>
 
                     <button type="submit" name="rbl_consultation_submit" class="submit-btn">Schedule Consultation</button>
