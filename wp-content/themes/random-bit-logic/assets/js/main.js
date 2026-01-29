@@ -12,6 +12,7 @@
     function init() {
         initAntispam();
         initContactForm();
+        initSidebarForm();
         initMockupAnimations();
         initGeometricShapes();
         handleHashNavigation();
@@ -584,6 +585,99 @@
                     this.classList.remove('focused');
                 }
             });
+        });
+    }
+
+    /**
+     * Sidebar contact form handling (single.php)
+     */
+    function initSidebarForm() {
+        const form = document.getElementById('sidebarContactForm');
+        const successMessage = document.getElementById('sidebarSuccessMessage');
+
+        // Check for success parameter in URL (server-side redirect)
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('contact') === 'success' && successMessage && form) {
+            form.style.display = 'none';
+            successMessage.style.display = 'block';
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Clean URL without reload
+            const cleanUrl = window.location.pathname;
+            window.history.replaceState({}, document.title, cleanUrl);
+        }
+
+        if (!form) return;
+
+        // AJAX form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Basic validation
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+
+            if (!name || !email) {
+                alert('Please fill in your name and email.');
+                return false;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return false;
+            }
+
+            // Show loading state
+            const submitButton = this.querySelector('.submit-btn');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+
+            // Add submit button name to FormData
+            formData.append('rbl_sidebar_submit', '1');
+
+            // Submit the form via AJAX
+            fetch(window.location.href, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                credentials: 'same-origin'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Show success message
+                    if (successMessage) {
+                        form.style.display = 'none';
+                        successMessage.style.display = 'block';
+                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                        // Reset form after delay
+                        setTimeout(() => {
+                            form.style.display = 'block';
+                            successMessage.style.display = 'none';
+                            form.reset();
+                        }, 5000);
+                    }
+                } else {
+                    throw new Error(data.data && data.data.message ? data.data.message : 'Submission failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error submitting the form. Please try again.');
+            })
+            .finally(() => {
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            });
+
+            return false;
         });
     }
 
