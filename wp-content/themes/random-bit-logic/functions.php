@@ -66,7 +66,7 @@ function rbl_enqueue_scripts() {
         'rbl-animations',
         get_template_directory_uri() . '/js/animations.js',
         array('threejs'),
-        '2.0.0',
+        filemtime(get_template_directory() . '/js/animations.js'),
         true
     );
 
@@ -75,7 +75,7 @@ function rbl_enqueue_scripts() {
         'rbl-theme-utils',
         get_template_directory_uri() . '/js/theme-utils.js',
         array(),
-        '2.0.0'
+        filemtime(get_template_directory() . '/js/theme-utils.js')
     );
 
     // Flatpickr CSS for datepicker
@@ -100,7 +100,7 @@ function rbl_enqueue_scripts() {
         'rbl-main',
         get_template_directory_uri() . '/assets/js/main.js',
         array('jquery', 'flatpickr'),
-        '2.0.1',
+        filemtime(get_template_directory() . '/assets/js/main.js'),
         true
     );
 }
