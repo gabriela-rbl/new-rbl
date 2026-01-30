@@ -70,6 +70,15 @@ function rbl_enqueue_scripts() {
         true
     );
 
+    // Scroll animations JavaScript (uses filemtime for cache busting)
+    wp_enqueue_script(
+        'rbl-scroll-animations',
+        get_template_directory_uri() . '/assets/js/scroll-animations.js',
+        array(),
+        filemtime(get_stylesheet_directory() . '/assets/js/scroll-animations.js'),
+        true
+    );
+
     // Theme utilities (favicon switcher, etc.)
     wp_enqueue_script(
         'rbl-theme-utils',
