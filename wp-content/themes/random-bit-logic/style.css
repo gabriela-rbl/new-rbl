@@ -1439,8 +1439,8 @@ img{
 
 /* Left phone - starts off-screen left */
 .seatserve-triple-phones .phone-left {
-    left: -5%;
-    transform: translateX(-100px) rotate(-8deg);
+    left: -7%;
+    transform: translateX(-100px) scale(0.7);
     z-index: 1;
 }
 
@@ -1450,8 +1450,8 @@ img{
 
 /* Right phone - starts off-screen right */
 .seatserve-triple-phones .phone-right {
-    right: -5%;
-    transform: translateX(100px) rotate(8deg);
+    right: -10%;
+    transform: translateX(100px);
     z-index: 1;
 }
 
@@ -1473,19 +1473,19 @@ img{
 /* Animated states when visible */
 .seatserve-triple-phones.visible .phone-left {
     opacity: 1;
-    transform: translateX(0) rotate(-8deg);
+    transform: translateX(0) scale(0.65);
     transition-delay: 0s;
 }
 
 .seatserve-triple-phones.visible .phone-right {
     opacity: 1;
-    transform: translateX(0) rotate(8deg);
+    transform: translateX(0) scale(0.85);
     transition-delay: 0.25s;
 }
 
 .seatserve-triple-phones.visible .phone-middle {
     opacity: 1;
-    transform: translateX(-50%) scale(1);
+    transform: translateX(-50%) scale(1.02);
     transition-delay: 0.5s;
     animation: seatserve-pulse 3s ease-in-out 1.5s infinite;
 }
@@ -1493,10 +1493,10 @@ img{
 /* Subtle pulse animation for middle phone */
 @keyframes seatserve-pulse {
     0%, 100% {
-        transform: translateX(-50%) scale(1);
+        transform: translateX(-50%) scale(1.02);
     }
     50% {
-        transform: translateX(-50%) scale(1.03);
+        transform: translateX(-50%) scale(1.05);
     }
 }
 
@@ -1547,12 +1547,12 @@ img{
 
     .seatserve-triple-phones .phone-left {
         left: -15%;
-        transform: translateX(-50px) rotate(-8deg);
+        transform: translateX(-50px) ;
     }
 
     .seatserve-triple-phones .phone-right {
         right: -15%;
-        transform: translateX(50px) rotate(8deg);
+        transform: translateX(50px) ;
     }
 
     .seatserve-triple-phones .phone-left img,
@@ -1565,11 +1565,11 @@ img{
     }
 
     .seatserve-triple-phones.visible .phone-left {
-        transform: translateX(0) rotate(-8deg);
+        transform: translateX(0);
     }
 
     .seatserve-triple-phones.visible .phone-right {
-        transform: translateX(0) rotate(8deg);
+        transform: translateX(0);
     }
 }
 
