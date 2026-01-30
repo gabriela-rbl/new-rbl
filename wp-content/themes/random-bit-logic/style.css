@@ -1409,6 +1409,194 @@ img{
 }
 
 /* ===================================
+   SeatServe Triple Phones Animation
+   =================================== */
+
+.seatserve-phones-container {
+    overflow: visible;
+}
+
+.seatserve-triple-phones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 2rem 0;
+    min-height: 500px;
+}
+
+.seatserve-triple-phones .phone-item {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.seatserve-triple-phones .phone-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Left phone - starts off-screen left */
+.seatserve-triple-phones .phone-left {
+    left: -5%;
+    transform: translateX(-100px) rotate(-8deg);
+    z-index: 1;
+}
+
+.seatserve-triple-phones .phone-left img {
+    max-width: 280px;
+}
+
+/* Right phone - starts off-screen right */
+.seatserve-triple-phones .phone-right {
+    right: -5%;
+    transform: translateX(100px) rotate(8deg);
+    z-index: 1;
+}
+
+.seatserve-triple-phones .phone-right img {
+    max-width: 280px;
+}
+
+/* Middle phone - starts scaled down */
+.seatserve-triple-phones .phone-middle {
+    left: 50%;
+    transform: translateX(-50%) scale(0.7);
+    z-index: 2;
+}
+
+.seatserve-triple-phones .phone-middle img {
+    max-width: 320px;
+}
+
+/* Animated states when visible */
+.seatserve-triple-phones.visible .phone-left {
+    opacity: 1;
+    transform: translateX(0) rotate(-8deg);
+    transition-delay: 0s;
+}
+
+.seatserve-triple-phones.visible .phone-right {
+    opacity: 1;
+    transform: translateX(0) rotate(8deg);
+    transition-delay: 0.25s;
+}
+
+.seatserve-triple-phones.visible .phone-middle {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+    transition-delay: 0.5s;
+    animation: seatserve-pulse 3s ease-in-out 1.5s infinite;
+}
+
+/* Subtle pulse animation for middle phone */
+@keyframes seatserve-pulse {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.03);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .seatserve-triple-phones {
+        min-height: 450px;
+    }
+
+    .seatserve-triple-phones .phone-left img,
+    .seatserve-triple-phones .phone-right img {
+        max-width: 240px;
+    }
+
+    .seatserve-triple-phones .phone-middle img {
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 968px) {
+    .seatserve-triple-phones {
+        min-height: 400px;
+    }
+
+    .seatserve-triple-phones .phone-left {
+        left: -10%;
+    }
+
+    .seatserve-triple-phones .phone-right {
+        right: -10%;
+    }
+
+    .seatserve-triple-phones .phone-left img,
+    .seatserve-triple-phones .phone-right img {
+        max-width: 200px;
+    }
+
+    .seatserve-triple-phones .phone-middle img {
+        max-width: 240px;
+    }
+}
+
+@media (max-width: 768px) {
+    .seatserve-triple-phones {
+        min-height: 350px;
+        padding: 1rem 0;
+    }
+
+    .seatserve-triple-phones .phone-left {
+        left: -15%;
+        transform: translateX(-50px) rotate(-8deg);
+    }
+
+    .seatserve-triple-phones .phone-right {
+        right: -15%;
+        transform: translateX(50px) rotate(8deg);
+    }
+
+    .seatserve-triple-phones .phone-left img,
+    .seatserve-triple-phones .phone-right img {
+        max-width: 160px;
+    }
+
+    .seatserve-triple-phones .phone-middle img {
+        max-width: 200px;
+    }
+
+    .seatserve-triple-phones.visible .phone-left {
+        transform: translateX(0) rotate(-8deg);
+    }
+
+    .seatserve-triple-phones.visible .phone-right {
+        transform: translateX(0) rotate(8deg);
+    }
+}
+
+@media (max-width: 480px) {
+    .seatserve-triple-phones {
+        min-height: 280px;
+    }
+
+    .seatserve-triple-phones .phone-left {
+        left: -20%;
+    }
+
+    .seatserve-triple-phones .phone-right {
+        right: -20%;
+    }
+
+    .seatserve-triple-phones .phone-left img,
+    .seatserve-triple-phones .phone-right img {
+        max-width: 120px;
+    }
+
+    .seatserve-triple-phones .phone-middle img {
+        max-width: 160px;
+    }
+}
+
+/* ===================================
    Dual Brand Layout (Capsoil & IAAC)
    =================================== */
 
