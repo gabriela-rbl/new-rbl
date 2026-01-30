@@ -365,10 +365,24 @@
                     <span class="arrow">→</span>
                 </a>
             </div>
-            <div class="client-mockup">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/seatserve-phones.png"
-                     alt="SeatServe Mobile Apps"
-                     class="mockup-image">
+            <div class="client-mockup seatserve-phones-container">
+                <div class="seatserve-triple-phones">
+                    <div class="phone-item phone-left">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/left-phone.png"
+                             alt="SeatServe Zenit Arena App"
+                             class="seatserve-phone">
+                    </div>
+                    <div class="phone-item phone-middle">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/middle-phone.png"
+                             alt="SeatServe Liverpool App"
+                             class="seatserve-phone">
+                    </div>
+                    <div class="phone-item phone-right">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockups/right-phone.png"
+                             alt="SeatServe Gloucester App"
+                             class="seatserve-phone">
+                    </div>
+                </div>
             </div>
         </div>
     </div>

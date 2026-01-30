@@ -50,6 +50,12 @@
             fadeInObserver.observe(capabilitiesCta);
         }
 
+        // Observe SeatServe triple phones animation
+        const seatservePhones = document.querySelector('.seatserve-triple-phones');
+        if (seatservePhones) {
+            fadeInObserver.observe(seatservePhones);
+        }
+
         // Add scroll-triggered parallax to geometric shapes
         initParallaxShapes();
 
