@@ -3771,6 +3771,93 @@ body:not(.home).page-loaded .site-footer {
     margin-bottom: 0;
 }
 
+/* Video CTA Section */
+.about-video-cta {
+    position: relative;
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 0;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0.2) 100%
+    );
+}
+
+.video-content {
+    position: relative;
+    z-index: 1;
+    padding: clamp(4rem, 8vw, 6rem) var(--container-padding);
+}
+
+.about-video-cta h2 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 500;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+.about-video-cta h2 em {
+    font-style: italic;
+    font-weight: 300;
+}
+
+.video-cta-links {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.video-cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-light);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.video-cta-link:hover {
+    opacity: 0.8;
+}
+
+.video-cta-link .arrow {
+    font-size: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+.video-cta-link:hover .arrow {
+    transform: translateX(4px);
+}
+
 /* About Page Responsive Styles */
 @media (max-width: 1024px) {
     .about-content-grid {
@@ -3831,6 +3918,15 @@ body:not(.home).page-loaded .site-footer {
 
     .about-card .card-content {
         padding: 1.5rem;
+    }
+
+    .about-video-cta {
+        min-height: 350px;
+    }
+
+    .video-cta-links {
+        flex-direction: column;
+        gap: 1.25rem;
     }
 }
 
