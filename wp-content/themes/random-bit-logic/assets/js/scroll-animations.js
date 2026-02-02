@@ -1,6 +1,6 @@
 /**
  * Scroll Animations for Random Bit Logic Theme
- * Handles scroll-triggered animations and full-screen section snapping
+ * Handles scroll-triggered animations
  */
 
 (function() {
@@ -166,66 +166,6 @@
     }
 
     /**
-     * Scroll snap enhancement
-     * Adds momentum and snap behavior
-     */
-    function enhanceScrollSnap() {
-        const sections = document.querySelectorAll('.section');
-        let isScrolling = false;
-        let scrollTimeout;
-
-        window.addEventListener('scroll', () => {
-            // Clear timeout if it exists
-            clearTimeout(scrollTimeout);
-
-            if (!isScrolling) {
-                isScrolling = true;
-                document.body.classList.add('is-scrolling');
-            }
-
-            // Set a timeout to run after scrolling ends
-            scrollTimeout = setTimeout(() => {
-                isScrolling = false;
-                document.body.classList.remove('is-scrolling');
-                snapToNearestSection();
-            }, 150);
-        }, { passive: true });
-    }
-
-    /**
-     * Snap to nearest section after scroll ends
-     */
-    function snapToNearestSection() {
-        const sections = document.querySelectorAll('.section');
-        const viewportHeight = window.innerHeight;
-        const scrollTop = window.pageYOffset;
-        const viewportMiddle = scrollTop + (viewportHeight / 2);
-
-        let closestSection = null;
-        let closestDistance = Infinity;
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionMiddle = sectionTop + (sectionHeight / 2);
-            const distance = Math.abs(sectionMiddle - viewportMiddle);
-
-            if (distance < closestDistance) {
-                closestDistance = distance;
-                closestSection = section;
-            }
-        });
-
-        // Snap to closest section if it's not already centered
-        if (closestSection && closestDistance > 50) {
-            closestSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    }
-
-    /**
      * Add entrance animations to hero elements
      */
     function animateHero() {
@@ -244,12 +184,10 @@
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
             initScrollAnimations();
-            enhanceScrollSnap();
             animateHero();
         });
     } else {
         initScrollAnimations();
-        enhanceScrollSnap();
         animateHero();
     }
 
