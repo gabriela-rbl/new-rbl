@@ -231,7 +231,6 @@ img{
 }
 
 .mobile-nav-overlay {
-    display: none;
     position: fixed;
     top: 110px; /* Below topbar (~38px) + header (~72px) */
     left: 0;
@@ -240,14 +239,15 @@ img{
     background: var(--light-bg);
     z-index: 999;
     opacity: 0;
-    transform: translateY(-20px);
-    transition: all 0.3s ease;
+    visibility: hidden;
+    transform: translateY(-30px);
+    transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s;
     overflow-y: auto;
 }
 
 .mobile-nav-overlay.active {
-    display: block;
     opacity: 1;
+    visibility: visible;
     transform: translateY(0);
 }
 
@@ -2095,10 +2095,10 @@ textarea.form-input {
         order: 1;
     }
 
-    /* Mobile nav overlay - position below smaller mobile header */
+    /* Mobile nav overlay - position below mobile header */
     .mobile-nav-overlay {
-        top: 88px; /* Below mobile topbar (~32px) + mobile header (~56px) */
-        height: calc(100vh - 88px);
+        top: 152px;
+        height: calc(100vh - 152px);
     }
 
     .site-logo,
