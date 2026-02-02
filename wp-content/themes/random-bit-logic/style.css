@@ -247,8 +247,8 @@ img{
 
 /* When header is scrolled (topbar hidden) */
 .site-header.scrolled .mobile-nav-overlay {
-    top: 66px;
-    height: calc(100vh - 66px);
+    top: 67px;
+    height: calc(100vh - 67px);
 }
 
 /* WordPress admin bar adjustments */
@@ -257,10 +257,10 @@ img{
     height: calc(100vh - 106px - 46px);
 }
 
-.admin-bar .site-header.scrolled .mobile-nav-overlay {
-    top: calc(66px + 46px); /* 112px */
-    height: calc(100vh - 66px - 46px);
-}
+/*.admin-bar .site-header.scrolled .mobile-nav-overlay {*/
+/*    top: calc(66px + 46px); !* 112px *!*/
+/*    height: calc(100vh - 66px - 46px);*/
+/*}*/
 
 .mobile-nav-overlay.active {
     opacity: 1;
