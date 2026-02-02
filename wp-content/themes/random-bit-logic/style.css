@@ -232,17 +232,34 @@ img{
 
 .mobile-nav-overlay {
     position: fixed;
-    top: 110px; /* Below topbar (~38px) + header (~72px) */
+    top: 106px; /* Header height when not scrolled */
     left: 0;
     width: 100%;
-    height: calc(100vh - 110px);
+    height: calc(100vh - 106px);
     background: var(--light-bg);
     z-index: 999;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-30px);
-    transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s;
+    transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s, top 0.3s ease, height 0.3s ease;
     overflow-y: auto;
+}
+
+/* When header is scrolled (topbar hidden) */
+.site-header.scrolled .mobile-nav-overlay {
+    top: 66px;
+    height: calc(100vh - 66px);
+}
+
+/* WordPress admin bar adjustments */
+.admin-bar .mobile-nav-overlay {
+    top: calc(106px + 46px); /* 152px */
+    height: calc(100vh - 106px - 46px);
+}
+
+.admin-bar .site-header.scrolled .mobile-nav-overlay {
+    top: calc(66px + 46px); /* 112px */
+    height: calc(100vh - 66px - 46px);
 }
 
 .mobile-nav-overlay.active {
@@ -2093,12 +2110,6 @@ textarea.form-input {
     .mobile-menu-toggle {
         display: flex;
         order: 1;
-    }
-
-    /* Mobile nav overlay - position below mobile header */
-    .mobile-nav-overlay {
-        top: 152px;
-        height: calc(100vh - 152px);
     }
 
     .site-logo,
