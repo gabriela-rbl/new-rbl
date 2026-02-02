@@ -13,9 +13,9 @@ get_header();
         <span class="about-label">About</span>
         <h1 class="about-hero-title">Your success is our purpose</h1>
         <p class="about-hero-description">
-            Made in NYC with global talent for clients around the world. Since 1998, businesses have partnered
-            with Random Bit Logic to navigate complex digital challenges, scale their operations, and achieve
-            their most ambitious goals.
+            Made in NYC with global talent for clients around the world. Led by veterans with experience
+            dating back to 1998, Random Bit Logic helps businesses navigate complex digital challenges,
+            scale their operations, and achieve their most ambitious goals.
         </p>
     </div>
 </section>
@@ -43,7 +43,7 @@ get_header();
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M13.5 4.5L6 12L2.5 8.5" stroke="#0016FD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span>Partnering with clients since 1998</span>
+                    <span>Decades of experience, modern approach</span>
                 </div>
             </div>
             <div class="about-content-text">
@@ -119,10 +119,10 @@ get_header();
                 <div class="card-content">
                     <h3>Our story</h3>
                     <p>
-                        In 1998, a simple question sparked everything: what if technology could truly serve
-                        people's ambitions? That question led to Random Bit Logic—an experienced global team
-                        headquartered in NYC, now serving clients across the Americas, Europe, and Asia who
-                        demand more from their technology partners.
+                        Random Bit Logic brings together a team of seasoned professionals with experience
+                        dating back to 1998. Headquartered in NYC with global talent, the team now serves
+                        clients across the Americas, Europe, and Asia who demand more from their
+                        technology partners.
                     </p>
                 </div>
                 <div class="card-image">
@@ -137,7 +137,7 @@ get_header();
                 <div class="recognition-badge">
                     <div class="badge-content">
                         <span class="badge-source">CLIENT SUCCESS</span>
-                        <span class="badge-year">Since 1998</span>
+                        <span class="badge-year">25+ Years Experience</span>
                         <span class="badge-title">Global Reach<br>Local Care</span>
                     </div>
                 </div>
