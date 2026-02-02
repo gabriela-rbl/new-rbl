@@ -11,7 +11,7 @@ get_header();
 <section class="section about-hero fade-in">
     <div class="container">
         <span class="about-label">About</span>
-        <h1 class="about-hero-title">Your success is our purpose</h1>
+        <h1 class="about-hero-title">Building technology solutions for a better tomorrow</h1>
         <p class="about-hero-description">
             Made in NYC with global talent for clients around the world. Led by veterans with experience
             dating back to 1998, Random Bit Logic helps businesses navigate complex digital challenges,
@@ -84,28 +84,24 @@ get_header();
         <div class="video-overlay"></div>
     </div>
     <div class="container video-content">
-        <h2>Want to create<br>something <em>beautiful?</em></h2>
+        <h2>What do you want to<br><em>automate</em> today?</h2>
         <div class="video-cta-links">
             <a href="#contact" class="video-cta-link">
-                <span>New Business</span>
-                <span class="arrow">→</span>
-            </a>
-            <a href="mailto:careers@randombitlogic.com" class="video-cta-link">
-                <span>Careers</span>
+                <span>Get Started</span>
                 <span class="arrow">→</span>
             </a>
         </div>
     </div>
 </section>
 
-<!-- Join the Team Section -->
+<!-- Our Team Section -->
 <section class="section about-join-team fade-in">
     <div class="container">
         <div class="join-team-content">
-            <h2>Join the team</h2>
+            <h2>Our team</h2>
             <p>
-                Made in NYC with global talent for clients around the world. Join a collaborative team
-                where your work directly impacts clients across industries and continents.
+                Made in NYC with global talent for clients around the world. A collaborative team
+                dedicated to delivering results that matter across industries and continents.
             </p>
             <a href="mailto:careers@randombitlogic.com" class="join-team-cta">
                 <span>Careers at Random Bit Logic</span>
