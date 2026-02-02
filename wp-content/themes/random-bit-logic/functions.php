@@ -242,3 +242,48 @@ function rbl_wp_title($title, $sep) {
     return $title;
 }
 add_filter('wp_title', 'rbl_wp_title', 10, 2);
+
+/**
+ * Create About page on theme activation
+ */
+function rbl_create_about_page() {
+    // Check if About page already exists
+    $about_page = get_page_by_path('about');
+
+    if (!$about_page) {
+        // Create the About page
+        $page_id = wp_insert_post(array(
+            'post_title'     => 'About',
+            'post_name'      => 'about',
+            'post_status'    => 'publish',
+            'post_type'      => 'page',
+            'post_content'   => '',
+            'page_template'  => 'page-about.php',
+            'comment_status' => 'closed',
+        ));
+
+        if ($page_id && !is_wp_error($page_id)) {
+            // Set the page template
+            update_post_meta($page_id, '_wp_page_template', 'page-about.php');
+        }
+    } else {
+        // If page exists but doesn't have the template, update it
+        $current_template = get_post_meta($about_page->ID, '_wp_page_template', true);
+        if ($current_template !== 'page-about.php') {
+            update_post_meta($about_page->ID, '_wp_page_template', 'page-about.php');
+        }
+    }
+}
+add_action('after_switch_theme', 'rbl_create_about_page');
+
+// Also run on init to ensure the page exists (one-time setup)
+function rbl_ensure_about_page_exists() {
+    // Only run once using an option flag
+    if (get_option('rbl_about_page_created')) {
+        return;
+    }
+
+    rbl_create_about_page();
+    update_option('rbl_about_page_created', true);
+}
+add_action('init', 'rbl_ensure_about_page_exists');

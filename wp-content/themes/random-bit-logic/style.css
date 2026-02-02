@@ -3424,3 +3424,409 @@ body:not(.home).page-loaded .site-footer {
         transition: none;
     }
 }
+
+/* ===================================
+   About Page Styles
+   =================================== */
+
+/* About Hero Section */
+.about-hero {
+    background: var(--light-bg);
+    padding: clamp(6rem, 12vw, 10rem) 0 clamp(3rem, 6vw, 5rem);
+    text-align: center;
+}
+
+.about-label {
+    display: inline-block;
+    color: var(--primary-blue);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+}
+
+.about-hero-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    color: var(--text-dark);
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.15;
+}
+
+.about-hero-description {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    color: var(--text-gray);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Team Photo Section */
+.about-team-photo {
+    padding: 0 0 clamp(4rem, 8vw, 6rem);
+    background: var(--light-bg);
+}
+
+.team-photo-wrapper {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #4f46e5 100%);
+    padding: 3rem 3rem 0;
+}
+
+.team-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px 12px 0 0;
+    object-fit: cover;
+    max-height: 500px;
+}
+
+/* About Content Section */
+.about-content-section {
+    background: var(--light-bg);
+    padding: clamp(4rem, 8vw, 6rem) 0;
+}
+
+.about-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(3rem, 6vw, 5rem);
+    align-items: start;
+}
+
+.about-content-image {
+    position: relative;
+}
+
+.content-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    aspect-ratio: 4 / 3;
+}
+
+.image-badge {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    background: var(--light-bg);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.about-content-text {
+    padding-top: 1rem;
+}
+
+.about-content-text p {
+    font-size: clamp(0.9375rem, 2vw, 1.0625rem);
+    color: var(--text-gray);
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+}
+
+.about-belief {
+    font-style: italic;
+    color: var(--text-dark) !important;
+    font-weight: 500;
+    border-left: 3px solid var(--primary-blue);
+    padding-left: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Mission Statement Section */
+.about-mission {
+    background: var(--light-bg);
+    padding: clamp(4rem, 8vw, 6rem) 0 clamp(5rem, 10vw, 8rem);
+    text-align: center;
+}
+
+.mission-statement {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: 500;
+    color: var(--text-dark);
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* Join the Team Section */
+.about-join-team {
+    background: var(--dark-bg);
+    padding: clamp(5rem, 10vw, 8rem) 0;
+}
+
+.join-team-content {
+    text-align: center;
+    margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.join-team-content h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+.join-team-content p {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+}
+
+.join-team-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--primary-blue);
+    color: var(--text-light);
+    padding: 0.875rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.join-team-cta:hover {
+    background: var(--primary-blue-hover);
+    transform: translateY(-2px);
+}
+
+.join-team-cta .arrow {
+    transition: transform 0.3s ease;
+}
+
+.join-team-cta:hover .arrow {
+    transform: translateX(4px);
+}
+
+/* About Cards Grid */
+.about-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.about-card {
+    background: var(--dark-bg-secondary);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Story Card */
+.story-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.story-card .card-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.story-card .card-content h3 {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.story-card .card-content p {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+.story-card .card-image {
+    position: relative;
+}
+
+.story-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 280px;
+}
+
+/* Recognition Card */
+.recognition-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+.recognition-badge {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-width: 200px;
+}
+
+.recognition-badge::before {
+    content: '';
+    position: absolute;
+    inset: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.badge-content {
+    text-align: center;
+    color: var(--text-light);
+}
+
+.badge-source {
+    display: block;
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+.badge-year {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+}
+
+.badge-title {
+    display: block;
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.recognition-card .card-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.recognition-card .card-content h3 {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.recognition-card .card-content p {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+/* About Page Responsive Styles */
+@media (max-width: 1024px) {
+    .about-content-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .about-cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .story-card {
+        grid-template-columns: 1fr;
+    }
+
+    .story-card .card-image {
+        order: -1;
+    }
+
+    .story-image {
+        min-height: 220px;
+    }
+
+    .recognition-card {
+        grid-template-columns: 1fr;
+    }
+
+    .recognition-badge {
+        min-width: unset;
+        padding: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero {
+        padding: clamp(5rem, 10vw, 7rem) 0 clamp(2rem, 4vw, 3rem);
+    }
+
+    .team-photo-wrapper {
+        padding: 1.5rem 1.5rem 0;
+        border-radius: 12px;
+    }
+
+    .team-photo {
+        border-radius: 8px 8px 0 0;
+    }
+
+    .image-badge {
+        bottom: 1rem;
+        left: 1rem;
+        padding: 0.625rem 0.875rem;
+        font-size: 0.8125rem;
+    }
+
+    .mission-statement {
+        font-size: clamp(1.25rem, 4vw, 1.75rem);
+    }
+
+    .about-card .card-content {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-hero-title {
+        font-size: clamp(2rem, 8vw, 2.5rem);
+    }
+
+    .team-photo-wrapper {
+        padding: 1rem 1rem 0;
+    }
+
+    .image-badge {
+        position: relative;
+        bottom: unset;
+        left: unset;
+        margin-top: 1rem;
+        justify-content: center;
+        border-radius: 0 0 8px 8px;
+    }
+
+    .about-content-image {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content-image {
+        border-radius: 12px 12px 0 0;
+    }
+}
