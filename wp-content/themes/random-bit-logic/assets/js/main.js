@@ -789,7 +789,7 @@
             left: 0;
             width: 0%;
             height: 3px;
-            background: linear-gradient(90deg, #0066ff, #00ff88);
+            background: linear-gradient(90deg, #0a17fd, #03A9F4);
             z-index: 9999;
             transition: width 0.1s ease-out;
         `;

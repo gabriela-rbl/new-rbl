@@ -319,6 +319,7 @@ img{
     padding: 1rem var(--container-padding);
     max-width: 1280px;
     margin: 0 auto;
+    z-index: 999999;
 }
 
 .site-logo {

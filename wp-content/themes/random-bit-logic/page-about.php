@@ -15,21 +15,21 @@ get_header();
         <p class="about-hero-description">
             Made in NYC with global talent for clients around the world. Led by veterans with experience
             dating back to 1998, Random Bit Logic helps businesses navigate complex digital challenges,
-            scale their operations, and achieve their most ambitious goals.
+            scale their operations, and achieve their most ambitious goals using AI-powered solutions.
         </p>
     </div>
 </section>
 
 <!-- Team Photo Section -->
-<section class="section about-team-photo fade-in">
-    <div class="container">
-        <div class="team-photo-wrapper">
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80"
-                 alt="Our global team"
-                 class="team-photo">
-        </div>
-    </div>
-</section>
+<!--<section class="section about-team-photo fade-in">-->
+<!--    <div class="container">-->
+<!--        <div class="team-photo-wrapper">-->
+<!--            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80"-->
+<!--                 alt="Our global team"-->
+<!--                 class="team-photo">-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
 
 <!-- About Content Section -->
 <section class="section about-content-section fade-in">
@@ -84,7 +84,7 @@ get_header();
         <div class="video-overlay"></div>
     </div>
     <div class="container video-content">
-        <h2>What do you want to<br><em>automate</em> today?</h2>
+        <h2>What do you want to<br>automate today?</h2>
         <div class="video-cta-links">
             <a href="#contact" class="video-cta-link">
                 <span>Get Started</span>
@@ -95,8 +95,8 @@ get_header();
 </section>
 
 <!-- Our Team Section -->
-<section class="section about-join-team fade-in">
-    <div class="container">
+<section class="section about-join-team">
+    <div class="container fade-in">
         <div class="join-team-content">
             <h2>Our team</h2>
             <p>
@@ -122,7 +122,7 @@ get_header();
                     </p>
                 </div>
                 <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80"
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/office-image-2.jpg"
                          alt="Team members"
                          class="story-image">
                 </div>
@@ -151,57 +151,59 @@ get_header();
 </section>
 
 <!-- Footer CTA Section -->
-<section id="footer-cta" class="section footer-cta-section fade-in">
-    <div id="contact-canvas-container"></div>
-    <div class="container">
-        <h2>Ready to achieve<br>your next milestone?</h2>
+<section id="footer-cta" class="section footer-cta-section">
+    <div class="section footer-cta-section fade-in">
+        <div id="contact-canvas-container"></div>
+        <div class="container">
+            <h2>Ready to achieve<br>your next milestone?</h2>
 
-        <?php if (isset($_GET['contact']) && $_GET['contact'] === 'success'): ?>
-            <div class="success-message">
-                <p style="margin: 0;">Thank you! We'll get back to you within 24 hours.</p>
+            <?php if (isset($_GET['contact']) && $_GET['contact'] === 'success'): ?>
+                <div class="success-message">
+                    <p style="margin: 0;">Thank you! We'll get back to you within 24 hours.</p>
+                </div>
+            <?php endif; ?>
+
+            <!-- Success Message -->
+            <div id="contactSuccessMessage" class="contact-success-message" style="display: none;">
+                <div class="success-icon">✓</div>
+                <h3>Thank You!</h3>
+                <p>We'll get back to you within 24 hours.</p>
             </div>
-        <?php endif; ?>
 
-        <!-- Success Message -->
-        <div id="contactSuccessMessage" class="contact-success-message" style="display: none;">
-            <div class="success-icon">✓</div>
-            <h3>Thank You!</h3>
-            <p>We'll get back to you within 24 hours.</p>
+            <form method="post" action="" class="contact-form" id="contactForm">
+                <?php wp_nonce_field('rbl_contact_form', 'rbl_contact_nonce'); ?>
+
+                <div class="form-grid">
+                    <div>
+                        <label>
+                            I'm interested in...
+                        </label>
+                        <select id="serviceSelect" name="service" class="form-select">
+                            <option value="" disabled selected>Select a service...</option>
+                            <option value="strategy">AI Strategy Session</option>
+                            <option value="ai">AI & Automation Implementation</option>
+                            <option value="software">Custom Software Development</option>
+                            <option value="web">Web Platform / Redesign</option>
+                            <option value="other">Other / General Inquiry</option>
+                        </select>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <input type="text" id="name" name="name" class="form-input" placeholder="Name (*)" required>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="Work Email (*)" required>
+                    </div>
+
+                    <div id="dynamic-field-container">
+                        <label id="dynamic-label">
+                            Tell us about your goals
+                        </label>
+                        <textarea id="message" name="message" class="form-input" rows="5" placeholder="What would you like to achieve?"></textarea>
+                    </div>
+
+                    <button type="submit" name="rbl_contact_submit" class="submit-btn">Let's Talk</button>
+                </div>
+            </form>
         </div>
-
-        <form method="post" action="" class="contact-form" id="contactForm">
-            <?php wp_nonce_field('rbl_contact_form', 'rbl_contact_nonce'); ?>
-
-            <div class="form-grid">
-                <div>
-                    <label>
-                        I'm interested in...
-                    </label>
-                    <select id="serviceSelect" name="service" class="form-select">
-                        <option value="" disabled selected>Select a service...</option>
-                        <option value="strategy">AI Strategy Session</option>
-                        <option value="ai">AI & Automation Implementation</option>
-                        <option value="software">Custom Software Development</option>
-                        <option value="web">Web Platform / Redesign</option>
-                        <option value="other">Other / General Inquiry</option>
-                    </select>
-                </div>
-
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                    <input type="text" id="name" name="name" class="form-input" placeholder="Name (*)" required>
-                    <input type="email" id="email" name="email" class="form-input" placeholder="Work Email (*)" required>
-                </div>
-
-                <div id="dynamic-field-container">
-                    <label id="dynamic-label">
-                        Tell us about your goals
-                    </label>
-                    <textarea id="message" name="message" class="form-input" rows="5" placeholder="What would you like to achieve?"></textarea>
-                </div>
-
-                <button type="submit" name="rbl_contact_submit" class="submit-btn">Let's Talk</button>
-            </div>
-        </form>
     </div>
 </section>
 

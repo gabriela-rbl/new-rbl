@@ -99,19 +99,18 @@
             <div class="footer-column">
                 <h3>Solutions</h3>
                 <ul class="footer-nav">
-                    <li><a href="#enterprise">AI & Automation</a></li>
-                    <li><a href="#enterprise">Custom Software</a></li>
-                    <li><a href="#enterprise">Web Platforms</a></li>
-                    <li><a href="#enterprise">AI Strategy</a></li>
+                    <li><a href="#platform">AI & Automation</a></li>
+                    <li><a href="#solutions">Custom Software</a></li>
+                    <li><a href="<?php echo home_url('/#seatserve'); ?>">Our Clients</a></li>
                 </ul>
             </div>
 
             <div class="footer-column">
                 <h3>Company</h3>
                 <ul class="footer-nav">
-                    <li><a href="<?php echo home_url('/#seatserve'); ?>">Our Work</a></li>
+                    <li><a href="<?php echo home_url('/about'); ?>">About</a></li>
                     <li><a href="<?php echo esc_url(home_url('/insights/')); ?>">Insights</a></li>
-                    <li><a href="<?php echo home_url('/#footer-cta'); ?>">Contact</a></li>
+                    <li><a href="#" class="open-consultation-popup">Contact</a></li>
                 </ul>
             </div>
         </div>

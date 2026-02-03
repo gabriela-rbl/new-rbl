@@ -62,10 +62,11 @@
 
         <nav class="main-nav">
             <ul>
-                <li><a href="<?php echo home_url('/#enterprise'); ?>">Solutions</a></li>
+                <li><a href="<?php echo home_url('/#platform'); ?>">Solutions</a></li>
                 <li><a href="<?php echo home_url('/#solutions'); ?>">Services</a></li>
                 <li><a href="<?php echo home_url('/#seatserve'); ?>">Cases</a></li>
                 <li><a href="<?php echo esc_url(home_url('/insights/')); ?>">Insights</a></li>
+                <li><a href="<?php echo esc_url(home_url('/about/')); ?>">About</a></li>
             </ul>
         </nav>
 
@@ -82,10 +83,11 @@
     <div class="mobile-nav-overlay">
         <nav class="mobile-nav">
             <ul>
-                <li><a href="<?php echo home_url('/#enterprise'); ?>">Solutions</a></li>
+                <li><a href="<?php echo home_url('/#platform'); ?>">Solutions</a></li>
                 <li><a href="<?php echo home_url('/#solutions'); ?>">Services</a></li>
                 <li><a href="<?php echo home_url('/#seatserve'); ?>">Cases</a></li>
                 <li><a href="<?php echo esc_url(home_url('/insights/')); ?>">Insights</a></li>
+                <li><a href="<?php echo esc_url(home_url('/about/')); ?>">About</a></li>
 <!--                <li><a href="#" class="mobile-login">Login</a></li>-->
             </ul>
         </nav>
